@@ -1,0 +1,276 @@
+/* ==========================================================================
+   components.css
+   BEM component styles: buttons, hero content, carousel controls, marquee
+   items, school cards, exhibition cards.
+
+   Visual values (colors/spacing/radii) reference the provisional custom
+   properties in base.css — see the note at the top of that file. Not
+   pixel-perfect against Figma; centralized here for easy replacement.
+   ========================================================================== */
+
+/* -------------------- Buttons ------------------------------------------------ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xs) var(--space-lg);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: var(--font-size-sm);
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.btn--primary {
+  background-color: var(--color-primary);
+  color: var(--color-primary-contrast);
+}
+
+.btn--primary:hover {
+  background-color: var(--color-primary-dark);
+}
+
+.btn--secondary {
+  background-color: transparent;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+}
+
+.btn--secondary:hover {
+  background-color: var(--color-surface);
+}
+
+.btn--icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background-color: var(--color-surface);
+}
+
+/* -------------------- Site header logo -------------------------------------- */
+.site-header__logo {
+  font-weight: 800;
+  font-size: var(--font-size-md);
+  color: var(--color-primary);
+}
+
+.site-nav__link {
+  display: inline-flex;
+  align-items: center;
+  /* WCAG 2.5.8 (Target Size Minimum, AA): text-only links are visually
+     ~18px tall at base font size, below the 24px minimum. Vertical
+     padding expands the hit area without changing the visible text size;
+     horizontal padding is intentionally 0 so word spacing in the nav is
+     unaffected (the existing flex `gap` already separates items). */
+  padding-block: calc((1.5rem - 1em) / 2);
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.site-nav__link:hover {
+  color: var(--color-primary);
+}
+
+/* -------------------- Carousel: shared control styling ----------------------- */
+.carousel {
+  position: relative;
+}
+
+.carousel__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 2px 6px rgb(0 0 0 / 8%);
+  transition: transform var(--transition-fast), background-color var(--transition-fast);
+}
+
+.carousel__btn:hover {
+  background-color: var(--color-surface);
+}
+
+.carousel__btn:active {
+  transform: scale(0.95);
+}
+
+.carousel__pagination [data-carousel-dot] {
+  /* WCAG 2.5.8 (Target Size Minimum, AA): the visible dot stays 10px, but
+     the actual hit area is expanded to the 24px minimum via padding
+     around a smaller visible circle drawn with background-clip, so the
+     enlarged hit area doesn't visually enlarge the dot itself. */
+  box-sizing: content-box;
+  width: 0.625rem;
+  height: 0.625rem;
+  padding: 0.4375rem;
+  background-clip: content-box;
+  border-radius: 50%;
+  background-color: var(--color-border);
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.carousel__pagination [data-carousel-dot][aria-current="true"] {
+  background-color: var(--color-primary);
+  transform: scale(1.2);
+}
+
+/* -------------------- Hero slide content ------------------------------------- */
+.hero__slide-content {
+  max-width: 640px;
+  text-align: center;
+  padding: var(--space-xl) var(--space-md);
+}
+
+.hero__title {
+  font-size: var(--font-size-xl);
+  color: var(--color-text);
+  margin-bottom: var(--space-md);
+}
+
+.hero__subtitle {
+  font-size: var(--font-size-md);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-lg);
+}
+
+/* Provisional hero background treatment until exact Figma imagery/tokens
+   are available — kept simple and easy to swap for a background image. */
+.hero__slide {
+  background-color: var(--color-surface);
+}
+
+.hero__slide:nth-of-type(2) {
+  background-color: color-mix(in srgb, var(--color-primary) 6%, var(--color-surface));
+}
+
+.hero__slide:nth-of-type(3) {
+  background-color: color-mix(in srgb, var(--color-secondary) 6%, var(--color-surface));
+}
+
+/* -------------------- Marquee items ------------------------------------------- */
+.marquee__item {
+  flex: none;
+}
+
+.marquee__logo {
+  filter: grayscale(1);
+  opacity: 0.75;
+  transition: filter var(--transition-fast), opacity var(--transition-fast);
+}
+
+.marquee:hover .marquee__logo,
+.marquee:focus-within .marquee__logo {
+  filter: none;
+  opacity: 1;
+}
+
+.marquee__playpause {
+  margin-top: var(--space-md);
+  margin-inline: auto;
+  display: flex;
+}
+
+.participating-schools {
+  text-align: center;
+}
+
+/* Marquee motion: JS toggles `marquee__track--running` based on play/pause
+   state, hover/focus pausing, and prefers-reduced-motion. Distance (-50%)
+   assumes the clone list is the same width as the source list, which holds
+   because marquee.js clones the source content 1:1.
+   Two rows move in opposite directions: `.marquee--left` scrolls the
+   default left-moving direction (translateX 0 -> -50%); `.marquee--right`
+   reverses it (translateX -50% -> 0), per IMPLEMENTATION_PLAN.md §5.2. */
+@keyframes marquee-scroll-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-scroll-right {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.marquee--left .marquee__track--running {
+  animation: marquee-scroll-left 30s linear infinite;
+}
+
+.marquee--right .marquee__track--running {
+  animation: marquee-scroll-right 30s linear infinite;
+}
+
+/* -------------------- School cards --------------------------------------------- */
+.school-card {
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.school-card__image {
+  border-radius: var(--radius-md);
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  background-color: var(--color-surface);
+}
+
+.school-card__title {
+  font-size: var(--font-size-md);
+}
+
+.school-card__desc {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  flex-grow: 1;
+}
+
+.school-card__link {
+  align-self: flex-start;
+}
+
+/* -------------------- Exhibition cards ------------------------------------------ */
+.exhibition-card {
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  margin-inline: var(--space-sm);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.exhibition-card__image {
+  border-radius: var(--radius-md);
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  background-color: var(--color-surface);
+}
+
+.exhibition-card__title {
+  font-size: var(--font-size-md);
+}
+
+.exhibition-card__desc {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+}
