@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Premier Schools Exhibition (PSE) — Landing Page</title>
+  <meta name="description" content="Premier Schools Exhibition (PSE) — discover participating schools and explore the exhibition highlights.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='6'%20fill='%231d4ed8'/%3E%3Ctext%20x='16'%20y='22'%20font-family='sans-serif'%20font-size='14'%20font-weight='700'%20fill='%23fff'%20text-anchor='middle'%3EPSE%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <noscript>
+    <style>
+      /* No-JS fallback: carousel.js/marquee.js never run, so `hidden`
+         attributes baked into the initial markup (there to prevent a
+         flash-of-all-slides before JS initializes) would otherwise trap
+         every non-first slide permanently. Reveal all slides, stack them
+         as a plain scrollable list, and hide JS-only controls that would
+         otherwise be dead buttons. */
+      [data-carousel-slide][hidden] {
+        display: block !important;
+      }
+      .hero__track {
+        display: block !important;
+      }
+      .choose-school__track,
+      .exhibition__track {
+        display: block !important;
+      }
+      @media (min-width: 1024px) {
+        .choose-school__track {
+          display: grid !important;
+        }
+      }
+      .hero__slide,
+      .choose-school__slide,
+      .exhibition__slide {
+        width: 100% !important;
+        flex: none !important;
+      }
+      @media (min-width: 1024px) {
+        .choose-school__slide {
+          width: auto !important;
+        }
+      }
+      .hero__slide + .hero__slide,
+      .choose-school__slide + .choose-school__slide,
+      .exhibition__slide + .exhibition__slide {
+        border-top: 1px solid var(--color-border, #e2e5ea);
+      }
+      [data-carousel-prev],
+      [data-carousel-next],
+      [data-carousel-up],
+      [data-carousel-down],
+      [data-carousel-playpause],
+      [data-carousel-pagination],
+      [data-marquee-playpause-all],
+      [data-marquee-clone] {
+        display: none !important;
+      }
+      .marquee__track {
+        animation: none !important;
+        width: 100% !important;
+        overflow-x: auto !important;
+      }
+    </style>
+  </noscript>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-header__logo" href="#hero">
+        <span class="visually-hidden">Premier Schools Exhibition</span>
+        PSE
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <ul class="site-nav__list">
+          <li class="site-nav__item"><a class="site-nav__link" href="#hero">Home</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="#participating-schools">Schools</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="#choose-school">Choose a School</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="#exhibition">Exhibition</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ============================= -->
+    <!-- Hero: dual-axis carousel       -->
+    <!-- ============================= -->
+    <section class="hero" id="hero" aria-labelledby="hero-heading">
+      <h1 id="hero-heading" class="visually-hidden">Premier Schools Exhibition</h1>
+
+      <!--
+        Dual-axis 2D slide grid — see js/carousel.js header comment and
+        IMPLEMENTATION_PLAN.md §8/§15 blocker #2 for why this exact
+        row/column layout is a defensible placeholder, not a confirmed
+        Figma mapping: the live Figma proto's exact dual-axis interaction
+        (what horizontal vs. vertical movement means content-wise) was not
+        accessible at implementation time. Row 0 = two horizontally
+        adjacent slides; Row 1 = one slide reachable via vertical
+        (Down/swipe-up) navigation from either column of Row 0. Revisit
+        the row/column content mapping once real Figma access confirms
+        the intended grid.
+      -->
+      <div
+        class="carousel hero__carousel"
+        data-carousel
+        data-carousel-axis="dual"
+        data-carousel-autoplay="true"
+        role="region"
+        aria-roledescription="carousel"
+        aria-label="Hero highlights"
+      >
+        <div class="carousel__viewport hero__viewport" data-carousel-viewport>
+          <div class="carousel__track hero__track" data-carousel-track>
+
+            <div
+              class="carousel__slide hero__slide"
+              data-carousel-slide
+              data-carousel-row="0"
+              data-carousel-col="0"
+              role="group"
+              aria-roledescription="slide"
+              aria-label="Slide, row 1 of 2, column 1 of 2"
+            >
+              <div class="hero__slide-content">
+                <h2 class="hero__title">Premier Schools Exhibition</h2>
+                <p class="hero__subtitle">Discover top schools and plan your child's future — all in one place.</p>
+                <a class="btn btn--primary hero__cta" href="#choose-school">Explore Schools</a>
+              </div>
+            </div>
+
+            <div
+              class="carousel__slide hero__slide"
+              data-carousel-slide
+              data-carousel-row="0"
+              data-carousel-col="1"
+              role="group"
+              aria-roledescription="slide"
+              aria-label="Slide, row 1 of 2, column 2 of 2"
+              hidden
+            >
+              <div class="hero__slide-content">
+                <h2 class="hero__title">Meet Leading Educators</h2>
+                <p class="hero__subtitle">Connect directly with admissions teams from participating schools.</p>
+                <a class="btn btn--primary hero__cta" href="#participating-schools">View Schools</a>
+              </div>
+            </div>
+
+            <div
+              class="carousel__slide hero__slide"
+              data-carousel-slide
+              data-carousel-row="1"
+              data-carousel-col="0"
+              role="group"
+              aria-roledescription="slide"
+              aria-label="Slide, row 2 of 2, column 1 of 1"
+              hidden
+            >
+              <div class="hero__slide-content">
+                <h2 class="hero__title">Exhibition Highlights</h2>
+                <p class="hero__subtitle">Browse standout programs and campus experiences.</p>
+                <a class="btn btn--primary hero__cta" href="#exhibition">See Highlights</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="carousel__controls hero__controls hero__controls--horizontal">
+          <button type="button" class="carousel__btn carousel__btn--prev" data-carousel-prev aria-label="Previous slide (horizontal)">
+            <span aria-hidden="true">&#8592;</span>
+          </button>
+          <button type="button" class="carousel__btn carousel__btn--playpause" data-carousel-playpause aria-label="Pause carousel autoplay" aria-pressed="false">
+            <span data-carousel-playpause-icon aria-hidden="true">&#10074;&#10074;</span>
+          </button>
+          <button type="button" class="carousel__btn carousel__btn--next" data-carousel-next aria-label="Next slide (horizontal)">
+            <span aria-hidden="true">&#8594;</span>
+          </button>
+        </div>
+
+        <div class="carousel__controls hero__controls hero__controls--vertical">
+          <button type="button" class="carousel__btn carousel__btn--up" data-carousel-up aria-label="Previous slide (vertical, up)">
+            <span aria-hidden="true">&#8593;</span>
+          </button>
+          <button type="button" class="carousel__btn carousel__btn--down" data-carousel-down aria-label="Next slide (vertical, down)">
+            <span aria-hidden="true">&#8595;</span>
+          </button>
+        </div>
+
+        <div class="carousel__pagination hero__pagination" data-carousel-pagination role="group" aria-label="Slide navigation">
+          <!-- Pagination buttons injected by carousel.js, grouped per row -->
+        </div>
+
+        <div class="visually-hidden" data-carousel-live role="status" aria-live="off"></div>
+      </div>
+    </section>
+
+    <!-- ============================= -->
+    <!-- Participating School Logos     -->
+    <!-- ============================= -->
+    <section class="participating-schools" id="participating-schools" aria-labelledby="participating-schools-heading">
+      <h2 id="participating-schools-heading" class="section-heading">Participating Schools</h2>
+
+      <!--
+        Two marquee rows moving in opposite directions (left->right /
+        right->left), per IMPLEMENTATION_PLAN.md §5.2. Exact logo set/order
+        for each row is provisional — same placeholder logos duplicated
+        across both rows until real Figma-confirmed logos/row assignment
+        are available (blocked on Figma Dev Mode access, not yet resolved).
+      -->
+      <div class="marquee participating-schools__marquee" data-marquee data-marquee-direction="left">
+        <div class="marquee__track" data-marquee-track>
+          <ul class="marquee__list" data-marquee-content>
+            <li class="marquee__item"><img class="marquee__logo" src="assets/images/logo-placeholder.svg" alt="Greenwood International School logo" width="120" height="48"></li>
+            <li class="marquee__item"><img class="marquee__logo" src="assets/images/logo-placeholder.svg" alt="Silver Oak Academy logo" width="120" height="48"></li>
+            <li class="marquee__item"><img class="marquee__logo" src="assets/images/logo-placeholder.svg" alt="Riverdale High School logo" width="120" height="48"></li>
+            <li class="marquee__item"><img class="marquee__logo" src="assets/images/logo-placeholder.svg" alt="Crestwood Academy logo" width="120" height="48"></li>
+            <li class="marquee__item"><img class="marquee__logo" src="assets/images/logo-placeholder.svg" alt="Lakeside International logo" width="120" height="48"></li>
+          </ul>
+          <ul class="marquee__list marquee__list--clone" data-marquee-clone aria-hidden="true">
+            <!-- Cloned by marquee.js for seamless looping; aria-hidden, unfocusable -->
+          </ul>
+        </div>
+      </div>
+
+      <div class="marquee participating-schools__marquee" data-marquee data-marquee-direction="right">
+        <div class="marquee__track" data-marquee-track>
+          <ul class="marquee__list" data-marquee-content>
+            <li class="marquee__item"><img class="marquee__logo" src="assets/images/logo-placeholder.svg" alt="Hillcrest Academy logo" width="120" height="48"></li>
+            <li class="marquee__item"><img class="marquee__logo" src="assets/images/logo-placeholder.svg" alt="Maple Grove School logo" width="120" height="48"></li>
+            <li class="marquee__item"><img class="marquee__logo" src="assets/images/logo-placeholder.svg" alt="Northfield Academy logo" width="120" height="48"></li>
+            <li class="marquee__item"><img class="marquee__logo" src="assets/images/logo-placeholder.svg" alt="Sunrise Valley School logo" width="120" height="48"></li>
+            <li class="marquee__item"><img class="marquee__logo" src="assets/images/logo-placeholder.svg" alt="Eastwood International logo" width="120" height="48"></li>
+          </ul>
+          <ul class="marquee__list marquee__list--clone" data-marquee-clone aria-hidden="true">
+            <!-- Cloned by marquee.js for seamless looping; aria-hidden, unfocusable -->
+          </ul>
+        </div>
+      </div>
+
+      <button type="button" class="btn btn--icon marquee__playpause" data-marquee-playpause-all aria-label="Pause school logos animation" aria-pressed="false">
+        <span data-marquee-playpause-icon aria-hidden="true">&#10074;&#10074;</span>
+      </button>
+    </section>
+
+    <!-- ============================= -->
+    <!-- Choose the School (cards)      -->
+    <!-- ============================= -->
+    <section class="choose-school" id="choose-school" aria-labelledby="choose-school-heading">
+      <h2 id="choose-school-heading" class="section-heading">Choose the School</h2>
+      <p id="school-link-note" class="visually-hidden">Individual school detail pages are not part of this build; this link returns to the top of this section.</p>
+
+      <div
+        class="carousel choose-school__carousel"
+        data-carousel
+        data-carousel-axis="single"
+        data-carousel-autoplay="false"
+        data-carousel-desktop-static="true"
+        role="region"
+        aria-roledescription="carousel"
+        aria-label="Choose a school"
+      >
+        <div class="carousel__viewport choose-school__viewport" data-carousel-viewport>
+          <div class="carousel__track choose-school__track" data-carousel-track>
+
+            <div class="carousel__slide choose-school__slide" data-carousel-slide role="group" aria-roledescription="slide" aria-label="1 of 4">
+              <article class="school-card">
+                <img class="school-card__image" src="assets/images/school-placeholder.svg" alt="" width="320" height="200">
+                <h3 class="school-card__title">Greenwood International School</h3>
+                <p class="school-card__desc">IB curriculum, state-of-the-art labs, and a strong arts program.</p>
+                <a class="btn btn--secondary school-card__link" href="#choose-school-heading" aria-describedby="school-link-note">Learn more<span class="visually-hidden"> about Greenwood International School</span></a>
+              </article>
+            </div>
+
+            <div class="carousel__slide choose-school__slide" data-carousel-slide role="group" aria-roledescription="slide" aria-label="2 of 4" hidden>
+              <article class="school-card">
+                <img class="school-card__image" src="assets/images/school-placeholder.svg" alt="" width="320" height="200">
+                <h3 class="school-card__title">Silver Oak Academy</h3>
+                <p class="school-card__desc">Award-winning STEM program with a focus on hands-on learning.</p>
+                <a class="btn btn--secondary school-card__link" href="#choose-school-heading" aria-describedby="school-link-note">Learn more<span class="visually-hidden"> about Silver Oak Academy</span></a>
+              </article>
+            </div>
+
+            <div class="carousel__slide choose-school__slide" data-carousel-slide role="group" aria-roledescription="slide" aria-label="3 of 4" hidden>
+              <article class="school-card">
+                <img class="school-card__image" src="assets/images/school-placeholder.svg" alt="" width="320" height="200">
+                <h3 class="school-card__title">Riverdale High School</h3>
+                <p class="school-card__desc">Sports academy partnerships and a vibrant campus community.</p>
+                <a class="btn btn--secondary school-card__link" href="#choose-school-heading" aria-describedby="school-link-note">Learn more<span class="visually-hidden"> about Riverdale High School</span></a>
+              </article>
+            </div>
+
+            <div class="carousel__slide choose-school__slide" data-carousel-slide role="group" aria-roledescription="slide" aria-label="4 of 4" hidden>
+              <article class="school-card">
+                <img class="school-card__image" src="assets/images/school-placeholder.svg" alt="" width="320" height="200">
+                <h3 class="school-card__title">Crestwood Academy</h3>
+                <p class="school-card__desc">Small class sizes with a personalized learning approach.</p>
+                <a class="btn btn--secondary school-card__link" href="#choose-school-heading" aria-describedby="school-link-note">Learn more<span class="visually-hidden"> about Crestwood Academy</span></a>
+              </article>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="carousel__controls choose-school__controls">
+          <button type="button" class="carousel__btn carousel__btn--prev" data-carousel-prev aria-label="Previous school">
+            <span aria-hidden="true">&#8592;</span>
+          </button>
+          <button type="button" class="carousel__btn carousel__btn--next" data-carousel-next aria-label="Next school">
+            <span aria-hidden="true">&#8594;</span>
+          </button>
+        </div>
+
+        <div class="carousel__pagination choose-school__pagination" data-carousel-pagination role="group" aria-label="School navigation">
+          <!-- Pagination buttons injected by carousel.js -->
+        </div>
+
+        <div class="visually-hidden" data-carousel-live role="status" aria-live="off"></div>
+      </div>
+    </section>
+
+    <!-- ============================= -->
+    <!-- Exhibition Section             -->
+    <!-- ============================= -->
+    <section class="exhibition" id="exhibition" aria-labelledby="exhibition-heading">
+      <h2 id="exhibition-heading" class="section-heading">Exhibition Highlights</h2>
+
+      <div
+        class="carousel exhibition__carousel"
+        data-carousel
+        data-carousel-axis="single"
+        data-carousel-autoplay="false"
+        role="region"
+        aria-roledescription="carousel"
+        aria-label="Exhibition highlight slides"
+      >
+        <div class="carousel__viewport exhibition__viewport" data-carousel-viewport>
+          <div class="carousel__track exhibition__track" data-carousel-track>
+
+            <div class="carousel__slide exhibition__slide" data-carousel-slide role="group" aria-roledescription="slide" aria-label="1 of 3">
+              <article class="exhibition-card">
+                <img class="exhibition-card__image" src="assets/images/exhibition-placeholder.svg" alt="" width="400" height="260">
+                <h3 class="exhibition-card__title">Innovation Lab Showcase</h3>
+                <p class="exhibition-card__desc">Live demos from student-led robotics and engineering teams.</p>
+              </article>
+            </div>
+
+            <div class="carousel__slide exhibition__slide" data-carousel-slide role="group" aria-roledescription="slide" aria-label="2 of 3" hidden>
+              <article class="exhibition-card">
+                <img class="exhibition-card__image" src="assets/images/exhibition-placeholder.svg" alt="" width="400" height="260">
+                <h3 class="exhibition-card__title">Arts &amp; Culture Pavilion</h3>
+                <p class="exhibition-card__desc">Performances and exhibits from participating schools' art programs.</p>
+              </article>
+            </div>
+
+            <div class="carousel__slide exhibition__slide" data-carousel-slide role="group" aria-roledescription="slide" aria-label="3 of 3" hidden>
+              <article class="exhibition-card">
+                <img class="exhibition-card__image" src="assets/images/exhibition-placeholder.svg" alt="" width="400" height="260">
+                <h3 class="exhibition-card__title">Admissions Q&amp;A Stage</h3>
+                <p class="exhibition-card__desc">Meet admissions counselors and get your questions answered live.</p>
+              </article>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="carousel__controls exhibition__controls">
+          <button type="button" class="carousel__btn carousel__btn--prev" data-carousel-prev aria-label="Previous highlight">
+            <span aria-hidden="true">&#8592;</span>
+          </button>
+          <button type="button" class="carousel__btn carousel__btn--next" data-carousel-next aria-label="Next highlight">
+            <span aria-hidden="true">&#8594;</span>
+          </button>
+        </div>
+
+        <div class="carousel__pagination exhibition__pagination" data-carousel-pagination role="group" aria-label="Highlight navigation">
+          <!-- Pagination buttons injected by carousel.js -->
+        </div>
+
+        <div class="visually-hidden" data-carousel-live role="status" aria-live="off"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <p class="site-footer__copy">&copy; 2026 Premier Schools Exhibition. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/carousel.js" defer></script>
+  <script src="js/marquee.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>
