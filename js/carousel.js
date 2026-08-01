@@ -196,6 +196,9 @@
     if (this.pagination) {
       this.pagination.setAttribute('aria-hidden', isStatic ? 'true' : 'false');
     }
+    this.dots.forEach(function (dot) {
+      dot.disabled = isStatic;
+    });
   };
 
   /**
