@@ -2,13 +2,10 @@
 # These are local working documents, not part of the shipped source.
 IMPLEMENTATION_PLAN.md
 tasks.md
+FIGMA_DESIGN_EXTRACTION.md
+.figma-extraction/
 Frontend Task.docx
 Landing Page – Development Guidelines.docx
-
-# Saved Figma prototype-viewer export — local visual/interaction reference only,
-# not reusable source, not a design-token source. Never commit.
-Premier Schools Exhibition (PSE) LP (12-06-2025) -figma  Design.html
-Premier Schools Exhibition (PSE) LP (12-06-2025) -figma  Design_files/
 
 # OS cruft
 .DS_Store
