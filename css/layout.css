@@ -1,284 +1,66 @@
-/* ==========================================================================
-   layout.css
-   Container/grid/flex layout foundations. Section-level structural layout
-   only — component visual styling lives in components.css.
+.site-header__inner, .site-footer__inner { width: 100%; max-width: var(--container-max-width); margin-inline: auto; }
+.site-header { height: 60px; background: #fff; }
+.site-header__inner { display: flex; height: 100%; align-items: center; justify-content: space-between; padding-inline: 12px; }
+.site-header__cta { display: none; }
 
-   Breakpoints: provisional fallback tiers per IMPLEMENTATION_PLAN.md §8/§10
-   (~480 / 768 / 1024 / 1280px). Replace with exact Figma frame breakpoints
-   once Dev Mode access is available.
-   ========================================================================== */
+section:not(.hero, .trust, .registration-bar) { padding: var(--space-2xl) var(--space-md); }
+.section-heading { max-width: var(--container-max-width); margin: 0 auto var(--space-xl); text-align: center; }
 
-/* -------------------- Container -------------------------------------------- */
-.site-header__inner,
-.site-footer__inner {
-  width: 100%;
-  max-width: var(--container-max-width);
-  margin-inline: auto;
-  padding-inline: var(--space-md);
+.hero { display: grid; grid-template-rows: 289px 146px 90px; min-height: 525px; padding: 0; overflow: hidden; background: linear-gradient(112deg, #18053f 0%, #2d0b5b 65%, #40136e 100%); color: #fff; }
+.hero__carousel { position: relative; width: 100%; min-width: 0; overflow: hidden; }
+.hero__viewport { width: 100%; height: 100%; overflow: hidden; touch-action: none; }
+.hero__track { display: flex; position: relative; }
+.hero__slide { display: block; flex: 0 0 100%; width: 100%; height: 100%; }
+.hero__slide[hidden] { display: none; }
+.hero__content { display: flex; grid-row: 2 / 4; flex-direction: column; align-items: center; text-align: center; }
+.hero__event { width: calc(100% - 40px); max-width: 390px; margin-inline: auto; }
+.enquiry-form { display: none; }
+.hero__controls { position: absolute; z-index: 4; inset: auto 6px 4px; display: flex; align-items: center; justify-content: center; gap: 3px; }
+.hero__controls [data-carousel-pagination] { display: flex; }
+
+.trust { position: relative; height: 238px; padding: 60px 20px 0; background: #fff; }
+.trust__facts { display: grid; max-width: 380px; margin-inline: auto; grid-template-columns: repeat(2, 1fr); gap: 36px 26px; }
+.registration-bar { position: relative; z-index: 3; display: grid; height: 50px; grid-template-columns: 1fr 1fr; padding: 0; }
+
+.participating-schools, .choose-school, .exhibition { max-width: 1200px; margin-inline: auto; }
+.marquee { position: relative; width: 100%; overflow: hidden; }
+.marquee + .marquee { margin-top: var(--space-lg); }
+.marquee__track, .marquee__list { display: flex; width: max-content; align-items: center; }
+.marquee__list { gap: var(--space-xl); margin-inline-end: var(--space-xl); }
+.choose-school__viewport, .exhibition__viewport { width: 100%; overflow: hidden; touch-action: pan-y; }
+.choose-school__track, .exhibition__track { display: flex; }
+.choose-school__slide, .exhibition__slide { flex: 0 0 100%; width: 100%; }
+.choose-school__slide[hidden], .exhibition__slide[hidden] { display: none; }
+.choose-school__controls, .choose-school__pagination, .exhibition__controls, .exhibition__pagination { display: flex; justify-content: center; gap: var(--space-sm); margin-top: var(--space-md); }
+.site-footer { border-top: 1px solid var(--color-border); }
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .site-header { height: 76px; }
+  .site-header__inner { padding-inline: 32px; }
+  .site-header__cta { display: inline-flex; }
+  .hero { grid-template-rows: 380px auto 100px; min-height: 650px; }
+  .enquiry-form { display: none; }
+  .trust { height: 180px; padding-top: 42px; }
+  .trust__facts { max-width: 760px; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .registration-bar { display: none; }
 }
 
-/* -------------------- Header / Nav ----------------------------------------- */
-.site-header {
-  border-bottom: 1px solid var(--color-border);
-}
-
-.site-header__inner {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-sm);
-  padding-block: var(--space-md);
-}
-
-.site-nav__list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-sm) var(--space-lg);
-}
-
-/* -------------------- Section shell ----------------------------------------- */
-section {
-  padding-block: var(--space-2xl);
-  padding-inline: var(--space-md);
-}
-
-.section-heading {
-  max-width: var(--container-max-width);
-  margin-inline: auto;
-  margin-bottom: var(--space-xl);
-  font-size: var(--font-size-lg);
-  text-align: center;
-}
-
-/* -------------------- Hero layout ------------------------------------------- */
-.hero {
-  padding: 0;
-}
-
-.hero__carousel {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-}
-
-.hero__viewport {
-  width: 100%;
-  overflow: hidden;
-  /* Hero supports both horizontal and vertical drag/swipe navigation, so
-     the browser must not claim either axis for native scroll/zoom while a
-     pointer drag is in progress on this element. */
-  touch-action: none;
-}
-
-.hero__track {
-  display: flex;
-  position: relative;
-}
-
-.hero__slide {
-  flex: 0 0 100%;
-  width: 100%;
-  /* Floor of 320px prevents the pagination (top), horizontal controls
-     (bottom), and slide content from visually colliding on short
-     viewports (e.g., landscape phones ~375–450px tall), while still
-     scaling up to a proper hero height on taller screens. */
-  min-height: clamp(320px, 60vh, 720px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* Reserve room on the right for the absolutely-positioned vertical
-     up/down controls (see .hero__controls--vertical) so slide text/CTA
-     never sits underneath them at narrow viewports — this is what was
-     missing before and caused text/control overlap below ~400px. */
-  padding-inline: var(--space-md) calc(var(--space-lg) * 2 + 2.75rem);
-  /* Vertical breathing room so the top pagination row and bottom
-     horizontal controls never overlap slide content on short viewports. */
-  padding-block: calc(var(--space-lg) * 2) calc(var(--space-lg) * 2 + 2.75rem);
-}
-
-.hero__slide[hidden] {
-  display: none;
-}
-
-.hero__controls--horizontal {
-  position: absolute;
-  inset-inline: 0;
-  bottom: var(--space-lg);
-  display: flex;
-  justify-content: center;
-  gap: var(--space-sm);
-}
-
-.hero__controls--vertical {
-  position: absolute;
-  inset-block: 0;
-  right: var(--space-lg);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: var(--space-sm);
-}
-
-@media (min-width: 768px) {
-  .hero__slide {
-    /* Enough horizontal room exists above mobile widths; drop the
-       reserved padding so content re-centers using its own max-width. */
-    padding-inline: var(--space-md);
-  }
-}
-
-.hero__pagination {
-  position: absolute;
-  top: var(--space-lg);
-  inset-inline: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-2xs);
-}
-
-.carousel__pagination-row {
-  display: flex;
-  justify-content: center;
-  gap: var(--space-xs);
-}
-
-/* -------------------- Participating schools (marquee) layout --------------- */
-.participating-schools {
-  max-width: var(--container-max-width);
-  margin-inline: auto;
-}
-
-.marquee {
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-}
-
-.marquee + .marquee {
-  margin-top: var(--space-lg);
-}
-
-.marquee__track {
-  display: flex;
-  width: max-content;
-}
-
-.marquee__list {
-  display: flex;
-  gap: var(--space-xl);
-  align-items: center;
-  /* Trailing margin (not gap) matches the inter-item gap so the seam
-     between the source list and its clone reads identically to the gaps
-     between items — a flex `gap` on .marquee__track itself would widen
-     the whole track and break the -50% translateX loop math below. */
-  margin-inline-end: var(--space-xl);
-}
-
-/* -------------------- Choose the school layout ------------------------------ */
-.choose-school {
-  max-width: var(--container-max-width);
-  margin-inline: auto;
-}
-
-.choose-school__viewport {
-  overflow: hidden;
-  width: 100%;
-  /* Only horizontal swipe is used here; allow native vertical page scroll
-     to pass through so a vertical drag on the carousel doesn't get
-     trapped by the pointer handlers in js/carousel.js. */
-  touch-action: pan-y;
-}
-
-.choose-school__track {
-  display: flex;
-}
-
-.choose-school__slide {
-  flex: 0 0 100%;
-  width: 100%;
-}
-
-.choose-school__slide[hidden] {
-  display: none;
-}
-
-.choose-school__controls,
-.choose-school__pagination {
-  display: flex;
-  justify-content: center;
-  gap: var(--space-sm);
-  margin-top: var(--space-md);
-}
-
-/* Desktop: static 4-column grid, carousel viewport mechanics disabled */
-@media (min-width: 1024px) {
-  .choose-school__viewport {
-    overflow: visible;
-  }
-
-  .choose-school__track {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--space-lg);
-  }
-
-  .choose-school__slide {
-    flex: initial;
-    width: auto;
-  }
-
-  .choose-school__slide[hidden] {
-    display: block;
-  }
-
-  .choose-school__controls,
-  .choose-school__pagination {
-    display: none;
-  }
-}
-
-/* -------------------- Exhibition layout ------------------------------------- */
-.exhibition {
-  max-width: var(--container-max-width);
-  margin-inline: auto;
-}
-
-.exhibition__viewport {
-  overflow: hidden;
-  width: 100%;
-  /* Horizontal swipe only; let vertical page scroll pass through. */
-  touch-action: pan-y;
-}
-
-.exhibition__track {
-  display: flex;
-}
-
-.exhibition__slide {
-  flex: 0 0 100%;
-  width: 100%;
-}
-
-.exhibition__slide[hidden] {
-  display: none;
-}
-
-.exhibition__controls,
-.exhibition__pagination {
-  display: flex;
-  justify-content: center;
-  gap: var(--space-sm);
-  margin-top: var(--space-md);
-}
-
-/* -------------------- Footer ------------------------------------------------- */
-.site-footer {
-  border-top: 1px solid var(--color-border);
-}
-
-.site-footer__inner {
-  padding-block: var(--space-lg);
-  text-align: center;
+@media (min-width: 1200px) {
+  .site-header { height: 100px; }
+  .site-header__inner { padding-inline: clamp(62px, 6.45vw, 124px); }
+  .site-header__cta { display: inline-flex; }
+  .hero { grid-template: "content carousel form" 801px / minmax(420px, 30fr) minmax(620px, 40fr) minmax(400px, 30fr); min-height: 801px; padding-inline: max(calc((100vw - 1720px) / 2), 40px); overflow: hidden; }
+  .hero__content { grid-area: content; align-items: flex-start; justify-content: flex-start; padding-top: 88px; text-align: left; }
+  .hero__carousel { grid-area: carousel; height: 720px; align-self: start; }
+  .enquiry-form { grid-area: form; display: flex; align-self: start; }
+  .hero__event { width: 414px; max-width: 100%; margin: 30px 0 0; }
+  .hero__controls { inset: auto 4px 8px; justify-content: flex-end; }
+  .trust { height: 200px; padding: 17px max(calc((100vw - 1407px) / 2), 30px); }
+  .trust__facts { max-width: 1407px; grid-template-columns: repeat(4, 1fr); gap: 45px; }
+  .registration-bar { display: none; }
+  .choose-school__viewport { overflow: visible; }
+  .choose-school__track { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-lg); }
+  .choose-school__slide { width: auto; }
+  .choose-school__slide[hidden] { display: block; }
+  .choose-school__controls, .choose-school__pagination { display: none; }
 }

@@ -1,276 +1,92 @@
-/* ==========================================================================
-   components.css
-   BEM component styles: buttons, hero content, carousel controls, marquee
-   items, school cards, exhibition cards.
+.site-header__brand { display: block; width: 78px; height: 60px; overflow: hidden; }
+.site-header__brand img { width: 78px; height: 68px; object-fit: contain; object-position: center top; }
+.site-header__cta { min-width: 205px; height: 60px; padding: 0 28px; background: var(--color-navy); color: #fff; font-size: 16px; letter-spacing: .02em; }
 
-   Visual values (colors/spacing/radii) reference the provisional custom
-   properties in base.css — see the note at the top of that file. Not
-   pixel-perfect against Figma; centralized here for easy replacement.
-   ========================================================================== */
+.hero__mosaic { display: grid; width: 409px; height: 271px; margin: 18px 0 0 21px; grid-template-columns: repeat(3, 138px); gap: 16px; }
+.hero__portrait { width: 138px; height: 221px; overflow: hidden; border-radius: 72px; }
+.hero__portrait:nth-child(2) { margin-top: -50px; }
+.hero__portrait:nth-child(n+4) { display: none; }
+.hero__portrait img { width: 100%; height: 100%; object-fit: cover; }
+.hero__portrait:nth-child(1) img { object-position: 52% center; }
+.hero__portrait:nth-child(2) img { object-position: center; }
+.hero__portrait:nth-child(3) img { object-position: 54% center; }
+.hero__content h1 { width: 390px; max-width: 100%; padding-inline: 20px; font-size: 24px; line-height: 1.28; font-weight: 600; }
+.hero__content h1 br { display: none; }
+.hero__content h1 span { display: block; margin-top: 1px; color: #fff; font-size: 17px; font-weight: 500; text-transform: none; }
+.hero__content h1::first-line { color: #fff; }
+.hero__event { margin-top: 62px; }
+.hero__event-row { display: grid; height: 90px; grid-template-columns: 1fr 1fr; align-items: center; border: 3px solid var(--color-gold); border-radius: 11px; box-shadow: inset 0 0 0 3px var(--color-purple); background: linear-gradient(110deg, #32105c, #210841); color: #fff; font: 600 12px/1.45 var(--font-ui); text-align: left; }
+.hero__event-row p { padding: 0 12px; }
+.hero__event-row p + p { border-left: 1px solid rgb(255 255 255 / 70%); }
+.hero__event-row--duplicate { display: none; }
 
-/* -------------------- Buttons ------------------------------------------------ */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--space-xs) var(--space-lg);
-  border-radius: var(--radius-md);
-  font-weight: 600;
-  font-size: var(--font-size-sm);
-  transition: background-color var(--transition-fast), color var(--transition-fast);
+.hero__controls button { min-width: 44px; min-height: 44px; padding: 0 5px; border: 1px solid rgb(255 255 255 / 45%); background: rgb(24 5 63 / 78%); color: #fff; font: 600 9px var(--font-ui); }
+.hero__controls > button { width: 44px; overflow: hidden; font-size: 0; }
+.hero__controls > button::before { font-size: 18px; }
+.hero__controls [data-carousel-prev]::before { content: "‹"; }
+.hero__controls [data-carousel-next]::before { content: "›"; }
+.hero__controls [data-carousel-up]::before { content: "↑"; }
+.hero__controls [data-carousel-down]::before { content: "↓"; }
+.hero__controls [data-carousel-playpause]::before { content: "Ⅱ"; font-size: 13px; }
+.hero__controls [data-carousel-pagination] button { width: 44px; height: 44px; padding: 16px; border: 0; background-clip: content-box; border-radius: 50%; }
+
+.trust > h2 { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); }
+.trust-fact { position: relative; min-height: 94px; padding: 18px 24px 0; color: var(--color-navy); font: 600 12px/1.35 var(--font-display); text-align: center; }
+.trust-fact::before, .trust-fact::after { position: absolute; top: 0; bottom: 0; width: 34px; border: solid var(--color-gold); content: ""; opacity: .8; }
+.trust-fact::before { left: 0; border-width: 2px 0 2px 2px; border-radius: 50% 0 0 50%; }
+.trust-fact::after { right: 0; border-width: 2px 2px 2px 0; border-radius: 0 50% 50% 0; }
+.trust-fact strong { display: block; font-size: 17px; line-height: 1.2; }
+.trust-fact__desktop { display: none; }
+.trust-fact__mobile { display: block; padding-top: 8px; }
+.registration-bar { font-family: var(--font-ui); text-transform: uppercase; }
+.registration-bar h2, .registration-bar a { display: flex; align-items: center; justify-content: center; text-align: center; }
+.registration-bar h2 { background: var(--color-gold); color: var(--color-navy); font-size: 11px; }
+.registration-bar a { min-height: 50px; background: var(--color-navy); color: #fff; font-size: 14px; }
+
+.enquiry-form { width: min(466px, 100%); min-height: 526px; margin: 206px 0 0 auto; padding: 32px 24px 28px; flex-direction: column; background: rgb(45 10 83 / 90%); box-shadow: var(--shadow-card); }
+.enquiry-form h2 { margin-bottom: 16px; color: #fff; font-size: 27px; }
+.enquiry-form__field { margin-bottom: 30px; }
+.enquiry-form label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); }
+.enquiry-form input, .enquiry-form select { width: 100%; height: 56px; padding: 0 18px; border: 1px solid #ba9bce; border-radius: 0; background: rgb(35 7 68 / 65%); color: #fff; }
+.enquiry-form input::placeholder { color: #fff; opacity: 1; }
+.enquiry-form select { color: #fff; }
+.enquiry-form button { width: 156px; min-height: 60px; border: 0; background: #fff; color: var(--color-navy); font-weight: 700; }
+.enquiry-form button:disabled { cursor: not-allowed; opacity: .72; }
+.enquiry-form__note { margin-top: 8px; color: #e9dff2; font-size: 11px; }
+
+.marquee__logo { filter: grayscale(1); opacity: .75; }
+.marquee__playpause { display: flex; margin: var(--space-md) auto 0; }
+.participating-schools { text-align: center; }
+@keyframes marquee-scroll-left { to { transform: translateX(-50%); } }
+@keyframes marquee-scroll-right { from { transform: translateX(-50%); } }
+.marquee--left .marquee__track--running { animation: marquee-scroll-left 30s linear infinite; }
+.marquee--right .marquee__track--running { animation: marquee-scroll-right 30s linear infinite; }
+.school-card, .exhibition-card { display: flex; height: 100%; flex-direction: column; gap: var(--space-sm); padding: var(--space-md); border: 1px solid var(--color-border); border-radius: var(--radius-lg); background: #fff; }
+
+@media (min-width: 768px) {
+  .site-header__brand { width: 120px; height: 76px; }
+  .site-header__brand img { width: 120px; height: 98px; }
+  .hero__mosaic { margin-inline: auto; }
 }
 
-.btn--primary {
-  background-color: var(--color-primary);
-  color: var(--color-primary-contrast);
-}
-
-.btn--primary:hover {
-  background-color: var(--color-primary-dark);
-}
-
-.btn--secondary {
-  background-color: transparent;
-  color: var(--color-primary);
-  border: 1px solid var(--color-primary);
-}
-
-.btn--secondary:hover {
-  background-color: var(--color-surface);
-}
-
-.btn--icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 50%;
-  background-color: var(--color-surface);
-}
-
-/* -------------------- Site header logo -------------------------------------- */
-.site-header__logo {
-  font-weight: 800;
-  font-size: var(--font-size-md);
-  color: var(--color-primary);
-}
-
-.site-nav__link {
-  display: inline-flex;
-  align-items: center;
-  /* WCAG 2.5.8 (Target Size Minimum, AA): text-only links are visually
-     ~18px tall at base font size, below the 24px minimum. Vertical
-     padding expands the hit area without changing the visible text size;
-     horizontal padding is intentionally 0 so word spacing in the nav is
-     unaffected (the existing flex `gap` already separates items). */
-  padding-block: calc((1.5rem - 1em) / 2);
-  font-weight: 500;
-  color: var(--color-text);
-}
-
-.site-nav__link:hover {
-  color: var(--color-primary);
-}
-
-/* -------------------- Carousel: shared control styling ----------------------- */
-.carousel {
-  position: relative;
-}
-
-.carousel__btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.75rem;
-  height: 2.75rem;
-  border-radius: 50%;
-  background-color: var(--color-bg);
-  color: var(--color-text);
-  border: 1px solid var(--color-border);
-  box-shadow: 0 2px 6px rgb(0 0 0 / 8%);
-  transition: transform var(--transition-fast), background-color var(--transition-fast);
-}
-
-.carousel__btn:hover {
-  background-color: var(--color-surface);
-}
-
-.carousel__btn:active {
-  transform: scale(0.95);
-}
-
-.carousel__pagination [data-carousel-dot] {
-  /* WCAG 2.5.8 (Target Size Minimum, AA): the visible dot stays 10px, but
-     the actual hit area is expanded to the 24px minimum via padding
-     around a smaller visible circle drawn with background-clip, so the
-     enlarged hit area doesn't visually enlarge the dot itself. */
-  box-sizing: content-box;
-  width: 0.625rem;
-  height: 0.625rem;
-  padding: 0.4375rem;
-  background-clip: content-box;
-  border-radius: 50%;
-  background-color: var(--color-border);
-  transition: background-color var(--transition-fast), transform var(--transition-fast);
-}
-
-.carousel__pagination [data-carousel-dot][aria-current="true"] {
-  background-color: var(--color-primary);
-  transform: scale(1.2);
-}
-
-/* -------------------- Hero slide content ------------------------------------- */
-.hero__slide-content {
-  max-width: 640px;
-  text-align: center;
-  padding: var(--space-xl) var(--space-md);
-}
-
-.hero__title {
-  font-size: var(--font-size-xl);
-  color: var(--color-text);
-  margin-bottom: var(--space-md);
-}
-
-.hero__subtitle {
-  font-size: var(--font-size-md);
-  color: var(--color-text-muted);
-  margin-bottom: var(--space-lg);
-}
-
-/* Provisional hero background treatment until exact Figma imagery/tokens
-   are available — kept simple and easy to swap for a background image. */
-.hero__slide {
-  background-color: var(--color-surface);
-}
-
-.hero__slide:nth-of-type(2) {
-  background-color: color-mix(in srgb, var(--color-primary) 6%, var(--color-surface));
-}
-
-.hero__slide:nth-of-type(3) {
-  background-color: color-mix(in srgb, var(--color-secondary) 6%, var(--color-surface));
-}
-
-/* -------------------- Marquee items ------------------------------------------- */
-.marquee__item {
-  flex: none;
-}
-
-.marquee__logo {
-  filter: grayscale(1);
-  opacity: 0.75;
-  transition: filter var(--transition-fast), opacity var(--transition-fast);
-}
-
-.marquee:hover .marquee__logo,
-.marquee:focus-within .marquee__logo {
-  filter: none;
-  opacity: 1;
-}
-
-.marquee__playpause {
-  margin-top: var(--space-md);
-  margin-inline: auto;
-  display: flex;
-}
-
-.participating-schools {
-  text-align: center;
-}
-
-/* Marquee motion: JS toggles `marquee__track--running` based on play/pause
-   state, hover/focus pausing, and prefers-reduced-motion. Distance (-50%)
-   assumes the clone list is the same width as the source list, which holds
-   because marquee.js clones the source content 1:1.
-   Two rows move in opposite directions: `.marquee--left` scrolls the
-   default left-moving direction (translateX 0 -> -50%); `.marquee--right`
-   reverses it (translateX -50% -> 0), per IMPLEMENTATION_PLAN.md §5.2. */
-@keyframes marquee-scroll-left {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-@keyframes marquee-scroll-right {
-  from {
-    transform: translateX(-50%);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
-
-.marquee--left .marquee__track--running {
-  animation: marquee-scroll-left 30s linear infinite;
-}
-
-.marquee--right .marquee__track--running {
-  animation: marquee-scroll-right 30s linear infinite;
-}
-
-/* -------------------- School cards --------------------------------------------- */
-.school-card {
-  background-color: var(--color-bg);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  padding: var(--space-md);
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-sm);
-}
-
-.school-card__image {
-  border-radius: var(--radius-md);
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
-  background-color: var(--color-surface);
-}
-
-.school-card__title {
-  font-size: var(--font-size-md);
-}
-
-.school-card__desc {
-  color: var(--color-text-muted);
-  font-size: var(--font-size-sm);
-  flex-grow: 1;
-}
-
-.school-card__link {
-  align-self: flex-start;
-}
-
-/* -------------------- Exhibition cards ------------------------------------------ */
-.exhibition-card {
-  background-color: var(--color-bg);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  padding: var(--space-md);
-  margin-inline: var(--space-sm);
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-sm);
-}
-
-.exhibition-card__image {
-  border-radius: var(--radius-md);
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
-  background-color: var(--color-surface);
-}
-
-.exhibition-card__title {
-  font-size: var(--font-size-md);
-}
-
-.exhibition-card__desc {
-  color: var(--color-text-muted);
-  font-size: var(--font-size-sm);
+@media (min-width: 1200px) {
+  .site-header__brand { width: 154px; height: 100px; }
+  .site-header__brand img { width: 154px; height: 126px; }
+  .hero__mosaic { width: 670px; height: 720px; margin: 0 auto; grid-template-columns: repeat(3, 200px); grid-template-rows: repeat(2, 330px); gap: 30px 35px; align-content: start; }
+  .hero__portrait, .hero__portrait:nth-child(n+4) { display: block; width: 200px; height: 330px; border-radius: 105px; }
+  .hero__portrait:nth-child(2), .hero__portrait:nth-child(5) { margin-top: 58px; }
+  .hero__portrait:nth-child(4) { margin-top: -32px; }
+  .hero__portrait:nth-child(5) { margin-top: 25px; }
+  .hero__portrait:nth-child(6) { margin-top: -32px; }
+  .hero__content h1 { width: 502px; padding: 0; color: #fff; font-size: 42px; line-height: 1.22; font-weight: 600; }
+  .hero__content h1 br { display: block; }
+  .hero__content h1 span { margin-top: 7px; color: var(--color-gold); font-size: 32px; font-weight: 700; text-transform: uppercase; }
+  .hero__event-row { height: 76px; border: 0; border-radius: 0; box-shadow: none; background: var(--color-gold); color: var(--color-navy); font-size: 12px; }
+  .hero__event-row + .hero__event-row { margin-top: 9px; }
+  .hero__event-row--duplicate { display: grid; }
+  .hero__event-row p + p { border-left-color: rgb(25 8 67 / 35%); }
+  .trust-fact { min-height: 165px; padding: 39px 56px 0; font-size: 17px; }
+  .trust-fact strong { font-size: 28px; }
+  .trust-fact__desktop { display: block; padding-top: 17px; }
+  .trust-fact__mobile { display: none; }
 }
