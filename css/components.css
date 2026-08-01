@@ -115,7 +115,8 @@
 .marquee__playpause, [data-marquee-playpause-all] { position: absolute; z-index: 2; right: 9px; bottom: 7px; min-width: 44px; min-height: 44px; padding: 4px 8px; border: 1px solid #d5c9e1; border-radius: 22px; background: rgb(255 255 255 / 92%); color: #35105f; font-size: 9px; }
 
 .event-video::after { position: absolute; inset: 0; background: rgb(4 3 12 / 42%); content: ""; pointer-events: none; }
-.event-video > img { width: 100%; height: 100%; object-fit: cover; object-position: center 43%; }
+.event-video > picture, .event-video > picture img { display: block; width: 100%; height: 100%; }
+.event-video > picture img { object-fit: cover; object-position: center 43%; }
 .event-video > h2 { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); }
 .event-video > a { position: absolute; z-index: 2; top: 50%; left: 50%; color: #fff; font: 600 11px/1 var(--font-ui); transform: translate(-50%, -50%); white-space: nowrap; }
 .event-video > a::before { display: inline-grid; width: 25px; height: 25px; margin-right: 7px; place-items: center; border-radius: 50%; background: #fff; color: #16053c; content: "▶"; font-size: 9px; vertical-align: middle; }
@@ -200,8 +201,9 @@
   .marquee + .marquee { margin-top: 18px; }
   .marquee__list li { width: 300px; height: 91px; flex-basis: 300px; }
   .marquee__list img { padding: 10px 30px; }
-  .event-video > a { font-size: 22px; }
-  .event-video > a::before { width: 58px; height: 58px; font-size: 18px; }
+  .event-video::after { content: none; }
+  .event-video > a { inset: 0; font-size: 0; transform: none; }
+  .event-video > a::before { content: none; }
   .choose-school > h2 { margin-bottom: 42px; font-size: 38px; }
   .school-card { height: 306px; border-radius: 18px; }
   .school-card h3, .school-card p { right: 22px; left: 22px; }
