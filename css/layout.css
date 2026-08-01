@@ -142,6 +142,8 @@ section:not(.hero, .trust, .registration-bar) { padding: var(--space-2xl) var(--
   .choose-school { height: 525px; margin-top: 80px; padding: 0 max(calc((100vw - 1726px) / 2), 70px) !important; }
   .choose-school__track { gap: 15px; }
   .school-card { width: auto; min-width: 0; }
+  .school-card:nth-child(3) { order: 4; }
+  .school-card:nth-child(4) { order: 3; }
   .appointment { display: grid; height: 725px; margin-top: 80px; grid-template-columns: 47% 53%; }
   .appointment > div { height: 100%; padding: 178px 0 0 max(calc((100vw - 1640px) / 2), 70px); }
   .appointment > img:first-child { grid-column: 2; grid-row: 1; width: 100%; height: 100%; }
@@ -153,9 +155,10 @@ section:not(.hero, .trust, .registration-bar) { padding: var(--space-2xl) var(--
   .attraction-card:nth-child(2) { top: 160px; left: 35px; }
   .attraction-card:nth-child(3) { top: 160px; right: 35px; }
   .attraction-card:nth-child(4) { right: 195px; }
-  .benefits { height: 767px; margin-top: 0; padding: 120px max(calc((100vw - 1640px) / 2), 70px) 100px !important; }
-  .benefits__track { display: flex; gap: 20px; }
-  .benefit-card { flex: 0 0 calc((100% - 80px) / 5); }
+  .benefits { height: 767px; margin-top: 0; padding: 80px 0 100px max(calc((100vw - 1720px) / 2), 100px) !important; }
+  .benefits__track { display: flex; width: 2149px; gap: 16px; }
+  .benefit-card { flex: 0 0 417px; }
+  .benefit-card:nth-child(n+6) { display: none; }
   .reviews { height: 402px; margin-top: 81px; padding: 55px max(calc((100vw - 1640px) / 2), 70px) 44px !important; }
   .reviews__track { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
   .review-card { width: auto; }
