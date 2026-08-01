@@ -66,3 +66,106 @@ section:not(.hero, .trust, .registration-bar) { padding: var(--space-2xl) var(--
   .choose-school__slide[hidden] { display: block; }
   .choose-school__controls, .choose-school__pagination { display: none; }
 }
+
+/* Milestone 4: source-frame geometry below the approved registration region. */
+.participating-schools,
+.choose-school,
+.exhibition { max-width: none; }
+
+.participating-schools { height: 346px; margin-top: 57px; padding: 29px 0 18px !important; overflow: hidden; }
+.participating-schools__rows { margin-top: 27px; }
+.event-video { position: relative; height: 240px; margin-top: 60px; padding: 0 !important; overflow: hidden; }
+.choose-school { height: 384px; margin-top: 60px; padding: 31px 0 19px 20px !important; overflow: hidden; }
+.choose-school__carousel { width: 100%; }
+.choose-school__viewport { overflow: visible !important; }
+.choose-school__track { gap: 10px; }
+.choose-school__slide { flex-basis: 283px; width: 283px; }
+.appointment { position: relative; display: flex; height: 536px; margin-top: 60px; padding: 0 !important; flex-direction: column-reverse; overflow: hidden; }
+.appointment > div { height: 292px; padding: 35px 20px 20px; }
+.appointment > img:first-child { width: 100%; height: 244px; object-fit: cover; }
+.appointment > img:nth-child(2) { position: absolute; right: -22px; bottom: 0; width: 142px; height: 208px; object-fit: contain; object-position: bottom; }
+.attractions { display: grid; height: 779px; margin-top: 60px; padding: 43px 20px 26px !important; grid-template-areas: "heading" "media" "categories" "content"; grid-template-rows: auto 274px 39px auto; overflow: hidden; }
+.attractions > h2 { grid-area: heading; }
+.attractions__categories { grid-area: categories; }
+.attractions__content { display: contents; }
+.attractions__content > img { position: absolute; z-index: 2; grid-area: media; }
+.attractions__content > div { grid-area: content; }
+.attractions__carousel { grid-area: media; }
+.attractions__viewport { overflow: visible !important; }
+.attractions__track { position: relative; width: 310px; height: 280px; margin: 17px auto 0; }
+.attraction-card { position: absolute; width: 126px; height: 126px; transform: rotate(45deg); overflow: hidden; }
+.attraction-card[hidden], .benefit-card[hidden], .review-card[hidden] { display: block; }
+.attraction-card:nth-child(1) { top: 0; left: 92px; }
+.attraction-card:nth-child(2) { top: 79px; left: 13px; }
+.attraction-card:nth-child(3) { top: 79px; right: 13px; }
+.attraction-card:nth-child(4) { right: 92px; bottom: 0; }
+.benefits { position: relative; height: 719px; margin-top: 60px; padding: 48px 20px 74px !important; overflow: hidden; }
+.benefits__track { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.benefit-card { min-width: 0; }
+.reviews { height: 316px; margin-top: 60px; padding: 41px 0 20px 20px !important; overflow: hidden; }
+.reviews__viewport { overflow: visible !important; }
+.reviews__track { display: flex; gap: 9px; }
+.review-card { flex: 0 0 283px; width: 283px; }
+.gallery { height: 234px; margin-top: 60px; padding: 30px 0 28px !important; overflow: hidden; }
+.gallery__grid { display: flex; gap: 7px; margin-top: 21px; transform: translateX(-18px); }
+.gallery__figure { flex: 0 0 218px; height: 126px; }
+.gallery__figure:nth-child(n+3) { display: none; }
+.site-footer { position: relative; display: grid; height: 662px; margin-top: 60px; padding: 44px 20px 46px; grid-template-rows: 91px 1fr auto 39px; border: 0; overflow: hidden; }
+.site-footer > img { grid-row: 1; }
+.site-footer address, .site-footer__contact { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+.site-footer__social { grid-row: 3; }
+.site-footer > p:last-child { position: absolute; right: 0; bottom: 0; left: 0; min-height: 39px; }
+
+@media (min-width: 768px) and (max-width: 1399px) {
+  .participating-schools { height: 350px; margin-top: 40px; }
+  .event-video { height: clamp(360px, 42vw, 590px); }
+  .choose-school { height: auto; min-height: 525px; padding-inline: 4vw !important; }
+  .choose-school__track { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .choose-school__slide { width: auto; }
+  .appointment { height: 620px; display: grid; grid-template-columns: 44% 56%; }
+  .appointment > div, .appointment > img:first-child { width: 100%; height: 100%; }
+  .attractions { height: 850px; grid-template-columns: 1fr 1fr; grid-template-areas: "heading heading" "media content" "media categories"; grid-template-rows: auto 1fr auto; }
+  .benefits { height: auto; min-height: 720px; }
+  .benefits__track { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .reviews { height: auto; min-height: 400px; padding-inline: 4vw !important; }
+  .reviews__track { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .review-card { width: auto; }
+  .gallery { height: 500px; padding-inline: 4vw !important; }
+  .gallery__grid { display: grid; grid-template-columns: repeat(3, 1fr); transform: none; }
+  .gallery__figure, .gallery__figure:nth-child(n+3) { display: block; height: 170px; }
+  .site-footer { height: 500px; }
+}
+
+@media (min-width: 1400px) {
+  .participating-schools { height: 362px; margin-top: 79px; padding-top: 40px !important; }
+  .participating-schools__rows { margin-top: 38px; }
+  .event-video { height: 800px; margin-top: 100px; }
+  .choose-school { height: 525px; margin-top: 80px; padding: 68px max(calc((100vw - 1640px) / 2), 70px) 70px !important; }
+  .choose-school__track { gap: 10px; }
+  .appointment { display: grid; height: 725px; margin-top: 80px; grid-template-columns: 47% 53%; }
+  .appointment > div { height: 100%; padding: 178px 0 0 max(calc((100vw - 1640px) / 2), 70px); }
+  .appointment > img:first-child { grid-column: 2; grid-row: 1; width: 100%; height: 100%; }
+  .appointment > img:nth-child(2) { right: 2%; width: 370px; height: 550px; }
+  .attractions { height: 852px; margin-top: 0; padding: 80px max(calc((100vw - 1640px) / 2), 70px) 74px !important; grid-template-areas: "media heading" "media categories" "media content"; grid-template-columns: 50% 50%; grid-template-rows: 135px 62px 1fr; }
+  .attractions__track { width: 650px; height: 580px; margin-top: 20px; }
+  .attraction-card { width: 260px; height: 260px; }
+  .attraction-card:nth-child(1) { left: 195px; }
+  .attraction-card:nth-child(2) { top: 160px; left: 35px; }
+  .attraction-card:nth-child(3) { top: 160px; right: 35px; }
+  .attraction-card:nth-child(4) { right: 195px; }
+  .benefits { height: 767px; margin-top: 0; padding: 120px max(calc((100vw - 1640px) / 2), 70px) 100px !important; }
+  .benefits__track { display: flex; gap: 20px; }
+  .benefit-card { flex: 0 0 calc((100% - 80px) / 5); }
+  .reviews { height: 402px; margin-top: 81px; padding: 55px max(calc((100vw - 1640px) / 2), 70px) 44px !important; }
+  .reviews__track { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+  .review-card { width: auto; }
+  .gallery { height: 644px; margin-top: 80px; padding: 60px 0 70px !important; }
+  .gallery__grid { display: grid; height: 440px; grid-template-columns: 1.1fr .75fr .75fr 1.1fr; grid-template-rows: repeat(2, 1fr); gap: 10px; margin-top: 35px; transform: none; }
+  .gallery__figure, .gallery__figure:nth-child(n+3) { display: block; height: auto; }
+  .gallery__figure:first-child { grid-row: 1 / 3; }
+  .gallery__figure:nth-child(4) { grid-column: 4; grid-row: 1 / 3; }
+  .site-footer { height: 334px; margin-top: 60px; padding: 55px max(calc((100vw - 1640px) / 2), 70px) 40px; grid-template-columns: 220px 1fr 1fr 180px 220px; grid-template-rows: 1fr 38px; gap: 35px; }
+  .site-footer address, .site-footer__contact { position: static; width: auto; height: auto; padding: 0; margin: 0; overflow: visible; clip: auto; white-space: normal; }
+  .site-footer__social { grid-row: 1; }
+  .site-footer > p:last-child { grid-column: 1 / -1; grid-row: 2; }
+}
