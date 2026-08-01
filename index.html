@@ -88,14 +88,14 @@
           </div>
         </div>
       </div>
-      <form class="enquiry-form" id="enquiry-form" data-enquiry-form aria-describedby="enquiry-availability">
+      <form class="enquiry-form" id="enquiry-form" data-enquiry-form aria-describedby="enquiry-note">
         <h2>Enquire Now</h2>
         <div class="enquiry-form__field"><label for="parent-name">Parent's Name</label><input id="parent-name" name="parent-name" type="text" autocomplete="name" placeholder="Parent's Name" required></div>
         <div class="enquiry-form__field"><label for="phone">Phone number</label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="Phone number" required></div>
         <div class="enquiry-form__field"><label for="grade">Which grade are you looking for?</label><select id="grade" name="grade" autocomplete="off" required><option value="">Which grade are you looking for?</option><option>Pre-school</option><option>Primary school</option><option>Middle school</option><option>Senior school</option></select></div>
-        <button type="submit" disabled data-enquiry-submit aria-describedby="enquiry-availability">SUBMIT</button>
-        <p class="visually-hidden" id="enquiry-availability" role="status" aria-live="polite" aria-atomic="true" data-enquiry-status>Enquiry submission is unavailable until a secure enquiry service is connected.</p>
-        <p class="enquiry-form__note">Enquiry submission is currently unavailable. Your information will not be sent.</p>
+        <button type="submit" disabled data-enquiry-submit aria-describedby="enquiry-note">SUBMIT</button>
+        <p class="visually-hidden" id="enquiry-availability" role="status" aria-live="polite" aria-atomic="true" data-enquiry-status></p>
+        <p class="enquiry-form__note" id="enquiry-note">Enquiry submission is currently unavailable. Your information will not be sent.</p>
       </form>
     </section>
 
@@ -105,7 +105,7 @@
         <p class="trust-fact"><span>Trusted by</span> <strong>1 Million+</strong> <span>Parents</span></p>
         <p class="trust-fact"><strong>22+</strong> <span>Years</span> <span>of Legacy</span></p>
         <p class="trust-fact"><strong>500+</strong> <span>Participating Schools</span></p>
-        <p class="trust-fact"><span class="trust-fact__desktop"><strong>17</strong> <span>Cities Across the Globe</span></span><span class="trust-fact__mobile" aria-hidden="true"><strong>16</strong> <span>Cities Across the Globe</span></span></p>
+        <p class="trust-fact"><span class="visually-hidden">17 Cities Across the Globe on desktop; 16 Cities Across the Globe in the mobile design</span><span class="trust-fact__desktop" aria-hidden="true"><strong>17</strong> <span>Cities Across the Globe</span></span><span class="trust-fact__mobile" aria-hidden="true"><strong>16</strong> <span>Cities Across the Globe</span></span></p>
       </div>
     </section>
 
