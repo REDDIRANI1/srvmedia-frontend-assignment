@@ -28,7 +28,7 @@ section:not(.hero, .trust, .registration-bar) { padding: var(--space-2xl) var(--
 .marquee + .marquee { margin-top: var(--space-lg); }
 .marquee__track, .marquee__list { display: flex; width: max-content; align-items: center; }
 .marquee__list { gap: var(--space-xl); margin-inline-end: var(--space-xl); }
-.choose-school__viewport, .exhibition__viewport { width: 100%; overflow: hidden; touch-action: pan-y; }
+:where([data-carousel-viewport]:not(.hero__viewport)) { width: 100%; overflow: hidden; touch-action: pan-y; }
 .choose-school__track, .exhibition__track { display: flex; }
 .choose-school__slide, .exhibition__slide { flex: 0 0 100%; width: 100%; }
 .choose-school__slide[hidden], .exhibition__slide[hidden] { display: none; }
