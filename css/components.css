@@ -209,7 +209,7 @@
   .marquee:first-child .marquee__list li { width: 300px; flex-basis: 300px; }
   .marquee__list img { padding: 10px 30px; }
   .event-video::after { content: none; }
-  .event-video > a { top: auto; bottom: 0; left: max(calc((100vw - 1726px) / 2), 70px); display: flex; width: 340px; height: 120px; padding-top: 11px; align-items: flex-start; background: #000; font-size: 22px; line-height: 58px; transform: none; }
+  .event-video > a { top: auto; bottom: 40px; left: max(calc((100vw - 1726px) / 2), 70px); display: flex; width: 316px; height: 80px; align-items: center; background: transparent; font-size: 22px; transform: none; }
   .event-video > a::before { width: 58px; height: 58px; font-size: 18px; }
   .choose-school > h2 { max-width: none; height: 96px; margin: 0; font-size: 38px; }
   .school-card { height: 405px; border-radius: 18px; }
