@@ -1,12 +1,12 @@
 .site-header__inner, .site-footer__inner { width: 100%; max-width: var(--container-max-width); margin-inline: auto; }
 .site-header { height: 60px; background: #fff; }
-.site-header__inner { display: flex; height: 100%; align-items: center; justify-content: space-between; padding-inline: 12px; }
+.site-header__inner { display: flex; height: 100%; align-items: center; justify-content: space-between; padding-inline: 21px; }
 .site-header__cta { display: none; }
 
 section:not(.hero, .trust, .registration-bar) { padding: var(--space-2xl) var(--space-md); }
 .section-heading { max-width: var(--container-max-width); margin: 0 auto var(--space-xl); text-align: center; }
 
-.hero { display: grid; grid-template-rows: 289px 146px 90px; min-height: 525px; padding: 0; overflow: hidden; background: linear-gradient(112deg, #18053f 0%, #2d0b5b 65%, #40136e 100%); color: #fff; }
+.hero { display: grid; grid-template-rows: 289px 146px 90px; min-height: 525px; padding: 0; overflow: hidden; contain: layout paint; background: linear-gradient(112deg, #18053f 0%, #2d0b5b 65%, #40136e 100%); color: #fff; }
 .hero__carousel { position: relative; width: 100%; min-width: 0; overflow: hidden; }
 .hero__viewport { width: 100%; height: 100%; overflow: hidden; touch-action: none; }
 .hero__track { display: flex; position: relative; }
@@ -15,15 +15,15 @@ section:not(.hero, .trust, .registration-bar) { padding: var(--space-2xl) var(--
 .hero__content { display: flex; grid-row: 2 / 4; flex-direction: column; align-items: center; text-align: center; }
 .hero__event { width: calc(100% - 40px); max-width: 390px; margin-inline: auto; }
 .enquiry-form { display: none; }
-.hero__controls { position: absolute; z-index: 4; inset: auto 6px 4px; display: flex; align-items: center; justify-content: center; gap: 3px; }
-.hero__controls [data-carousel-pagination] { display: flex; }
+.hero__controls { position: absolute; z-index: 4; top: 201px; left: 50%; display: grid; width: 176px; grid-template-columns: repeat(4, 44px); transform: translateX(-50%); opacity: .45; }
+.hero__controls [data-carousel-pagination] { display: flex; grid-column: 2 / 5; grid-row: 2; }
 
-.trust { position: relative; height: 238px; padding: 60px 20px 0; background: #fff; }
-.trust__facts { display: grid; max-width: 380px; margin-inline: auto; grid-template-columns: repeat(2, 1fr); gap: 36px 26px; }
+.trust { position: relative; height: 238px; padding: 52px 20px 0; background: #fff; }
+.trust__facts { display: grid; max-width: 380px; margin-inline: auto; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 75px); gap: 12px 26px; }
 .registration-bar { position: relative; z-index: 3; display: grid; height: 50px; grid-template-columns: 1fr 1fr; padding: 0; }
 
 .participating-schools, .choose-school, .exhibition { max-width: 1200px; margin-inline: auto; }
-.marquee { position: relative; width: 100%; overflow: hidden; }
+.marquee { position: relative; width: 100%; overflow: clip; contain: layout paint; }
 .marquee + .marquee { margin-top: var(--space-lg); }
 .marquee__track, .marquee__list { display: flex; width: max-content; align-items: center; }
 .marquee__list { gap: var(--space-xl); margin-inline-end: var(--space-xl); }
@@ -35,26 +35,27 @@ section:not(.hero, .trust, .registration-bar) { padding: var(--space-2xl) var(--
 .site-footer { border-top: 1px solid var(--color-border); }
 
 @media (min-width: 768px) and (max-width: 1199px) {
-  .site-header { height: 76px; }
+  .site-header { height: 60px; }
   .site-header__inner { padding-inline: 32px; }
-  .site-header__cta { display: inline-flex; }
-  .hero { grid-template-rows: 380px auto 100px; min-height: 650px; }
+  .site-header__cta { display: none; }
+  .hero { grid-template-rows: clamp(300px, 38vw, 420px) 146px 90px; min-height: 536px; }
   .enquiry-form { display: none; }
-  .trust { height: 180px; padding-top: 42px; }
-  .trust__facts { max-width: 760px; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-  .registration-bar { display: none; }
+  .trust { height: 238px; padding-top: 45px; }
+  .trust__facts { max-width: 760px; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 78px); gap: 10px 30px; }
+  .registration-bar { display: grid; }
+  .hero__controls { top: clamp(212px, 30vw, 332px); }
 }
 
 @media (min-width: 1200px) {
   .site-header { height: 100px; }
   .site-header__inner { padding-inline: clamp(62px, 6.45vw, 124px); }
   .site-header__cta { display: inline-flex; }
-  .hero { grid-template: "content carousel form" 801px / minmax(420px, 30fr) minmax(620px, 40fr) minmax(400px, 30fr); min-height: 801px; padding-inline: max(calc((100vw - 1720px) / 2), 40px); overflow: hidden; }
-  .hero__content { grid-area: content; align-items: flex-start; justify-content: flex-start; padding-top: 88px; text-align: left; }
-  .hero__carousel { grid-area: carousel; height: 720px; align-self: start; }
+  .hero { grid-template: "content carousel form" 801px / 520px 686px 514px; min-height: 801px; padding-inline: max(calc((100vw - 1720px) / 2), 40px); overflow: hidden; }
+  .hero__content { grid-area: content; align-items: flex-start; justify-content: flex-start; padding-top: 90px; text-align: left; }
+  .hero__carousel { grid-area: carousel; height: 801px; align-self: start; }
   .enquiry-form { grid-area: form; display: flex; align-self: start; }
-  .hero__event { width: 414px; max-width: 100%; margin: 30px 0 0; }
-  .hero__controls { inset: auto 4px 8px; justify-content: flex-end; }
+  .hero__event { width: 414px; max-width: 100%; margin: 26px 0 0; }
+  .hero__controls { top: auto; right: 100px; bottom: 30px; left: auto; width: 176px; transform: none; }
   .trust { height: 200px; padding: 17px max(calc((100vw - 1407px) / 2), 30px); }
   .trust__facts { max-width: 1407px; grid-template-columns: repeat(4, 1fr); gap: 45px; }
   .registration-bar { display: none; }

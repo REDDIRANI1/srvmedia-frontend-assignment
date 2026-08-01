@@ -9,7 +9,7 @@
   --color-purple: #331063;
   --color-purple-light: #6f45a0;
   --color-gold: #e6ad25;
-  --color-gold-light: #f5d784;
+  --color-gold-light: #f6cf83;
   --color-primary: var(--color-navy);
   --color-primary-dark: #2d0c5c;
   --color-primary-contrast: #fff;
@@ -36,8 +36,8 @@
   --container-max-width: 1720px;
   --radius-sm: 4px;
   --radius-md: 8px;
-  --radius-lg: 18px;
-  --shadow-card: 0 14px 35px rgb(14 3 43 / 20%);
+  --radius-lg: 16px;
+  --shadow-card: 0 18px 45px rgb(14 3 43 / 22%);
   --transition-fast: 150ms ease;
   --transition-base: 300ms ease;
 }
