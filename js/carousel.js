@@ -39,7 +39,7 @@
  * and horizontal swipe apply, and the dual-axis code paths are simply
  * never engaged (rows collapse to a single implicit row of length N).
  *
- * ARIA pattern: WAI-ARIA APG carousel — never role="slider" (see
+ * ARIA pattern: WAI-ARIA APG carousel — never the ARIA range-input role (see
  * IMPLEMENTATION_PLAN.md §6.1). Each instance:
  *   - container: role="region" aria-roledescription="carousel"
  *   - each slide: role="group" aria-roledescription="slide"
@@ -98,6 +98,7 @@
     this._buildGrid();
     this.row = 0;
     this.col = 0;
+    this.wasDesktopStatic = this._isDesktopStatic();
 
     this.init();
   }
@@ -150,7 +151,11 @@
     this._bindHoverPause();
     this._bindKeyboard();
     this._bindSwipe();
-    this.goTo(0, 0, { userInitiated: false, announce: false });
+    if (this.wasDesktopStatic) {
+      this._setDesktopStaticState(true);
+    } else {
+      this.goTo(0, 0, { userInitiated: false, announce: false });
+    }
 
     if (this.autoplayEnabled && !this.prefersReducedMotion && !this._isDesktopStatic()) {
       this.play();
@@ -164,8 +169,32 @@
   };
 
   Carousel.prototype._handleResize = function () {
-    if (this._isDesktopStatic()) {
+    var isDesktopStatic = this._isDesktopStatic();
+    if (isDesktopStatic === this.wasDesktopStatic) {
+      return;
+    }
+
+    this.wasDesktopStatic = isDesktopStatic;
+    if (isDesktopStatic) {
       this.pause({ userInitiated: false });
+      this._setDesktopStaticState(true);
+    } else {
+      this._setDesktopStaticState(false);
+      this.goTo(this.row, this.col, { userInitiated: false, announce: false });
+    }
+  };
+
+  Carousel.prototype._setDesktopStaticState = function (isStatic) {
+    this.slideEls.forEach(function (slide) {
+      slide.hidden = false;
+    });
+    [this.prevBtn, this.nextBtn, this.upBtn, this.downBtn].forEach(function (button) {
+      if (button) {
+        button.disabled = isStatic;
+      }
+    });
+    if (this.pagination) {
+      this.pagination.setAttribute('aria-hidden', isStatic ? 'true' : 'false');
     }
   };
 
@@ -359,6 +388,9 @@
    * row's own length. This is the horizontal axis.
    */
   Carousel.prototype.moveHorizontal = function (delta, opts) {
+    if (this._isDesktopStatic()) {
+      return;
+    }
     var len = this._colCount(this.row);
     if (!len) {
       return;
@@ -373,6 +405,9 @@
    * different lengths (this is the vertical axis).
    */
   Carousel.prototype.moveVertical = function (delta, opts) {
+    if (this._isDesktopStatic()) {
+      return;
+    }
     var rows = this._rowCount();
     if (rows < 2) {
       return;
@@ -410,6 +445,9 @@
 
   Carousel.prototype.goTo = function (row, col, opts) {
     opts = opts || {};
+    if (this._isDesktopStatic()) {
+      return;
+    }
     var nextSlide = this.grid[row] && this.grid[row][col];
     if (!nextSlide) {
       return;
