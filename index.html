@@ -6,6 +6,9 @@
   <title>Premier Schools Exhibition — Gurugram</title>
   <meta name="description" content="Meet leading schools at the Premier Schools Exhibition in Gurugram, 2–3 August 2025.">
   <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='6'%20fill='%231d4ed8'/%3E%3Ctext%20x='16'%20y='22'%20font-family='sans-serif'%20font-size='14'%20font-weight='700'%20fill='%23fff'%20text-anchor='middle'%3EPSE%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Open+Sans:wght@400;600;700&family=Raleway:wght@500;600;700&display=swap">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/components.css">
@@ -57,22 +60,22 @@
             </div>
           </div>
         </div>
-        <div class="hero__controls" aria-label="Hero carousel controls">
+        <div class="hero__controls" role="group" aria-label="Hero carousel controls">
           <button type="button" data-carousel-prev aria-label="Previous hero image">Previous</button>
           <button type="button" data-carousel-playpause aria-pressed="false" aria-label="Pause hero autoplay">Pause</button>
           <button type="button" data-carousel-next aria-label="Next hero image">Next</button>
           <button type="button" data-carousel-up aria-label="Move up through hero images">Up</button>
           <button type="button" data-carousel-down aria-label="Move down through hero images">Down</button>
-          <div data-carousel-pagination aria-label="Hero image pagination"></div>
+          <div data-carousel-pagination role="group" aria-label="Hero image pagination"></div>
         </div>
         <div class="visually-hidden" role="status" aria-live="off" aria-atomic="true" data-carousel-live></div>
       </div>
       <div class="hero__content">
         <h1 id="hero-heading">Discover Gurugram’s Top 30+ Schools<br><span>All In One Place</span></h1>
-        <div class="hero__event" aria-label="Event details">
+        <div class="hero__event" role="group" aria-label="Event details">
           <div class="hero__event-row hero__event-row--primary" data-hero-event-row>
             <p>Apparel House, Sec 44, Gurugram</p>
-            <p><time datetime="2025-08-02/2025-08-03">2-3 August 2025</time><br>Sat-Sun | 10AM - 6PM</p>
+            <p><time datetime="2025-08-02">2-3 August 2025</time><br>Sat-Sun | 10AM - 6PM</p>
           </div>
           <div class="hero__event-row hero__event-row--duplicate" data-hero-event-row aria-hidden="true">
             <p>Apparel House, Sec 44, Gurugram</p>
@@ -139,12 +142,12 @@
       <h2 id="choose-school-heading">Choose the School That Fits You Best</h2>
       <div class="choose-school__carousel" data-carousel data-carousel-autoplay="false" data-carousel-desktop-static="true" role="region" aria-roledescription="carousel" aria-label="School categories">
         <div class="choose-school__track" data-carousel-track>
-          <article class="school-card" data-carousel-slide role="group" aria-roledescription="slide" aria-label="1 of 4"><img src="assets/images/choose-pre-schools.png" alt="Young children learning together"><h3>Pre-Schools &amp; Early Learning Centres</h3><p>Nurturing foundational skills for toddlers and pre-primary children.</p></article>
-          <article class="school-card" data-carousel-slide role="group" aria-roledescription="slide" aria-label="2 of 4"><img src="assets/images/choose-boarding-schools.png" alt="Students at a boarding school"><h3>K–12 CBSE Day Schools</h3><p>Reputed schools offering complete schooling from Kindergarten to Grade 12.</p></article>
-          <article class="school-card" data-carousel-slide role="group" aria-roledescription="slide" aria-label="3 of 4"><picture><source media="(max-width: 767px)" srcset="assets/images/choose-special-needs-schools-mobile.jpg"><img src="assets/images/choose-special-needs-schools-desktop.png" alt="Children learning and playing together"></picture><h3>Heritage to New-Age Schools</h3><p>Time-tested schools to innovative pedagogy, tech enabled, future-ready schools</p></article>
-          <article class="school-card" data-carousel-slide role="group" aria-roledescription="slide" aria-label="4 of 4"><img src="assets/images/choose-international-schools.jpg" alt="A student reading a book"><h3>International Curriculum Schools</h3><p>Offering IB, Cambridge, Finnish and other global curricula with a global learning environment.</p></article>
+          <article class="school-card" data-carousel-slide aria-roledescription="slide" aria-label="1 of 4"><img src="assets/images/choose-pre-schools.png" alt="Young children learning together"><h3>Pre-Schools &amp; Early Learning Centres</h3><p>Nurturing foundational skills for toddlers and pre-primary children.</p></article>
+          <article class="school-card" data-carousel-slide aria-roledescription="slide" aria-label="2 of 4"><img src="assets/images/choose-boarding-schools.png" alt="Students at a boarding school"><h3>K–12 CBSE Day Schools</h3><p>Reputed schools offering complete schooling from Kindergarten to Grade 12.</p></article>
+          <article class="school-card" data-carousel-slide aria-roledescription="slide" aria-label="3 of 4"><picture><source media="(max-width: 767px)" srcset="assets/images/choose-special-needs-schools-mobile.jpg"><img src="assets/images/choose-special-needs-schools-desktop.png" alt="Children learning and playing together"></picture><h3>Heritage to New-Age Schools</h3><p>Time-tested schools to innovative pedagogy, tech enabled, future-ready schools</p></article>
+          <article class="school-card" data-carousel-slide aria-roledescription="slide" aria-label="4 of 4"><img src="assets/images/choose-international-schools.jpg" alt="A student reading a book"><h3>International Curriculum Schools</h3><p>Offering IB, Cambridge, Finnish and other global curricula with a global learning environment.</p></article>
         </div>
-        <div class="choose-school__controls"><button type="button" data-carousel-prev aria-label="Previous school category">Previous</button><div data-carousel-pagination aria-label="School category pagination"></div><button type="button" data-carousel-next aria-label="Next school category">Next</button></div>
+        <div class="choose-school__controls"><button type="button" data-carousel-prev aria-label="Previous school category">Previous</button><div data-carousel-pagination role="group" aria-label="School category pagination"></div><button type="button" data-carousel-next aria-label="Next school category">Next</button></div>
         <div class="visually-hidden" role="status" aria-live="off" aria-atomic="true" data-carousel-live></div>
       </div>
     </section>
@@ -164,7 +167,7 @@
           <figure class="attraction-card" data-carousel-slide role="group" aria-roledescription="slide" aria-label="2 of 4"><img src="assets/images/attraction-stage-performance-two.jpg" alt="Young performers at the Premier Kidz Awards"></figure>
           <figure class="attraction-card" data-carousel-slide role="group" aria-roledescription="slide" aria-label="3 of 4"><img src="assets/images/attraction-stage-performance-three.jpg" alt="A group performance on the awards stage"></figure>
           <figure class="attraction-card" data-carousel-slide role="group" aria-roledescription="slide" aria-label="4 of 4"><img src="assets/images/attraction-stage-performance-four.jpg" alt="Children celebrating during a stage performance"></figure>
-        </div><div class="attractions__controls"><button type="button" data-carousel-prev aria-label="Previous attraction">Previous</button><div data-carousel-pagination aria-label="Attraction pagination"></div><button type="button" data-carousel-next aria-label="Next attraction">Next</button></div>
+        </div><div class="attractions__controls"><button type="button" data-carousel-prev aria-label="Previous attraction">Previous</button><div data-carousel-pagination role="group" aria-label="Attraction pagination"></div><button type="button" data-carousel-next aria-label="Next attraction">Next</button></div>
         <div class="visually-hidden" role="status" aria-live="off" aria-atomic="true" data-carousel-live></div>
       </div>
     </section>
@@ -172,14 +175,14 @@
     <section class="benefits" id="benefits" aria-labelledby="benefits-heading">
       <h2 id="benefits-heading">What Makes This Exhibition a Must-Visit</h2>
       <div class="benefits__carousel" data-carousel data-carousel-autoplay="false" data-carousel-desktop-static="true" role="region" aria-roledescription="carousel" aria-label="Reasons to visit"><div class="benefits__track" data-carousel-track>
-        <article class="benefit-card" data-carousel-slide role="group" aria-roledescription="slide" aria-label="1 of 7"><h3>Meet Gurugram’s Leading Schools</h3><p>From pre-nursery to senior secondary</p></article>
-        <article class="benefit-card" data-carousel-slide role="group" aria-roledescription="slide" aria-label="2 of 7"><h3>Interact Directly with School Heads</h3><p>Get answers straight from the experts</p></article>
-        <article class="benefit-card" data-carousel-slide role="group" aria-roledescription="slide" aria-label="3 of 7"><h3>Discover New-Age &amp; Legacy Institutions</h3><p>Choose from progressive schools and reputed heritage names</p></article>
-        <article class="benefit-card" data-carousel-slide role="group" aria-roledescription="slide" aria-label="4 of 7"><h3>Get Exclusive Fee Structures &amp; Offers</h3><p>Access transparent information and avail offers</p></article>
-        <article class="benefit-card" data-carousel-slide role="group" aria-roledescription="slide" aria-label="5 of 7"><h3>Explore Schools Offerings</h3><p>Preview infrastructure, co-curricular, teaching methodology and culture</p></article>
-        <article class="benefit-card" data-carousel-slide role="group" aria-roledescription="slide" aria-label="6 of 7"><h3>On-the-Spot Admissions &amp; Counselling</h3><p>Save time with instant applications and expert guidance</p></article>
-        <article class="benefit-card" data-carousel-slide role="group" aria-roledescription="slide" aria-label="7 of 7"><h3>Compare Curriculum &amp; Pedagogy</h3><p>Understand the differences between CBSE, ICSE, IB, Cambridge, Finnish &amp; more</p></article>
-      </div><div class="benefits__controls"><button type="button" data-carousel-prev aria-label="Previous benefit">Previous</button><div data-carousel-pagination aria-label="Benefit pagination"></div><button type="button" data-carousel-next aria-label="Next benefit">Next</button></div>
+        <article class="benefit-card" data-carousel-slide aria-roledescription="slide" aria-label="1 of 7"><h3>Meet Gurugram’s Leading Schools</h3><p>From pre-nursery to senior secondary</p></article>
+        <article class="benefit-card" data-carousel-slide aria-roledescription="slide" aria-label="2 of 7"><h3>Interact Directly with School Heads</h3><p>Get answers straight from the experts</p></article>
+        <article class="benefit-card" data-carousel-slide aria-roledescription="slide" aria-label="3 of 7"><h3>Discover New-Age &amp; Legacy Institutions</h3><p>Choose from progressive schools and reputed heritage names</p></article>
+        <article class="benefit-card" data-carousel-slide aria-roledescription="slide" aria-label="4 of 7"><h3>Get Exclusive Fee Structures &amp; Offers</h3><p>Access transparent information and avail offers</p></article>
+        <article class="benefit-card" data-carousel-slide aria-roledescription="slide" aria-label="5 of 7"><h3>Explore Schools Offerings</h3><p>Preview infrastructure, co-curricular, teaching methodology and culture</p></article>
+        <article class="benefit-card" data-carousel-slide aria-roledescription="slide" aria-label="6 of 7"><h3>On-the-Spot Admissions &amp; Counselling</h3><p>Save time with instant applications and expert guidance</p></article>
+        <article class="benefit-card" data-carousel-slide aria-roledescription="slide" aria-label="7 of 7"><h3>Compare Curriculum &amp; Pedagogy</h3><p>Understand the differences between CBSE, ICSE, IB, Cambridge, Finnish &amp; more</p></article>
+      </div><div class="benefits__controls"><button type="button" data-carousel-prev aria-label="Previous benefit">Previous</button><div data-carousel-pagination role="group" aria-label="Benefit pagination"></div><button type="button" data-carousel-next aria-label="Next benefit">Next</button></div>
       <div class="visually-hidden" role="status" aria-live="off" aria-atomic="true" data-carousel-live></div></div>
       <a class="button" href="#enquiry-form">Register Now</a>
     </section>
@@ -187,11 +190,11 @@
     <section class="reviews" id="reviews" aria-labelledby="reviews-heading">
       <h2 id="reviews-heading">What Makes Parents Choose Us</h2>
       <div class="reviews__carousel" data-carousel data-carousel-autoplay="false" data-carousel-desktop-static="true" role="region" aria-roledescription="carousel" aria-label="Visitor reviews"><div class="reviews__track" data-carousel-track>
-        <figure class="review-card" data-carousel-slide role="group" aria-roledescription="slide" aria-label="1 of 4"><img src="assets/images/review-visitor-one.png" alt="Video still of a visitor sharing feedback"><figcaption>Visitor’s Review</figcaption></figure>
-        <figure class="review-card" data-carousel-slide role="group" aria-roledescription="slide" aria-label="2 of 4"><img src="assets/images/review-visitor-two.png" alt="Video still of a parent sharing feedback"><figcaption>Visitor’s Review</figcaption></figure>
-        <figure class="review-card" data-carousel-slide role="group" aria-roledescription="slide" aria-label="3 of 4"><img src="assets/images/review-visitor-three.png" alt="Video still from a visitor review"><figcaption>Visitor’s Review</figcaption></figure>
-        <figure class="review-card" data-carousel-slide role="group" aria-roledescription="slide" aria-label="4 of 4"><img src="assets/images/review-visitor-four.png" alt="Video still from a family’s visitor review"><figcaption>Visitor’s Review</figcaption></figure>
-      </div><div class="reviews__controls"><button type="button" data-carousel-prev aria-label="Previous review">Previous</button><div data-carousel-pagination aria-label="Review pagination"></div><button type="button" data-carousel-next aria-label="Next review">Next</button></div>
+        <figure class="review-card" data-carousel-slide aria-roledescription="slide" aria-label="1 of 4"><img src="assets/images/review-visitor-one.png" alt="Video still of a visitor sharing feedback"><figcaption>Visitor’s Review</figcaption></figure>
+        <figure class="review-card" data-carousel-slide aria-roledescription="slide" aria-label="2 of 4"><img src="assets/images/review-visitor-two.png" alt="Video still of a parent sharing feedback"><figcaption>Visitor’s Review</figcaption></figure>
+        <figure class="review-card" data-carousel-slide aria-roledescription="slide" aria-label="3 of 4"><img src="assets/images/review-visitor-three.png" alt="Video still from a visitor review"><figcaption>Visitor’s Review</figcaption></figure>
+        <figure class="review-card" data-carousel-slide aria-roledescription="slide" aria-label="4 of 4"><img src="assets/images/review-visitor-four.png" alt="Video still from a family’s visitor review"><figcaption>Visitor’s Review</figcaption></figure>
+      </div><div class="reviews__controls"><button type="button" data-carousel-prev aria-label="Previous review">Previous</button><div data-carousel-pagination role="group" aria-label="Review pagination"></div><button type="button" data-carousel-next aria-label="Next review">Next</button></div>
       <div class="visually-hidden" role="status" aria-live="off" aria-atomic="true" data-carousel-live></div></div>
     </section>
 
