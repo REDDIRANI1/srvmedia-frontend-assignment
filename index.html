@@ -93,7 +93,7 @@
         <div class="enquiry-form__field"><label for="parent-name">Parent's Name</label><input id="parent-name" name="parent-name" type="text" autocomplete="name" placeholder="Parent's Name" required></div>
         <div class="enquiry-form__field"><label for="phone">Phone number</label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="Phone number" required></div>
         <div class="enquiry-form__field"><label for="grade">Which grade are you looking for?</label><select id="grade" name="grade" autocomplete="off" required><option value="">Which grade are you looking for?</option><option>Pre-school</option><option>Primary school</option><option>Middle school</option><option>Senior school</option></select></div>
-        <button type="button" disabled aria-describedby="enquiry-availability">SUBMIT</button>
+        <button type="submit" disabled data-enquiry-submit aria-describedby="enquiry-availability">SUBMIT</button>
         <p class="visually-hidden" id="enquiry-availability" role="status" aria-live="polite" aria-atomic="true" data-enquiry-status>Enquiry submission is unavailable until a secure enquiry service is connected.</p>
         <p class="enquiry-form__note">Enquiry submission is currently unavailable. Your information will not be sent.</p>
       </form>

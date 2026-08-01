@@ -12,7 +12,37 @@
 (function () {
   'use strict';
 
+  function initEnquiryForm() {
+    var form = document.querySelector('[data-enquiry-form]');
+
+    if (!form) {
+      return;
+    }
+
+    var submitButton = form.querySelector('[data-enquiry-submit]');
+    var status = form.querySelector('[data-enquiry-status]');
+
+    if (!submitButton || !status) {
+      return;
+    }
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      status.textContent = 'This prototype does not send enquiries. Please call the event team to register.';
+    });
+
+    submitButton.disabled = false;
+  }
+
   function init() {
+    initEnquiryForm();
+
     var ns = window.PSE;
 
     if (!ns) {
