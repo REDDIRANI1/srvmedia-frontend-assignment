@@ -61,7 +61,7 @@
 (function () {
   'use strict';
 
-  var DESKTOP_STATIC_MIN_WIDTH = 1024;
+  var DESKTOP_STATIC_MIN_WIDTH = 1400;
   var DEFAULT_INTERVAL = 6000;
   var SWIPE_THRESHOLD = 40;
 
