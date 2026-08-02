@@ -1,7 +1,7 @@
 .site-header__inner, .site-footer__inner { width: 100%; max-width: var(--container-max-width); margin-inline: auto; }
 .site-header { height: 60px; background: #fff; }
 .site-header__inner { display: flex; height: 100%; align-items: center; justify-content: space-between; padding-inline: 21px; }
-.site-header__cta { display: none; }
+.site-header__cta { display: inline-flex !important; align-items: center; justify-content: center; }
 
 section:not(.hero, .trust, .registration-bar) { padding: var(--space-2xl) var(--space-md); }
 .section-heading { max-width: var(--container-max-width); margin: 0 auto var(--space-xl); text-align: center; }
@@ -39,7 +39,7 @@ section:not(.hero, .trust, .registration-bar) { padding: var(--space-2xl) var(--
 @media (min-width: 768px) and (max-width: 1399px) {
   .site-header { height: 60px; }
   .site-header__inner { padding-inline: 32px; }
-  .site-header__cta { display: none; }
+
   .hero { grid-template-rows: clamp(300px, 38vw, 420px) 146px 90px; min-height: 536px; }
   .enquiry-form { display: none; }
   .trust { height: auto; padding: 40px 0; }

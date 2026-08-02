@@ -363,6 +363,19 @@
 }
 
 @media (max-width: 767px) {
+  .site-header__cta {
+    width: 140px !important;
+    min-width: 140px !important;
+    height: 38px !important;
+    padding-left: 36px !important;
+    font-size: 11px !important;
+    border-width: 2px !important;
+    background: linear-gradient(90deg, #35105f 36px, #fff 36px) !important;
+  }
+  .site-header__cta::before {
+    width: 36px !important;
+    font-size: 15px !important;
+  }
   .hero {
     display: flex;
     flex-direction: column;
