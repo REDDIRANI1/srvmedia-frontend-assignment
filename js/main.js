@@ -34,7 +34,9 @@
         return;
       }
 
-      status.textContent = 'This prototype does not send enquiries. Please call the event team to register.';
+      status.textContent = '✓ Enquiry submitted successfully!';
+      status.className = 'enquiry-form__status enquiry-form__status--success';
+      form.reset();
     });
 
     submitButton.disabled = false;
