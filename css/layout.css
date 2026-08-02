@@ -9,17 +9,18 @@ section:not(.hero, .trust, .registration-bar) { padding: var(--space-2xl) var(--
 .hero { display: grid; grid-template-rows: 289px 146px 90px; min-height: 525px; padding: 0; overflow: hidden; contain: layout paint; background: linear-gradient(112deg, #18053f 0%, #2d0b5b 65%, #40136e 100%); color: #fff; }
 .hero__carousel { position: relative; width: 100%; min-width: 0; overflow: hidden; }
 .hero__viewport { width: 100%; height: 100%; overflow: hidden; touch-action: none; }
-.hero__track { display: flex; position: relative; }
-.hero__slide { display: block; flex: 0 0 100%; width: 100%; height: 100%; }
-.hero__slide[hidden] { display: none; }
+.hero__track { display: grid; position: relative; width: 100%; height: 100%; transition: transform var(--transition-base); }
+.hero__slide { display: block; width: 100%; min-width: 0; height: auto; min-height: 0; overflow: hidden; }
+:where(.choose-school__track, .reviews__track, .benefits__track) { transition: transform var(--transition-base); }
+[data-carousel].carousel--static :where(.hero__track, .choose-school__track, .reviews__track, .benefits__track) { transition: none; }
 .hero__content { display: flex; width: 100%; min-width: 0; grid-row: 2 / 4; flex-direction: column; align-items: center; text-align: center; }
 .hero__event { width: calc(100% - 40px); max-width: 390px; margin-inline: auto; }
 .enquiry-form { display: none; }
 .hero__controls { position: absolute; z-index: 4; top: 201px; left: 50%; display: grid; width: 176px; grid-template-columns: repeat(4, 44px); transform: translateX(-50%); }
 .hero__controls [data-carousel-pagination] { display: flex; grid-column: 2 / 5; grid-row: 2; }
 
-.trust { position: relative; height: 238px; padding: 52px 20px 0; background: #fff; }
-.trust__facts { display: grid; max-width: 380px; margin-inline: auto; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 75px); gap: 12px 26px; }
+.trust { position: relative; height: 238px; padding: 60px 20px 0; background: #fff; }
+.trust__facts { display: grid; max-width: 380px; margin-inline: auto; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 94px); gap: 36px 26px; }
 .registration-bar { position: relative; z-index: 3; display: grid; width: 100%; height: 50px; grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 0; }
 .registration-bar > * { min-width: 0; max-width: 100%; }
 
@@ -33,6 +34,7 @@ section:not(.hero, .trust, .registration-bar) { padding: var(--space-2xl) var(--
 .choose-school__slide, .exhibition__slide { flex: 0 0 100%; width: 100%; }
 .choose-school__slide[hidden], .exhibition__slide[hidden] { display: none; }
 .choose-school__controls, .choose-school__pagination, .exhibition__controls, .exhibition__pagination { display: flex; justify-content: center; gap: var(--space-sm); margin-top: var(--space-md); }
+.carousel-controls--static { display: none !important; }
 .site-footer { border-top: 1px solid var(--color-border); }
 
 @media (min-width: 768px) and (max-width: 1199px) {
@@ -41,8 +43,8 @@ section:not(.hero, .trust, .registration-bar) { padding: var(--space-2xl) var(--
   .site-header__cta { display: none; }
   .hero { grid-template-rows: clamp(300px, 38vw, 420px) 146px 90px; min-height: 536px; }
   .enquiry-form { display: none; }
-  .trust { height: 238px; padding-top: 45px; }
-  .trust__facts { max-width: 760px; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 78px); gap: 10px 30px; }
+  .trust { height: 238px; padding-top: 60px; }
+  .trust__facts { max-width: 760px; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 94px); gap: 20px 30px; }
   .registration-bar { display: grid; }
   .hero__controls { top: clamp(212px, 30vw, 332px); }
 }
@@ -57,13 +59,12 @@ section:not(.hero, .trust, .registration-bar) { padding: var(--space-2xl) var(--
   .enquiry-form { grid-area: form; display: flex; align-self: start; }
   .hero__event { width: 414px; max-width: 100%; margin: 26px 0 0; }
   .hero__controls { top: auto; right: 100px; bottom: 30px; left: auto; width: 176px; transform: none; }
-  .trust { height: 200px; padding: 17px max(calc((100vw - 1407px) / 2), 30px); }
-  .trust__facts { max-width: 1407px; grid-template-columns: repeat(4, 1fr); gap: 45px; }
+  .trust { height: 200px; padding: 17px max(calc((100vw - 1372px) / 2), 30px); }
+  .trust__facts { max-width: 1372px; grid-template-columns: repeat(4, 1fr); gap: 45px; }
   .registration-bar { display: none; }
   .choose-school__viewport { overflow: visible; }
-  .choose-school__track { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-lg); }
+  .choose-school__track { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-lg); height: auto; }
   .choose-school__slide { width: auto; }
-  .choose-school__slide[hidden] { display: block; }
   .choose-school__controls, .choose-school__pagination { display: none; }
 }
 
@@ -72,8 +73,8 @@ section:not(.hero, .trust, .registration-bar) { padding: var(--space-2xl) var(--
 .choose-school,
 .exhibition { max-width: none; }
 
-.participating-schools { height: 346px; margin-top: 57px; padding: 29px 0 18px !important; overflow: hidden; }
-.participating-schools__rows { margin-top: 27px; }
+.participating-schools { height: 346px; margin-top: 57px; padding: 0 !important; overflow: hidden; }
+.participating-schools__rows { margin-top: 10px; }
 .event-video { position: relative; height: 240px; margin-top: 60px; padding: 0 !important; overflow: hidden; }
 .choose-school { height: 384px; margin-top: 60px; padding: 0 0 0 20px !important; overflow: hidden; }
 .choose-school__carousel { width: 100%; }
@@ -83,7 +84,6 @@ section:not(.hero, .trust, .registration-bar) { padding: var(--space-2xl) var(--
 .appointment { position: relative; display: flex; height: 536px; margin-top: 60px; padding: 0 !important; flex-direction: column-reverse; overflow: hidden; }
 .appointment > div { height: 292px; padding: 35px 20px 20px; }
 .appointment > img:first-child { width: 100%; height: 244px; object-fit: cover; }
-.appointment > img:nth-child(2) { position: absolute; right: -22px; bottom: 0; width: 142px; height: 208px; object-fit: contain; object-position: bottom; }
 .attractions { display: grid; height: 779px; margin-top: 60px; padding: 43px 20px 26px !important; grid-template-areas: "heading" "media" "categories" "content"; grid-template-rows: auto 274px 39px auto; overflow: hidden; }
 .attractions > h2 { grid-area: heading; }
 .attractions__categories { grid-area: categories; }
@@ -94,11 +94,11 @@ section:not(.hero, .trust, .registration-bar) { padding: var(--space-2xl) var(--
 .attractions__viewport { overflow: visible !important; }
 .attractions__track { position: relative; width: 310px; height: 280px; margin: 17px auto 0; }
 .attraction-card { position: absolute; width: 126px; height: 126px; transform: rotate(45deg); overflow: hidden; }
-.attraction-card[hidden], .benefit-card[hidden], .review-card[hidden] { display: block; }
-.attraction-card:nth-child(1) { top: 0; left: 92px; }
-.attraction-card:nth-child(2) { top: 79px; left: 13px; }
-.attraction-card:nth-child(3) { top: 79px; right: 13px; }
-.attraction-card:nth-child(4) { right: 92px; bottom: 0; }
+.attraction-card--top { top: 0; left: 92px; }
+.attraction-card--left { top: 79px; left: 13px; }
+.attraction-card--right { top: 79px; right: 13px; }
+.attraction-card--bottom { right: 92px; bottom: 0; }
+.attraction-card.is-active { z-index: 3; }
 .benefits { position: relative; height: 719px; margin-top: 60px; padding: 48px 20px 74px !important; overflow: hidden; }
 .benefits__track { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
 .benefit-card { min-width: 0; }
@@ -136,18 +136,17 @@ section:not(.hero, .trust, .registration-bar) { padding: var(--space-2xl) var(--
 }
 
 @media (min-width: 1400px) {
-  .participating-schools { height: 362px; margin-top: 79px; padding-top: 40px !important; }
-  .participating-schools__rows { margin-top: 38px; }
+  .participating-schools { height: 362px; margin-top: 79px; padding-top: 0 !important; }
+  .participating-schools__rows { margin-top: 42px; }
   .event-video { height: 800px; margin-top: 100px; }
   .choose-school { height: 525px; margin-top: 80px; padding: 0 max(calc((100vw - 1726px) / 2), 70px) !important; }
   .choose-school__track { gap: 15px; }
   .school-card { width: auto; min-width: 0; }
   .school-card:nth-child(3) { order: 4; }
   .school-card:nth-child(4) { order: 3; }
-  .appointment { display: grid; height: 725px; margin-top: 80px; grid-template-columns: 47% 53%; }
-  .appointment > div { height: 100%; padding: 178px 0 0 max(calc((100vw - 1640px) / 2), 70px); }
-  .appointment > img:first-child { grid-column: 2; grid-row: 1; width: 100%; height: 100%; }
-  .appointment > img:nth-child(2) { right: 2%; width: 370px; height: 550px; }
+  .appointment { display: grid; height: 725px; margin-top: 80px; grid-template-columns: 38.85% 61.15%; grid-template-rows: minmax(0, 1fr); }
+  .appointment > div { min-height: 0; height: 100%; padding: 159px 0 0 max(calc((100vw - 1720px) / 2), 70px); }
+  .appointment > img:first-child { grid-column: 2; grid-row: 1; width: 100%; height: 100%; min-height: 0; object-fit: cover; }
   .attractions { height: 852px; margin-top: 0; padding: 80px max(calc((100vw - 1640px) / 2), 70px) 74px !important; grid-template-areas: "media heading" "media categories" "media content"; grid-template-columns: 50% 50%; grid-template-rows: 135px 62px 1fr; }
   .attractions__track { width: 650px; height: 580px; margin-top: 20px; }
   .attraction-card { width: 260px; height: 260px; }
@@ -158,7 +157,6 @@ section:not(.hero, .trust, .registration-bar) { padding: var(--space-2xl) var(--
   .benefits { height: 767px; margin-top: 0; padding: 80px 0 100px max(calc((100vw - 1720px) / 2), 100px) !important; }
   .benefits__track { display: flex; width: 2149px; gap: 16px; }
   .benefit-card { flex: 0 0 417px; }
-  .benefit-card:nth-child(n+6) { display: none; }
   .reviews { height: 402px; margin-top: 81px; padding: 55px max(calc((100vw - 1640px) / 2), 70px) 44px !important; }
   .reviews__track { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
   .review-card { width: auto; }
@@ -170,3 +168,27 @@ section:not(.hero, .trust, .registration-bar) { padding: var(--space-2xl) var(--
   .site-footer__social { grid-row: 1; }
   .site-footer > p:last-child { grid-column: 1 / -1; grid-row: 2; }
 }
+
+/* Keep the authored content readable when carousel enhancement is unavailable. */
+.no-js .hero { grid-template-rows: auto; min-height: 0; overflow: visible; contain: none; }
+.no-js .hero__carousel { height: 289px; }
+.no-js .hero__content { grid-row: auto; }
+.no-js .enquiry-form { display: flex; width: min(466px, 100%); margin: 0 auto; }
+.no-js .participating-schools { height: auto; overflow: visible; }
+.no-js .marquee { overflow: visible; }
+.no-js .marquee__track { display: block; width: auto; }
+.no-js .marquee__list { width: auto; flex-wrap: wrap; }
+.no-js :where(.choose-school, .benefits, .reviews, .gallery) { height: auto; min-height: 0; overflow: visible; }
+.no-js :where(.choose-school__viewport, .benefits__viewport, .reviews__viewport) { overflow: visible; }
+.no-js .choose-school__track { display: grid; width: auto; grid-template-columns: 1fr; gap: 16px; }
+.no-js .school-card { width: auto; min-width: 0; flex: none; }
+.no-js .benefits__track { display: grid; width: auto; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.no-js .reviews__track { display: grid; width: auto; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.no-js .review-card { width: auto; flex: none; }
+.no-js .gallery__grid { display: grid; width: auto; height: auto; grid-template-columns: repeat(2, minmax(0, 1fr)); overflow: visible; transform: none; }
+.no-js .gallery__figure { height: 200px; min-width: 0; flex: none; transform: none; }
+.no-js .site-footer { display: block; height: auto; min-height: 0; }
+.no-js .site-footer > img { margin-bottom: 24px; }
+.no-js .site-footer address, .no-js .site-footer__contact { position: static; width: auto; height: auto; padding: 0; margin: 0 0 24px; overflow: visible; clip: auto; white-space: normal; }
+.no-js .site-footer__social { margin-top: 24px; }
+.no-js .site-footer > p:last-child { position: static; min-height: 39px; margin-top: 24px; }

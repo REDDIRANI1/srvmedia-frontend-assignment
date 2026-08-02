@@ -2,6 +2,7 @@
 # These are local working documents, not part of the shipped source.
 IMPLEMENTATION_PLAN.md
 tasks.md
+pending.md
 FIGMA_DESIGN_EXTRACTION.md
 .figma-extraction/
 Frontend Task.docx

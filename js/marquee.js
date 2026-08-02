@@ -43,7 +43,10 @@
     this.direction = root.dataset.marqueeDirection === 'right' ? 'right' : 'left';
 
     this.isPaused = false;
+    this._visibilityPaused = false;
     this.prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    this.motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    this._onMotionPreferenceChange = this._onMotionPreferenceChange.bind(this);
 
     this.init();
   }
@@ -57,6 +60,12 @@
 
     this._buildAccessibleClone();
     this._bindHoverPause();
+    this._bindVisibilityPause();
+    if (this.motionQuery.addEventListener) {
+      this.motionQuery.addEventListener('change', this._onMotionPreferenceChange);
+    } else if (this.motionQuery.addListener) {
+      this.motionQuery.addListener(this._onMotionPreferenceChange);
+    }
 
     if (this.prefersReducedMotion) {
       this.pause({ silent: true });
@@ -113,16 +122,33 @@
         self._applyPausedState();
       });
     });
-    ['mouseleave', 'focusout'].forEach(function (evt) {
-      self.root.addEventListener(evt, function () {
+    self.root.addEventListener('mouseleave', function () {
+      self._hoverPaused = false;
+      self._applyPausedState();
+    });
+    self.root.addEventListener('focusout', function (event) {
+      if (!event.relatedTarget || !self.root.contains(event.relatedTarget)) {
         self._hoverPaused = false;
         self._applyPausedState();
-      });
+      }
     });
   };
 
+  Marquee.prototype._bindVisibilityPause = function () {
+    var self = this;
+    document.addEventListener('visibilitychange', function () {
+      self._visibilityPaused = document.hidden;
+      self._applyPausedState();
+    });
+  };
+
+  Marquee.prototype._onMotionPreferenceChange = function (event) {
+    this.prefersReducedMotion = event.matches;
+    this._applyPausedState();
+  };
+
   Marquee.prototype._applyPausedState = function () {
-    var shouldPause = this.isPaused || this._hoverPaused || this.prefersReducedMotion;
+    var shouldPause = this.isPaused || this._hoverPaused || this._visibilityPaused || this.prefersReducedMotion;
     this.track.classList.toggle('marquee__track--running', !shouldPause);
   };
 

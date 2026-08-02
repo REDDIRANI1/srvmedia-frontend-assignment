@@ -1,7 +1,8 @@
 # Premier Schools Exhibition (PSE) — Landing Page
 
-Static, framework-free landing page for the PSE campaign: Hero, Participating
-Schools, Choose the School, and Exhibition sections.
+Static, framework-free landing page for the Premier Schools Exhibition campaign
+in Gurugram. The page contains the complete 13-region flow from the supplied
+desktop and mobile design references.
 
 ## Stack
 
@@ -13,55 +14,67 @@ No build step or dependencies required.
 
 ## Run locally
 
-Any static file server works. For example:
+Any static file server works. The QA harness uses:
 
 ```bash
-npx serve .
+python3 -m http.server 8931 --bind 127.0.0.1
 ```
 
-or
-
-```bash
-python3 -m http.server 8080
-```
-
-Then open `http://localhost:8080` (or the port shown).
+Then open `http://127.0.0.1:8931`.
 
 ## Project structure
 
 ```
 index.html
 css/
-  base.css        # custom properties (provisional tokens), reset, typography, a11y baseline
+  base.css        # tokens, reset, typography, a11y baseline
   layout.css       # container/grid/flex layout foundations per section
   components.css   # BEM component styles
 js/
   main.js          # defensive init/orchestration
-  carousel.js       # shared carousel (hero dual-axis*, choose-school + exhibition single-axis)
+  carousel.js       # shared hero and responsive section carousels
   marquee.js         # continuous logo marquee (separate from carousel.js by design)
 assets/
   images/
   icons/
 ```
 
-\* Hero dual-axis interaction is implemented as a horizontal slide-index
-carousel plus the minimal keyboard/swipe extension points for a vertical
-axis. The exact Figma dual-axis interaction model was not confirmed at
-implementation time (no Dev Mode access); the row/column content mapping
-in `index.html` and `js/carousel.js` documents the placeholder model used
-and what would need revisiting once Figma access is available.
+* Hero uses independent row/column navigation for horizontal and vertical
+movement, keyboard controls, dominant-axis pointer swipes, autoplay, and
+pause controls. The exact Figma prototype mapping was not available offline,
+so the authored row/column mapping remains provisional and is documented in
+`index.html` and `js/carousel.js`.
 
-## Known limitations / provisional state
+## Implemented behavior
 
-- **Design tokens are provisional**, not extracted from the live Figma file.
-  Colors, spacing, and type scale live as CSS custom properties in
-  `css/base.css` for easy replacement once exact values are available.
-- **Content (copy, logos, images) is placeholder**, not final Figma content.
-  Placeholder SVGs live in `assets/images/`.
-- **Breakpoints are fallback tiers** (480/768/1024/1280px) per the
-  implementation plan, not confirmed Figma frame breakpoints.
-- Hero dual-axis behavior is a foundation, not the final interaction — see
-  the note above.
+- The hero autoplay pauses on hover, focus, hidden-page state, and persistent
+  user pause. Autoplay changes are silent; user changes use one polite live
+  region.
+- Choose School and Reviews become static grids from 768px. Benefits uses
+  responsive grouped pages. Attractions keeps all source-backed diamonds
+  visible and gives the selected panel a visible state; it does not autoplay.
+- School logos use two opposite-direction marquees with one shared pause/play
+  control. Generated duplicate logo lists are `aria-hidden` and non-focusable.
+- Reduced motion disables autoplay, marquee travel, and nonessential
+  transitions.
+- The enquiry form validates its fields and reports a truthful local-prototype
+  message. It does not send data. The event-video action opens an information
+  panel because no playback URL was supplied.
+- With JavaScript disabled, enhancement controls are hidden and the authored
+  cards, logos, reviews, gallery, form, and contact content remain readable.
+
+## Known limitations
+
+- The exact interactive hero row/column mapping needs confirmation from live
+  Figma Dev Mode. Do not treat the current mapping as source-backed behavior.
+- The extracted blog listing and inner-page flows are outside the authoritative
+  PSE landing-page scope; no blog routes or blog assets are included here.
+- Proprietary Museo Sans, Optima LT Std, and Proxima Nova files were not
+  supplied or licensed. Legal Open Sans, Raleway, and Archivo stacks plus
+  system fallbacks are used instead, so small line-wrap and rasterization
+  differences are expected.
+- No form endpoint or event-video URL was supplied, so both interactions are
+  intentionally local and truthful rather than simulated network behavior.
 
 ## Accessibility notes
 
@@ -79,67 +92,66 @@ and what would need revisiting once Figma access is available.
 
 ## QA status
 
-**Headless browser QA (2026-07-31):** Ran automated browser QA in headless
-Chrome (via temporary, non-project Playwright — no dependency added to this
-repo) against a local static server (`python3 -m http.server`). Covered 320,
-375, 768, 1024, 1440, 1920px widths plus a `prefers-reduced-motion: reduce`
-pass. Zero console errors, zero page errors, zero failed/4xx/5xx resource
-requests, and zero horizontal overflow at any width. No defects found — no
-code changes were required as a result of this pass.
+**Headless browser QA (2026-08-02):** Ran temporary CDP-driven Chrome checks
+against the local static server at 430, 768, 1024, 1399, 1440, and 1920px.
+The final pass reported zero runtime errors and no horizontal document
+overflow. Exact-width full-page captures were produced at 430px and 1920px;
+the rendered document heights were 5626px and 7072px respectively in Chrome
+with the vertical scrollbar present.
 
-**axe-core accessibility audit (2026-07-31):** Ran `axe-core` 4.10.2 against
-this project only, via temporary `playwright-core` driving system-installed
-Google Chrome (headless) against a local static server. No dependency,
-lockfile, or config added to this repo. **Zero violations** (serious,
-moderate, or minor) at 375×900 and 1440×900, in both default and
-autoplay-paused states. One benign `color-contrast` "incomplete" (needs-review,
-not a violation) on `aria-hidden="true"` decorative icon glyphs inside
-buttons, manually verified as high-contrast (`rgb(26,29,35)` on
-`rgb(255,255,255)`) — not a defect. No code changes were required as a
-result of this pass.
+The checks covered hero horizontal/vertical movement, school-card next and
+swipe movement, attraction selection, grouped Benefits navigation, autoplay,
+hover/focus/page-hidden pause reasons, persistent user pause, shared marquee
+pause/play, reduced motion, video information fallback, form demo handling,
+and JavaScript-disabled content fallback. Inactive carousel slides exposed no
+focusable descendants.
 
-**W3C HTML/CSS validation (2026-07-31):** Ran `index.html` through the
+**axe-core accessibility audit (2026-08-02):** Temporary `axe-core` 4.10.2
+audits reported **zero violations** (serious, moderate, or minor) at 430x900
+and 1440x900 in the default state, at 430x900 with the hero paused, and at
+430x900 with reduced motion. Axe reported only `color-contrast` incomplete
+checks for gradient/pseudo-element cases (42 mobile nodes and 61 desktop
+nodes); representative rendered color pairs were manually checked and pass
+WCAG AA, including the small-text and large-text cases. The repair pass also
+rechecked one heading, unique IDs, empty links, labelled form controls, image
+alternatives, accessible button names, and hidden-slide focusability.
+
+**W3C HTML/CSS validation (2026-08-02):** Ran `index.html` through the
 [Nu HTML Checker](https://validator.w3.org/nu/) and each of `css/base.css`,
 `css/components.css`, `css/layout.css` through the
 [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) (JSON output),
-via `curl`, this project only. **HTML: 0 errors, 0 warnings.** **CSS: 0
-errors** across all three files; **68 warnings total** (base.css 3,
-components.css 31, layout.css 34), all validator-specific/unavoidable or
-intentional — no fixes applied:
-- 65 `css-variable` warnings ("CSS variables are currently not statically
-  checked") — Jigsaw does not evaluate `var()`; inherent to using CSS
-  custom properties, not a defect.
-- 1 `vendor-extension` warning (`-webkit-text-size-adjust` in base.css) —
-  intentional mobile Safari text-zoom fix with no standard equivalent.
-- 1 `deprecatedproperty` warning (`clip` in base.css) — intentional legacy
-  screen-reader/browser fallback kept alongside `clip-path` in the
-  `.visually-hidden` utility, documented in a code comment.
+via `curl`. **HTML: 0 messages.** `layout.css` and `components.css` each
+returned **0 errors and 0 warnings**. The `base.css` request remained blocked
+by the validator's repeated TLS `bad record mac` response, so it is not
+claimed as validated.
 
-Re-ran `node --check` on `js/carousel.js`, `js/main.js`, `js/marquee.js`
-(pass, no syntax errors) as part of this session; no source files changed,
-so no Chrome smoke re-test was needed.
+`node --check` passes for `js/carousel.js`, `js/main.js`, and `js/marquee.js`.
+`git diff --check` passes.
 
-Still not run: real cross-browser matrix (Firefox/Safari/real mobile
-devices), screen reader pass — all require hardware not available in this
-environment.
+Still not run: the mandatory cross-browser matrix (Firefox, Safari, Edge,
+previous/current versions), real iOS/Android devices, and a manual VoiceOver
+or NVDA walkthrough. Those require hosted browser services or hardware not
+available in this environment.
 
 ## Local checks run
 
 These do not replace the QA items above but were run this session as the
 closest locally-available substitute:
 
-- `node --check` on `js/carousel.js`, `js/marquee.js`, `js/main.js` — pass,
-  no syntax errors.
-- Manual HTML structural check on `index.html` (tag balance, duplicate
-  `id` attributes, heading-level sequence) — pass: tags balanced, no
-  duplicate ids, heading order is `h1 → h2 → h3` with no skipped levels.
-- Manual grep confirmation: zero `role="slider"` usages anywhere in `js/`
-  or `index.html` (one code-comment mention only).
-- Manual trace of `carousel.js` slide-index/autoplay/pause logic and
-  `marquee.js` clone/pause logic — no defects found.
-- Fixed one defect found via static inspection: `css/layout.css` had
-  dead `.exhibition__slide` flex-basis rules (50%/33% at ≥768px/≥1024px)
-  that were never reachable, since `carousel.js` only ever unhides one
-  slide at a time for single-axis carousels. Removed so the exhibition
-  section renders as a single-slide-visible carousel consistently at
-  every breakpoint.
+- `node --check` on all three JavaScript files — pass.
+- Nu HTML validation — 0 messages.
+- CSS validation — 0 errors/warnings for `layout.css` and `components.css`;
+  `base.css` blocked by validator TLS failure.
+- Asset audit — all 53 tracked production images are referenced; the only
+  reported missing reference is the intentional inline SVG favicon data URI.
+- Structural DOM check — one `h1`, no duplicate IDs, no empty links, all
+  controls labelled, all form controls labelled, and no missing image `alt`.
+- Static search — no `role="slider"` or `href="#"` in shipped source.
+- Temporary browser QA — no console errors, no overflow, working carousel
+  movement and pause states, and readable JavaScript-disabled fallback.
+
+Local browser coverage includes Chrome 151 at 375, 430, 768, 1024, 1399,
+1440, and 1920px plus Firefox 153 screenshots at 430px and 1920px. Brave
+headless timed out with GPU/network errors; Safari automation required an
+unavailable password; VoiceOver was not manually walked; previous browser
+versions and physical iOS/Android devices were unavailable.

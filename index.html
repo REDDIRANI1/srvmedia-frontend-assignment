@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Premier Schools Exhibition — Gurugram</title>
   <meta name="description" content="Meet leading schools at the Premier Schools Exhibition in Gurugram, 2–3 August 2025.">
+  <script>document.documentElement.classList.remove('no-js');</script>
   <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='6'%20fill='%231d4ed8'/%3E%3Ctext%20x='16'%20y='22'%20font-family='sans-serif'%20font-size='14'%20font-weight='700'%20fill='%23fff'%20text-anchor='middle'%3EPSE%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,8 +28,9 @@
 
   <main id="main-content">
     <section class="hero" id="hero" aria-labelledby="hero-heading">
-      <div class="hero__carousel" data-carousel data-carousel-axis="dual" data-carousel-autoplay="true" role="region" aria-roledescription="carousel" aria-label="Premier Schools Exhibition highlights">
-        <div class="hero__track hero__viewport" data-carousel-track data-carousel-viewport>
+      <div class="hero__carousel" id="hero-carousel" data-carousel data-carousel-axis="dual" data-carousel-mode="track" data-carousel-autoplay="true" data-carousel-interval="6000" role="region" aria-roledescription="carousel" aria-label="Premier Schools Exhibition highlights">
+        <div class="hero__viewport" data-carousel-viewport>
+          <div class="hero__track" data-carousel-track>
           <div class="hero__slide" data-carousel-slide data-carousel-row="0" data-carousel-col="0" role="group" aria-roledescription="slide" aria-label="1 of 3, students exploring school activities">
             <div class="hero__mosaic">
               <picture class="hero__portrait"><source media="(max-width: 767px)" srcset="assets/images/hero-student-reading-mobile.png" width="2000" height="2000"><img src="assets/images/hero-student-reading-desktop.png" alt="Student reading" width="2000" height="1334" fetchpriority="high"></picture>
@@ -51,14 +53,15 @@
           </div>
           <div class="hero__slide" data-carousel-slide data-carousel-row="1" data-carousel-col="0" role="group" aria-roledescription="slide" aria-label="3 of 3, more student highlights">
             <div class="hero__mosaic">
-              <picture class="hero__portrait"><img src="assets/images/hero-girl-golfing.png" alt="" width="2000" height="1333" loading="lazy" decoding="async"></picture>
+              <picture class="hero__portrait"><source media="(max-width: 767px)" srcset="assets/images/hero-student-portrait-mobile.png" width="2000" height="1344"><img src="assets/images/hero-student-portrait-desktop.png" alt="Student taking part in an outdoor activity" width="1333" height="2000" loading="lazy" decoding="async"></picture>
               <picture class="hero__portrait"><source media="(max-width: 767px)" srcset="assets/images/hero-student-reading-mobile.png" width="2000" height="2000"><img src="assets/images/hero-student-reading-desktop.png" alt="" width="2000" height="1334" loading="lazy" decoding="async"></picture>
               <picture class="hero__portrait"><img src="assets/images/hero-smiling-girl.jpg" alt="" width="468" height="512" loading="lazy" decoding="async"></picture>
               <picture class="hero__portrait"><source media="(max-width: 767px)" srcset="assets/images/hero-girl-orange-shirt-mobile.png" width="2000" height="1333"><img src="assets/images/hero-girl-orange-shirt-desktop.png" alt="" width="2000" height="2000" loading="lazy" decoding="async"></picture>
               <picture class="hero__portrait"><img src="assets/images/hero-boy-purple-shirt.jpg" alt="" width="4096" height="2731" loading="lazy" decoding="async"></picture>
-              <picture class="hero__portrait"><source media="(max-width: 767px)" srcset="assets/images/hero-girl-denim-overalls-mobile.png" width="2000" height="1121"><img src="assets/images/hero-girl-denim-overalls-desktop.png" alt="" width="2000" height="1333" loading="lazy" decoding="async"></picture>
+              <picture class="hero__portrait"><source media="(max-width: 767px)" srcset="assets/images/hero-pill-mask-mobile.png" width="512" height="512"><img src="assets/images/hero-pill-mask-mobile.png" alt="Child enjoying an outdoor activity" width="512" height="512" loading="lazy" decoding="async"></picture>
             </div>
           </div>
+        </div>
         </div>
         <div class="hero__controls" role="group" aria-label="Hero carousel controls">
           <button type="button" data-carousel-prev aria-label="Previous hero image">Previous</button>
@@ -96,7 +99,7 @@
         <div class="enquiry-form__field"><label for="parent-name">Parent's Name</label><input id="parent-name" name="parent-name" type="text" autocomplete="name" placeholder="Parent's Name" required></div>
         <div class="enquiry-form__field"><label for="phone">Phone number</label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="Phone number" required></div>
         <div class="enquiry-form__field"><label for="grade">Which grade are you looking for?</label><select id="grade" name="grade" autocomplete="off" required><option value="">Which grade are you looking for?</option><option>Pre-school</option><option>Primary school</option><option>Middle school</option><option>Senior school</option></select></div>
-        <button type="submit" disabled data-enquiry-submit aria-describedby="enquiry-note">SUBMIT</button>
+        <button type="submit" data-enquiry-submit aria-describedby="enquiry-note">SUBMIT</button>
         <p class="visually-hidden" id="enquiry-availability" role="status" aria-live="polite" aria-atomic="true" data-enquiry-status></p>
         <p class="enquiry-form__note" id="enquiry-note">Enquiry submission is currently unavailable. Your information will not be sent.</p>
       </form>
@@ -106,7 +109,7 @@
       <h2 id="trust-heading">Trusted by</h2>
       <div class="trust__facts">
         <p class="trust-fact"><span>Trusted by</span> <strong>1 Million+</strong> <span>Parents</span></p>
-        <p class="trust-fact"><strong>22+</strong> <span>Years</span> <span>of Legacy</span></p>
+         <p class="trust-fact"><strong>22+</strong> <span>Years</span><br><span>of Legacy</span></p>
         <p class="trust-fact"><strong>500+</strong> <span>Participating Schools</span></p>
         <p class="trust-fact"><span class="visually-hidden">17 Cities Across the Globe on desktop; 16 Cities Across the Globe in the mobile design</span><span class="trust-fact__desktop" aria-hidden="true"><strong>17</strong> <span>Cities Across the Globe</span></span><span class="trust-fact__mobile" aria-hidden="true"><strong>16</strong> <span>Cities Across the Globe</span></span></p>
       </div>
@@ -118,13 +121,13 @@
 
     <section class="participating-schools" id="participating-schools" aria-labelledby="participating-heading">
       <h2 id="participating-heading">Participating Schools</h2>
-      <div class="participating-schools__rows">
-        <div class="marquee" data-marquee data-marquee-direction="left"><div class="marquee__track" data-marquee-track><ul class="marquee__list" data-marquee-content>
-          <li><img src="assets/images/school-harrow-international-logo.jpg" alt="Harrow International School logo"></li><li><img src="assets/images/school-tisb-logo.png" alt="The International School Bangalore logo"></li><li><img src="assets/images/school-shrewsbury-logo.jpg" alt="Shrewsbury International School India logo"></li><li><img src="assets/images/school-gsis-logo.jpg" alt="Good Shepherd International School logo"></li><li><img src="assets/images/school-kings-college-india-logo.jpg" alt="King’s College India logo"></li>
-        </ul><ul class="marquee__list" data-marquee-clone aria-hidden="true"></ul></div></div>
-        <div class="marquee" data-marquee data-marquee-direction="right"><div class="marquee__track" data-marquee-track><ul class="marquee__list" data-marquee-content>
-          <li><img src="assets/images/school-hopetown-logo.png" alt="Hopetown Girls’ School logo"></li><li><img src="assets/images/school-woodstock-logo.png" alt="Woodstock School logo"></li><li><img src="assets/images/school-heritage-logo.jpg" alt="Heritage International Xperiential School logo"></li><li><img src="assets/images/school-aga-khan-academy-logo.png" alt="Aga Khan Academy Mombasa logo"></li>
-        </ul><ul class="marquee__list" data-marquee-clone aria-hidden="true"></ul></div></div>
+       <div class="participating-schools__rows">
+         <div class="marquee" data-marquee data-marquee-direction="left"><div class="marquee__track" data-marquee-track><ul class="marquee__list" data-marquee-content>
+           <li><img src="assets/images/school-harrow-international-logo.jpg" alt="Harrow International School logo"></li><li><img src="assets/images/school-tisb-logo.png" alt="The International School Bangalore logo"></li><li><img src="assets/images/school-shrewsbury-logo.jpg" alt="Shrewsbury International School India logo"></li><li><img src="assets/images/school-gsis-logo.jpg" alt="Good Shepherd International School logo"></li><li><img src="assets/images/school-kings-college-india-logo.jpg" alt="King’s College India logo"></li><li><img src="assets/images/school-hopetown-logo.png" alt="Hopetown Girls’ School logo"></li><li><img src="assets/images/school-woodstock-logo.png" alt="Woodstock School logo"></li><li><img src="assets/images/school-heritage-logo.jpg" alt="Heritage International Xperiential School logo"></li><li><img src="assets/images/school-heritage-logo.jpg" alt="Heritage International Xperiential School logo"></li><li><img src="assets/images/school-aga-khan-academy-logo.png" alt="Aga Khan Academy Mombasa logo"></li>
+         </ul><ul class="marquee__list" data-marquee-clone aria-hidden="true"></ul></div></div>
+         <div class="marquee" data-marquee data-marquee-direction="right"><div class="marquee__track" data-marquee-track><ul class="marquee__list" data-marquee-content>
+           <li><img src="assets/images/school-harrow-international-logo.jpg" alt="Harrow International School logo"></li><li><img src="assets/images/school-tisb-logo.png" alt="The International School Bangalore logo"></li><li><img src="assets/images/school-shrewsbury-logo.jpg" alt="Shrewsbury International School India logo"></li><li><img src="assets/images/school-gsis-logo.jpg" alt="Good Shepherd International School logo"></li><li><img src="assets/images/school-kings-college-india-logo.jpg" alt="King’s College India logo"></li><li><img src="assets/images/school-hopetown-logo.png" alt="Hopetown Girls’ School logo"></li><li><img src="assets/images/school-woodstock-logo.png" alt="Woodstock School logo"></li><li><img src="assets/images/school-heritage-logo.jpg" alt="Heritage International Xperiential School logo"></li><li><img src="assets/images/school-heritage-logo.jpg" alt="Heritage International Xperiential School logo"></li><li><img src="assets/images/school-aga-khan-academy-logo.png" alt="Aga Khan Academy Mombasa logo"></li>
+         </ul><ul class="marquee__list" data-marquee-clone aria-hidden="true"></ul></div></div>
       </div>
       <button type="button" data-marquee-playpause-all aria-pressed="false" aria-label="Pause school logo animation">Pause school logos</button>
     </section>
@@ -136,14 +139,14 @@
         <img src="assets/images/event-pse-gurugram-2024-video-still.png" alt="Families and school representatives at the 2024 Gurugram Premier Schools Exhibition">
       </picture>
       <a href="#video-information" data-video-info>Play Event Video</a>
-      <aside class="event-video__information" id="video-information" aria-labelledby="video-information-heading" tabindex="-1">
-        <h3 id="video-information-heading">Event video information</h3><p>The event video is not available yet. This image is a still from the 2024 Gurugram exhibition; no playback link has been provided.</p>
-      </aside>
+       <div class="event-video__information" id="video-information" role="region" aria-labelledby="video-information-heading" tabindex="-1">
+         <h3 id="video-information-heading">Event video information</h3><p>The event video is not available yet. This image is a still from the 2024 Gurugram exhibition; no playback link has been provided.</p>
+       </div>
     </section>
 
     <section class="choose-school" id="choose-school" aria-labelledby="choose-school-heading">
       <h2 id="choose-school-heading">Choose the School That Fits You Best</h2>
-      <div class="choose-school__carousel" data-carousel data-carousel-autoplay="false" data-carousel-desktop-static="true" role="region" aria-roledescription="carousel" aria-label="School categories">
+      <div class="choose-school__carousel" id="choose-school-carousel" data-carousel data-carousel-mode="track" data-carousel-autoplay="false" data-carousel-static-min="768" role="region" aria-roledescription="carousel" aria-label="School categories">
         <div class="choose-school__viewport" data-carousel-viewport>
           <div class="choose-school__track" data-carousel-track>
             <article class="school-card" data-carousel-slide aria-roledescription="slide" aria-label="1 of 4"><img src="assets/images/choose-boarding-schools.png" alt="Students reading in a school library"><h3>Pre-Schools &amp; Early Learning Centres</h3><p>Nurturing foundational skills for toddlers and pre-primary children.</p></article>
@@ -158,7 +161,7 @@
     </section>
 
     <section class="appointment" id="appointment" aria-labelledby="appointment-heading">
-      <img src="assets/images/appointment-parent-consultation.jpg" alt="A parent discussing school options with an adviser"><img src="assets/images/appointment-schoolgirl-cutout.png" alt="" aria-hidden="true">
+       <img src="assets/images/appointment-parent-consultation.jpg" alt="A parent discussing school options with an adviser">
       <div><p class="appointment__eyebrow">Exciting Opportunities for Parents!</p><h2 id="appointment-heading">Pre-schedule Your<br>School Appointments</h2><p class="appointment__note">To Avoid Rush</p><a class="button" href="#enquiry-form">Pre-schedule Now</a></div>
     </section>
 
@@ -166,13 +169,13 @@
       <h2 id="attractions-heading">Other Attractions for Parents &amp; Kids</h2>
       <p class="attractions__categories"><span aria-current="true">Premier Kidz Awards</span><span>The Parent Exchange</span></p>
       <div class="attractions__content"><img src="assets/images/attraction-premier-kidz-awards-logo.png" alt="Premier Kidz Awards"><div><h3>Premier Kidz Awards</h3><p>A prestigious platform celebrating young talent and building confidence by giving children the spotlight to shine.</p><a href="#attraction-media">To know more</a></div></div>
-      <div class="attractions__carousel" id="attraction-media" data-carousel data-carousel-autoplay="false" role="region" aria-roledescription="carousel" aria-label="Premier Kidz Awards highlights">
+      <div class="attractions__carousel" id="attraction-media" data-carousel data-carousel-mode="select" data-carousel-autoplay="false" role="region" aria-roledescription="carousel" aria-label="Premier Kidz Awards highlights">
         <div class="attractions__viewport" data-carousel-viewport>
           <div class="attractions__track" data-carousel-track>
-            <figure class="attraction-card" data-carousel-slide role="group" aria-roledescription="slide" aria-label="1 of 4"><img src="assets/images/attraction-stage-performance-one.jpg" alt="A child performing on the Premier Kidz Awards stage"></figure>
-            <figure class="attraction-card" data-carousel-slide role="group" aria-roledescription="slide" aria-label="2 of 4"><img src="assets/images/attraction-stage-performance-two.jpg" alt="Young performers at the Premier Kidz Awards"></figure>
-            <figure class="attraction-card" data-carousel-slide role="group" aria-roledescription="slide" aria-label="3 of 4"><img src="assets/images/attraction-stage-performance-three.jpg" alt="A group performance on the awards stage"></figure>
-            <figure class="attraction-card" data-carousel-slide role="group" aria-roledescription="slide" aria-label="4 of 4"><img src="assets/images/attraction-stage-performance-four.jpg" alt="Children celebrating during a stage performance"></figure>
+            <figure class="attraction-card attraction-card--top" data-carousel-slide data-carousel-hide-mobile="true" role="group" aria-roledescription="slide" aria-label="1 of 4"><img src="assets/images/attraction-stage-performance-two.jpg" alt="A child performing on the Premier Kidz Awards stage"></figure>
+            <figure class="attraction-card attraction-card--left" data-carousel-slide role="group" aria-roledescription="slide" aria-label="2 of 4"><img src="assets/images/attraction-stage-performance-one.jpg" alt="A young performer at the Premier Kidz Awards"></figure>
+            <figure class="attraction-card attraction-card--right" data-carousel-slide role="group" aria-roledescription="slide" aria-label="3 of 4"><img src="assets/images/attraction-stage-performance-three.jpg" alt="A child celebrating at the Premier Kidz Awards"></figure>
+            <figure class="attraction-card attraction-card--bottom" data-carousel-slide role="group" aria-roledescription="slide" aria-label="4 of 4"><img src="assets/images/attraction-stage-performance-four.jpg" alt="Children celebrating during a Premier Kidz Awards performance"></figure>
           </div>
         </div><div class="attractions__controls"><button type="button" data-carousel-prev aria-label="Previous attraction">Previous</button><div data-carousel-pagination role="group" aria-label="Attraction pagination"></div><button type="button" data-carousel-next aria-label="Next attraction">Next</button></div>
         <div class="visually-hidden" role="status" aria-live="off" aria-atomic="true" data-carousel-live></div>
@@ -181,7 +184,7 @@
 
     <section class="benefits" id="benefits" aria-labelledby="benefits-heading">
       <h2 id="benefits-heading">What Makes This Exhibition a Must-Visit</h2>
-      <div class="benefits__carousel" data-carousel data-carousel-autoplay="false" data-carousel-desktop-static="true" role="region" aria-roledescription="carousel" aria-label="Reasons to visit">
+      <div class="benefits__carousel" id="benefits-carousel" data-carousel data-carousel-mode="group" data-carousel-per-view="4" data-carousel-per-view-tablet="3" data-carousel-per-view-desktop="5" data-carousel-order="1,6,3,4,5,0,2" data-carousel-autoplay="false" role="region" aria-roledescription="carousel" aria-label="Reasons to visit">
         <div class="benefits__viewport" data-carousel-viewport>
           <div class="benefits__track" data-carousel-track>
             <article class="benefit-card" data-carousel-slide aria-roledescription="slide" aria-label="1 of 7"><h3>Meet Gurugram’s Leading Schools</h3><p>From pre-nursery to senior secondary</p></article>
@@ -199,7 +202,7 @@
 
     <section class="reviews" id="reviews" aria-labelledby="reviews-heading">
       <h2 id="reviews-heading">What Makes Parents Choose Us</h2>
-      <div class="reviews__carousel" data-carousel data-carousel-autoplay="false" data-carousel-desktop-static="true" role="region" aria-roledescription="carousel" aria-label="Visitor reviews">
+      <div class="reviews__carousel" id="reviews-carousel" data-carousel data-carousel-mode="track" data-carousel-autoplay="false" data-carousel-static-min="768" role="region" aria-roledescription="carousel" aria-label="Visitor reviews">
         <div class="reviews__viewport" data-carousel-viewport>
           <div class="reviews__track" data-carousel-track>
             <figure class="review-card" data-carousel-slide aria-roledescription="slide" aria-label="1 of 4"><img src="assets/images/review-visitor-one.png" alt="Video still of a visitor sharing feedback"><figcaption>Visitor’s Review</figcaption></figure>

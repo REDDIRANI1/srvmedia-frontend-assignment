@@ -60,6 +60,8 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 700; line-height
 .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 .button, .btn { display: inline-flex; min-height: 44px; align-items: center; justify-content: center; font-family: var(--font-ui); font-weight: 700; text-transform: uppercase; }
 
+[data-carousel-slide][hidden] { display: none !important; }
+
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .001ms !important; }
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition: none !important; }
 }
