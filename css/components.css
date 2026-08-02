@@ -38,13 +38,8 @@
 .hero__controls [data-carousel-pagination] button { width: 44px; height: 44px; padding: 18px; border: 0; background-clip: content-box; border-radius: 50%; }
 .hero__controls [data-carousel-pagination] button[aria-current="true"] { background-color: var(--color-gold); color: var(--color-navy); }
 
-.trust > h2 { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); }
-.trust-fact { position: relative; z-index: 0; min-width: 0; min-height: 64px; padding: 8px 28px 0; color: var(--color-navy); font: 600 13px/16px var(--font-body); letter-spacing: -.02em; text-align: center; }
-.trust-fact::before, .trust-fact::after { position: absolute; z-index: -1; top: 0; width: 32px; height: 60px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 93 165'%3E%3Cpath d='M78 162C80 112 67 44 15 3' fill='none' stroke='%23e6c88e' stroke-width='2'/%3E%3Cg fill='%23e6c88e'%3E%3Cpath d='M68 146c-11-1-17-7-21-14 10-1 18 3 21 14Z'/%3E%3Cpath d='M64 131c-10 0-16-5-21-12 10-1 17 2 21 12Z'/%3E%3Cpath d='M59 115c-10 0-16-5-21-12 10-1 17 2 21 12Z'/%3E%3Cpath d='M53 99c-10 0-16-5-21-12 10-1 17 2 21 12Z'/%3E%3Cpath d='M46 83c-10 0-16-5-21-12 10-1 17 2 21 12Z'/%3E%3Cpath d='M39 68c-10 0-16-5-21-12 10-1 17 2 21 12Z'/%3E%3Cpath d='M32 53c-9-1-15-6-20-13 9 0 16 4 20 13Z'/%3E%3Cpath d='M26 38c-8-1-14-6-18-13 8 0 14 4 18 13Z'/%3E%3Cpath d='M20 24c-7-1-12-5-16-11 7 0 12 3 16 11Z'/%3E%3Cpath d='M16 11C10 11 5 7 2 2c6 0 11 3 14 9Z'/%3E%3C/g%3E%3C/svg%3E") center / 100% 100% no-repeat; content: ""; opacity: .85; }
-.trust-fact::before { left: 0; }
-.trust-fact::after { right: 0; transform: scaleX(-1); }
-.trust-fact > span:not(.visually-hidden), .trust-fact > strong { display: block; position: relative; z-index: 1; white-space: nowrap; }
-.trust-fact strong { font: inherit; }
+.trust__image-container { display: flex; justify-content: center; align-items: center; width: 100%; max-width: var(--container-max-width); margin-inline: auto; padding: 10px 20px; }
+.trust__image { width: 100%; max-width: 1200px; height: auto; object-fit: contain; }
 .registration-bar { font-family: var(--font-ui); text-transform: uppercase; }
 .registration-bar h2, .registration-bar a { display: flex; align-items: center; justify-content: center; text-align: center; }
 .registration-bar h2 { background: var(--color-gold); color: var(--color-navy); font-size: 11px; }
@@ -92,9 +87,7 @@
   .hero__content h1 { width: min(502px, 100%); padding: 0; color: var(--color-gold-light); font-size: clamp(38px, 2.5vw, 48px); line-height: 1.5; font-weight: 600; }
   .hero__content h1 br { display: block; }
   .hero__content h1 span { margin-top: 0; color: var(--color-gold-light); font-size: 30px; line-height: 45px; font-weight: 500; text-transform: uppercase; }
-  .trust-fact { min-height: 165px; padding: 32px 85px 0; font: 600 28px/33.55px var(--font-body); }
-  .trust-fact::before, .trust-fact::after { width: 92.6px; height: 165px; }
-  .trust-fact strong { font: inherit; }
+
   .enquiry-form { width: min(414px, calc(100% - clamp(0px, calc((100vw - 1400px) / 5.2), 100px))); max-width: 414px; height: 435px; min-height: 435px; margin: 109px 0 0 var(--hero-form-offset); padding: 18px 24px 20px; }
   .enquiry-form h2 { margin-bottom: 14px; font-size: 32px; line-height: 45px; }
   .enquiry-form__field { margin-bottom: 12px; }
@@ -362,23 +355,7 @@
   .hero__content {
     margin-top: 20px;
   }
-  .trust__facts {
-    display: flex !important;
-    overflow-x: auto !important;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
-    gap: 16px !important;
-    padding: 10px 20px !important;
-    scroll-snap-type: x mandatory;
-    max-width: 100% !important;
-  }
-  .trust__facts::-webkit-scrollbar {
-    display: none;
-  }
-  .trust-fact {
-    flex: 0 0 140px !important;
-    scroll-snap-align: center;
-  }
+
   .hero__controls {
     top: 240px;
     width: auto;
