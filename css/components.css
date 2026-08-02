@@ -54,16 +54,16 @@
 .registration-bar a { min-height: 50px; background: var(--color-navy); color: #fff; font-size: 14px; }
 .registration-bar h2, .registration-bar a { min-width: 0; padding-inline: 6px; overflow-wrap: anywhere; }
 
-.enquiry-form { width: min(466px, 100%); min-height: 526px; margin: 206px 0 0 auto; padding: 32px 24px 28px; flex-direction: column; background: rgb(45 10 83 / 90%); box-shadow: var(--shadow-card); }
-.enquiry-form h2 { margin-bottom: 16px; color: #fff; font-size: 27px; }
-.enquiry-form__field { margin-bottom: 30px; }
+.enquiry-form { width: min(466px, calc(100% - 32px)); max-width: 466px; min-height: auto; margin: 24px auto 0; padding: 24px 20px; flex-direction: column; background: rgb(45 10 83 / 90%); box-shadow: var(--shadow-card); border-radius: 12px; }
+.enquiry-form h2 { margin-bottom: 16px; color: #fff; font-size: 24px; text-align: center; }
+.enquiry-form__field { margin-bottom: 16px; }
 .enquiry-form label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); }
-.enquiry-form input, .enquiry-form select { width: 100%; height: 56px; padding: 0 18px; border: 1px solid #ba9bce; border-radius: 0; background: rgb(35 7 68 / 65%); color: #fff; }
+.enquiry-form input, .enquiry-form select { width: 100%; height: 48px; padding: 0 16px; border: 1px solid #ba9bce; border-radius: 6px; background: rgb(35 7 68 / 65%); color: #fff; box-sizing: border-box; }
 .enquiry-form input::placeholder { color: #fff; opacity: 1; }
 .enquiry-form select { color: #fff; }
-.enquiry-form button { width: 156px; min-height: 60px; border: 0; background: #fff; color: var(--color-navy); font-weight: 700; }
+.enquiry-form button { width: 100%; max-width: 200px; min-height: 50px; margin: 0 auto; border: 0; border-radius: 6px; background: #fff; color: var(--color-navy); font-weight: 700; display: flex; align-items: center; justify-content: center; }
 .enquiry-form button:disabled { cursor: not-allowed; opacity: .72; }
-.enquiry-form__note { margin-top: 8px; color: #e9dff2; font-size: 11px; }
+.enquiry-form__note { margin-top: 8px; color: #e9dff2; font-size: 11px; text-align: center; }
 .enquiry-form__status { margin-top: 10px; padding: 10px 14px; border-radius: 6px; font-size: 13px; font-weight: 600; line-height: 1.4; text-align: center; }
 .enquiry-form__status--success { background: #15803d; color: #ffffff; border: 1px solid #22c55e; }
 
