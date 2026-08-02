@@ -158,6 +158,10 @@
 .attractions__content > img { top: 144px; left: 50%; width: 91px; height: 87px; padding: 7px; background: #fff; transform: translateX(-50%); object-fit: contain; }
 .attraction-card--top { display: none; }
 .attraction-card { border: 5px solid #fff; border-radius: 8px; background: #fff; cursor: pointer; }
+.attraction-card--top { border-top-left-radius: 50%; }
+.attraction-card--right { border-top-right-radius: 50%; }
+.attraction-card--bottom { border-bottom-right-radius: 50%; }
+.attraction-card--left { border-bottom-left-radius: 50%; }
 .attraction-card img { width: 145%; max-width: none; height: 145%; object-fit: cover; transform: rotate(-45deg) translate(-16%, -16%); }
 .attraction-card.is-active { box-shadow: 0 0 0 4px var(--color-gold), 0 12px 24px rgb(25 8 67 / 28%); }
 .attractions__categories { display: grid; grid-template-columns: 1fr 1fr; align-items: center; border: 1px solid #35105f; color: #35105f; font: 700 8px/1 var(--font-ui); text-align: center; text-transform: uppercase; }
