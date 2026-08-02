@@ -118,7 +118,7 @@
 }
 
 /* Milestone 4: complete source-backed sections. */
-.participating-schools { background: #fff; color: #2b0a5b; }
+.participating-schools { position: relative !important; background: #fff; color: #2b0a5b; }
 .participating-schools h2, .choose-school > h2, .attractions > h2,
 .benefits > h2, .reviews > h2, .gallery > h2 { text-align: center; }
 .participating-schools h2 { font-size: 24px; line-height: 36px; }
@@ -219,8 +219,8 @@
 .site-footer > img { width: 54px; height: 54px; object-fit: contain; }
 .site-footer__social > p:first-child { margin-bottom: 12px; font-weight: 700; }
 .site-footer__social ul { display: flex; gap: 8px; }
-.site-footer__blog-link { display: inline-block; margin-top: 12px; font-weight: 700; color: var(--color-navy); text-decoration: underline; }
-.site-footer__blog-link:hover { color: var(--color-purple-light); }
+.site-footer__blog-link { display: inline-block; margin-top: 12px; font-weight: 700; color: #fff; text-decoration: underline; }
+.site-footer__blog-link:hover { color: var(--color-gold-light); }
 .site-footer__social li { width: 28px; height: 28px; overflow: hidden; border: 1px solid rgb(255 255 255 / 45%); border-radius: 5px; font-size: 0; }
 .site-footer__social li::before { display: grid; height: 100%; place-items: center; font-size: 14px; font-weight: 700; }
 .site-footer__social li:nth-child(1)::before { content: "◎"; font-size: 20px; }
@@ -318,3 +318,100 @@
 
 .no-js :where(.hero__controls, .choose-school__controls, .attractions__controls, .benefits__controls, .reviews__controls),
 .no-js [data-marquee-playpause-all] { display: none !important; }
+
+/* ==========================================================================
+   Mobile Responsive QA Audit Fixes (<= 1399px & <= 767px)
+   ========================================================================== */
+@media (max-width: 1399px) {
+  .enquiry-form {
+    display: flex !important;
+    width: min(calc(100% - 40px), 466px);
+    margin: 40px auto;
+    position: relative;
+    z-index: 10;
+  }
+  .site-footer {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    height: auto !important;
+    min-height: 300px;
+    gap: 24px;
+    padding: 32px 20px 20px !important;
+  }
+  .site-footer > img {
+    margin-bottom: 0 !important;
+  }
+  .site-footer address, .site-footer__contact {
+    position: static !important;
+    width: auto !important;
+    height: auto !important;
+    clip: auto !important;
+    overflow: visible !important;
+    margin: 0 !important;
+    text-align: center;
+  }
+  .site-footer > p:last-child {
+    position: static !important;
+    width: 100% !important;
+    font-size: 11px !important;
+    min-height: 40px;
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero__controls {
+    top: 240px;
+    width: auto;
+    grid-template-columns: repeat(3, 44px);
+  }
+  .hero__controls [data-carousel-up],
+  .hero__controls [data-carousel-down] { display: none; }
+  
+  .hero__event-row {
+    grid-template-columns: 1fr !important;
+    height: auto !important;
+    min-height: 90px;
+    padding: 12px 16px !important;
+    text-align: center;
+    gap: 6px;
+  }
+  .hero__event-row p + p { border-left: 0 !important; border-top: 1px solid rgb(255 255 255 / 70%); padding-top: 6px; }
+  
+  .participating-schools {
+    height: auto !important;
+    min-height: 346px;
+    padding-bottom: 50px !important;
+  }
+  .trust {
+    height: auto !important;
+    min-height: 238px;
+    padding: 40px 20px 40px !important;
+  }
+  
+  .benefits { height: auto !important; padding-bottom: 110px !important; }
+  .benefits__track { grid-template-columns: 1fr !important; gap: 16px !important; }
+  
+  .gallery { height: auto !important; padding: 0 20px !important; }
+  .gallery__grid { display: grid !important; grid-template-columns: 1fr !important; height: auto !important; border-radius: 0 !important; }
+  .gallery__figure { width: 100% !important; flex: auto !important; aspect-ratio: 16/9; transform: none !important; }
+  
+  .attractions__categories { font-size: 12px !important; min-height: 44px !important; }
+  .attractions__categories span { height: 44px !important; }
+  
+  .choose-school__track, .reviews__track {
+    scroll-snap-type: x mandatory;
+    padding-right: 20px !important;
+  }
+  .school-card, .review-card {
+    scroll-snap-align: center;
+    width: calc(100vw - 40px) !important;
+    min-width: calc(100vw - 40px) !important;
+    flex: 0 0 calc(100vw - 40px) !important;
+  }
+  .appointment .button, .attractions__content a {
+    font-size: 13px !important;
+    min-height: 44px !important;
+  }
+}

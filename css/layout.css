@@ -73,7 +73,7 @@ section:not(.hero, .trust, .registration-bar) { padding: var(--space-2xl) var(--
 .choose-school,
 .exhibition { max-width: none; }
 
-.participating-schools { height: 346px; margin-top: 57px; padding: 0 !important; overflow: hidden; }
+.participating-schools { position: relative; height: 346px; margin-top: 57px; padding: 0 !important; overflow: hidden; }
 .participating-schools__rows { margin-top: 10px; }
 .event-video { position: relative; height: 240px; margin-top: 60px; padding: 0 !important; overflow: hidden; }
 .choose-school { height: 384px; margin-top: 60px; padding: 0 0 0 20px !important; overflow: hidden; }
