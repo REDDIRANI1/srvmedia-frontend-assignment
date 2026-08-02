@@ -117,12 +117,11 @@
 .marquee__list li:nth-child(9) img, .marquee__list li:nth-child(10) img { width: 99px; height: 99px; }
 .marquee__playpause, [data-marquee-playpause-all] { position: absolute; z-index: 2; right: 9px; bottom: 7px; min-width: 44px; min-height: 44px; padding: 4px 8px; border: 1px solid #d5c9e1; border-radius: 22px; background: rgb(255 255 255 / 92%); color: #35105f; font-size: 9px; }
 
-.event-video::after { position: absolute; inset: 0; background: rgb(4 3 12 / 42%); content: ""; pointer-events: none; }
+/* removed overlay */
 .event-video > picture, .event-video > picture img { display: block; width: 100%; height: 100%; }
 .event-video > picture img { object-fit: cover; object-position: center 43%; }
 .event-video > h2 { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); }
-.event-video > a { position: absolute; z-index: 2; top: 50%; left: 50%; color: #fff; font: 600 11px/1 var(--font-ui); transform: translate(-50%, -50%); white-space: nowrap; }
-.event-video > a::before { display: inline-grid; width: 25px; height: 25px; margin-right: 7px; place-items: center; border-radius: 50%; background: #fff; color: #16053c; content: "▶"; font-size: 9px; vertical-align: middle; }
+/* removed a */
 .event-video__information { position: absolute; z-index: 3; right: 12px; bottom: 12px; width: min(360px, calc(100% - 24px)); padding: 15px; border-radius: 8px; background: rgb(25 8 67 / 94%); color: #fff; opacity: 0; pointer-events: none; transform: translateY(8px); }
 .event-video__information:target, .event-video__information:focus, .event-video__information:focus-within { opacity: 1; pointer-events: auto; transform: none; }
 
@@ -227,9 +226,8 @@
   .marquee__list li:nth-child(7) img { width: 110px; height: 110px; }
   .marquee__list li:nth-child(8) img { width: 124px; height: 110px; }
   .marquee__list li:nth-child(9) img, .marquee__list li:nth-child(10) img { width: 106px; height: 106px; }
-  .event-video::after { content: none; }
-  .event-video > a { top: auto; bottom: 40px; left: max(calc((100vw - 1726px) / 2), 70px); display: flex; width: 316px; height: 80px; align-items: center; background: transparent; font-size: 22px; transform: none; }
-  .event-video > a::before { width: 58px; height: 58px; font-size: 18px; }
+/* removed overlay none */
+/* removed a desktop */
   .choose-school > h2 { max-width: none; height: 96px; margin: 0; font-size: 38px; }
   .school-card { height: 405px; border-radius: 18px; }
   .school-card h3, .school-card p { margin-inline: 22px; }
