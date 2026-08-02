@@ -72,7 +72,7 @@ section:not(.hero, .trust, .registration-bar) { padding: var(--space-2xl) var(--
 
 .participating-schools { position: relative; height: auto; margin-top: 35px; padding: 25px 0 !important; overflow: hidden; }
 .participating-schools__rows { margin-top: 14px; }
-.event-video { position: relative; height: 240px; margin-top: 35px; padding: 0 !important; overflow: hidden; }
+.event-video { position: relative; height: auto; margin-top: 35px; padding: 0 !important; overflow: hidden; }
 .choose-school { height: auto; margin-top: 35px; padding: 0 16px !important; overflow: hidden; }
 .choose-school__carousel { width: 100%; }
 .choose-school__viewport { overflow: hidden; }
@@ -124,7 +124,7 @@ section:not(.hero, .trust, .registration-bar) { padding: var(--space-2xl) var(--
 
 @media (min-width: 768px) and (max-width: 1399px) {
   .participating-schools { height: 350px; margin-top: 40px; }
-  .event-video { height: clamp(360px, 42vw, 590px); }
+  .event-video { height: auto; }
   .choose-school { height: auto; min-height: 525px; padding-inline: 4vw !important; }
   .choose-school__track { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .school-card { width: auto; min-width: 0; }
@@ -145,7 +145,7 @@ section:not(.hero, .trust, .registration-bar) { padding: var(--space-2xl) var(--
 @media (min-width: 1400px) {
   .participating-schools { height: 362px; margin-top: 79px; padding-top: 0 !important; }
   .participating-schools__rows { margin-top: 42px; }
-  .event-video { height: 800px; margin-top: 100px; }
+  .event-video { height: auto; margin-top: 100px; }
   .choose-school { height: 525px; margin-top: 80px; padding: 0 !important; max-width: 1200px !important; margin-inline: auto; }
   .choose-school__track { display: grid !important; grid-template-columns: repeat(4, 1fr) !important; gap: 20px !important; width: 100% !important; }
   .school-card { width: auto !important; min-width: 0 !important; flex: none !important; }
