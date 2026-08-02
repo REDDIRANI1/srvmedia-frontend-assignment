@@ -114,7 +114,12 @@ checks for gradient/pseudo-element cases (42 mobile nodes and 61 desktop
 nodes); representative rendered color pairs were manually checked and pass
 WCAG AA, including the small-text and large-text cases. The repair pass also
 rechecked one heading, unique IDs, empty links, labelled form controls, image
-alternatives, accessible button names, and hidden-slide focusability.
+alternatives, accessible button names, and hidden-slide focusability. A later
+re-run caught WCAG 2.5.8 target-size failures on the small carousel
+pagination dots; the buttons now expose a 24x24 CSS-pixel hit area with the
+7px visible dot preserved via `background-clip: content-box`, and the
+re-audit (default, paused, and reduced-motion at 430 and 1440) reports zero
+violations again.
 
 **W3C HTML/CSS validation (2026-08-02):** Ran `index.html` through the
 [Nu HTML Checker](https://validator.w3.org/nu/) and each of `css/base.css`,
@@ -144,6 +149,12 @@ closest locally-available substitute:
   `base.css` blocked by validator TLS failure.
 - Asset audit — all 53 tracked production images are referenced; the only
   reported missing reference is the intentional inline SVG favicon data URI.
+- Figma geometry pass (2026-08-02) — CDP-measured positions and sizes for the
+  header CTA (205x60 with the split navy/arrow panel), marquee logo order and
+  per-slot sizing, attractions copy/logo/track/cards (631x668 track, 214x214
+  rotated cards), benefits cards/icons/controls, and the gallery wave overlay
+  match the extracted `696:1160` desktop and `696:1775` mobile frames
+  (sections within ~4px; mobile section tops/heights exact).
 - Structural DOM check — one `h1`, no duplicate IDs, no empty links, all
   controls labelled, all form controls labelled, and no missing image `alt`.
 - Static search — no `role="slider"` or `href="#"` in shipped source.
