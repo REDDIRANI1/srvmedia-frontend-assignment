@@ -488,3 +488,13 @@
     display: none !important;
   }
 }
+
+/* Figma Footer Adjustments */
+.site-footer__columns { display: flex !important; flex-wrap: wrap !important; justify-content: space-between !important; align-items: flex-start !important; gap: 20px !important; width: 100% !important; }
+.site-footer .footer-block { display: flex; gap: 15px; align-items: flex-start; }
+.site-footer .footer-icon { width: 44px; height: 44px; background: #e6d8f5; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.site-footer .social-icons-list { display: flex; gap: 10px; margin-top: 8px; }
+.site-footer .social-icons-list a { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; background: #e6d8f5; border-radius: 10px; }
+.site-footer__bottom-bar { position: absolute; left: 0; width: 100vw; background: #ffffff; padding: 20px 0; text-align: center; }
+.site-footer__bottom-bar p { color: #241044 !important; margin: 0; font-size: 11px; font-weight: 600; }
+.site-footer { padding-bottom: 80px !important; }
