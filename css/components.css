@@ -468,6 +468,7 @@
   .attractions__controls, .benefits__controls, .choose-school__controls, .reviews__controls {
     display: none !important;
   }
-  
-
+  .registration-bar {
+    display: none !important;
+  }
 }
