@@ -96,9 +96,10 @@ section:not(.hero, .trust, .registration-bar) { padding: var(--space-2xl) var(--
 .attraction-card--right { top: 70px; right: 10px; }
 .attraction-card--bottom { right: 85px; bottom: 0; }
 .attraction-card.is-active { z-index: 3; }
-.benefits { position: relative; height: auto; margin-top: 35px; padding: 35px 16px 50px !important; overflow: hidden; }
-.benefits__track { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
-.benefit-card { min-width: 0; }
+.benefits { position: relative; height: auto; margin-top: 35px; padding: 35px 0 50px !important; overflow: hidden; }
+.benefits__viewport { width: 100%; overflow: hidden; touch-action: pan-y; }
+.benefits__track { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 0 16px 8px; -webkit-overflow-scrolling: touch; }
+.benefit-card { flex: 0 0 240px; width: 240px; scroll-snap-align: start; }
 .reviews { height: auto; margin-top: 35px; padding: 30px 0 20px 16px !important; overflow: hidden; }
 .reviews__viewport { overflow: visible !important; }
 .reviews__track { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 8px; -webkit-overflow-scrolling: touch; }

@@ -407,8 +407,7 @@
     padding: 40px 0 !important;
   }
   
-  .benefits { height: auto !important; padding-bottom: 40px !important; }
-  .benefits__track { grid-template-columns: 1fr !important; gap: 16px !important; display: grid !important; }
+
   
   .gallery { height: auto !important; padding: 0 20px !important; }
   .gallery__grid { display: grid !important; grid-template-columns: 1fr !important; height: auto !important; border-radius: 0 !important; gap: 16px; }
