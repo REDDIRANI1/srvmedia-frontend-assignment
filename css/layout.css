@@ -166,7 +166,7 @@ section:not(.hero, .trust, .registration-bar) { padding: var(--space-2xl) var(--
   .gallery { height: 644px; margin-top: 80px; padding: 0 !important; }
   .gallery__grid { display: flex; height: 589px; gap: 16px; transform: translateX(max(calc((100vw - 1720px) / 2), 100px)); }
   .gallery__figure { height: 589px; flex: 0 0 44.35vw; transform: none; }
-  .site-footer { height: auto; min-height: 334px; margin-top: 60px; padding: 55px max(calc((100vw - 1640px) / 2), 70px) 40px; grid-template-columns: 220px 1fr 1fr 180px 220px; grid-template-rows: 1fr auto; gap: 35px; overflow: visible; }
+  .site-footer { display: grid; height: auto; min-height: 334px; margin-top: 60px; padding: 55px max(calc((100vw - 1640px) / 2), 70px) 40px; grid-template-columns: 220px 1fr 1fr 180px 220px; grid-template-rows: 1fr auto; gap: 35px; overflow: visible; }
   .site-footer address, .site-footer__contact { position: static; width: auto; height: auto; padding: 0; margin: 0; overflow: visible; clip: auto; white-space: normal; }
   .site-footer__social { grid-row: 1; }
   .site-footer > p:last-child { position: static; grid-column: 1 / -1; grid-row: 2; margin-top: 20px; }
