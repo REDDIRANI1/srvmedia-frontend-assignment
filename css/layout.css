@@ -141,7 +141,7 @@ section:not(.hero, .trust, .registration-bar) { padding: var(--space-2xl) var(--
   .participating-schools { height: 362px; margin-top: 79px; padding-top: 0 !important; }
   .participating-schools__rows { margin-top: 42px; }
   .event-video { height: 800px; margin-top: 100px; }
-  .choose-school { height: 525px; margin-top: 80px; padding: 0 0 0 30px !important; max-width: 1260px; margin-inline: auto; }
+  .choose-school { height: 525px; margin-top: 80px; padding: 0 0 0 60px !important; max-width: 1300px; margin-inline: auto; }
   .choose-school__track { gap: 15px; }
   .school-card { width: auto; min-width: 0; }
   .school-card:nth-child(3) { order: 4; }
