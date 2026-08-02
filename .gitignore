@@ -10,3 +10,6 @@ Landing Page – Development Guidelines.docx
 
 # OS cruft
 .DS_Store
+
+# Local QA screenshots / captures
+.screenshots/
