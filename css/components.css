@@ -361,6 +361,25 @@
 }
 
 @media (max-width: 767px) {
+  .hero {
+    display: flex;
+    flex-direction: column;
+    height: auto !important;
+    min-height: 0 !important;
+    padding-bottom: 40px;
+  }
+  .hero__carousel {
+    height: 300px;
+    flex: none;
+  }
+  .hero__content {
+    margin-top: 20px;
+  }
+  .trust__facts {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto !important;
+    gap: 20px !important;
+  }
   .hero__controls {
     top: 240px;
     width: auto;
@@ -390,28 +409,82 @@
     padding: 40px 20px 40px !important;
   }
   
-  .benefits { height: auto !important; padding-bottom: 110px !important; }
-  .benefits__track { grid-template-columns: 1fr !important; gap: 16px !important; }
+  .benefits { height: auto !important; padding-bottom: 40px !important; }
+  .benefits__track { grid-template-columns: 1fr !important; gap: 16px !important; display: grid !important; }
   
   .gallery { height: auto !important; padding: 0 20px !important; }
-  .gallery__grid { display: grid !important; grid-template-columns: 1fr !important; height: auto !important; border-radius: 0 !important; }
+  .gallery__grid { display: grid !important; grid-template-columns: 1fr !important; height: auto !important; border-radius: 0 !important; gap: 16px; }
   .gallery__figure { width: 100% !important; flex: auto !important; aspect-ratio: 16/9; transform: none !important; }
   
   .attractions__categories { font-size: 12px !important; min-height: 44px !important; }
   .attractions__categories span { height: 44px !important; }
   
-  .choose-school__track, .reviews__track {
+  .choose-school__viewport {
+    overflow-x: auto !important;
+    scrollbar-width: none;
+  }
+  .choose-school__viewport::-webkit-scrollbar {
+    display: none;
+  }
+  .choose-school__track {
     scroll-snap-type: x mandatory;
     padding-right: 20px !important;
   }
-  .school-card, .review-card {
+  .school-card {
     scroll-snap-align: center;
     width: calc(100vw - 40px) !important;
     min-width: calc(100vw - 40px) !important;
     flex: 0 0 calc(100vw - 40px) !important;
   }
+  
+  .reviews__track {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  .review-card {
+    width: 100% !important;
+    min-width: 0 !important;
+    flex: auto !important;
+  }
+  
+  .appointment {
+    height: auto !important;
+    display: flex !important;
+  }
+  
   .appointment .button, .attractions__content a {
     font-size: 13px !important;
     min-height: 44px !important;
+  }
+  
+  .attractions {
+    height: auto !important;
+    min-height: 750px;
+    padding-bottom: 50px !important;
+  }
+  .attractions__content > img {
+    top: 10px !important;
+    width: 120px !important;
+    height: 115px !important;
+  }
+  .attractions__controls, .benefits__controls, .choose-school__controls, .reviews__controls {
+    display: none !important;
+  }
+  
+  .site-footer {
+    height: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 30px !important;
+    align-items: center !important;
+    text-align: center !important;
+    padding: 40px 20px 40px !important;
+    grid-template-rows: none !important;
+  }
+  .site-footer > p:last-child {
+    position: static !important;
+    margin-top: 20px !important;
+    line-height: 1.5 !important;
   }
 }
