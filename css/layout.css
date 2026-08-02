@@ -19,8 +19,8 @@ section:not(.hero, .trust, .registration-bar) { padding: var(--space-2xl) var(--
 .hero__controls { position: absolute; z-index: 4; top: 201px; left: 50%; display: grid; width: 176px; grid-template-columns: repeat(4, 44px); transform: translateX(-50%); }
 .hero__controls [data-carousel-pagination] { display: flex; grid-column: 2 / 5; grid-row: 2; }
 
-.trust { position: relative; height: 238px; padding: 60px 20px 0; background: #fff; }
-.trust__facts { display: grid; max-width: 380px; margin-inline: auto; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 94px); gap: 36px 26px; }
+.trust { position: relative; height: auto; padding: 25px 16px 20px; background: #fff; }
+.trust__facts { display: grid; max-width: 380px; margin-inline: auto; grid-template-columns: repeat(2, 1fr); gap: 16px 12px; }
 .registration-bar { position: relative; z-index: 3; display: grid; width: 100%; height: 50px; grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 0; }
 .registration-bar > * { min-width: 0; max-width: 100%; }
 
@@ -73,47 +73,50 @@ section:not(.hero, .trust, .registration-bar) { padding: var(--space-2xl) var(--
 .choose-school,
 .exhibition { max-width: none; }
 
-.participating-schools { position: relative; height: 346px; margin-top: 57px; padding: 0 !important; overflow: hidden; }
-.participating-schools__rows { margin-top: 10px; }
-.event-video { position: relative; height: 240px; margin-top: 60px; padding: 0 !important; overflow: hidden; }
-.choose-school { height: 384px; margin-top: 60px; padding: 0 0 0 20px !important; overflow: hidden; }
+.participating-schools { position: relative; height: auto; margin-top: 35px; padding: 25px 0 !important; overflow: hidden; }
+.participating-schools__rows { margin-top: 14px; }
+.event-video { position: relative; height: 240px; margin-top: 35px; padding: 0 !important; overflow: hidden; }
+.choose-school { height: auto; margin-top: 35px; padding: 0 16px !important; overflow: hidden; }
 .choose-school__carousel { width: 100%; }
 .choose-school__viewport { overflow: hidden; }
-.choose-school__track { gap: 16px; }
-.school-card { width: 290px; min-width: 290px; flex: 0 0 290px; }
-.appointment { position: relative; display: flex; height: 536px; margin-top: 60px; padding: 0 !important; flex-direction: column-reverse; overflow: hidden; }
-.appointment > div { height: 292px; padding: 35px 20px 20px; }
-.appointment > img:first-child { width: 100%; height: 244px; object-fit: cover; }
-.attractions { display: grid; height: 779px; margin-top: 60px; padding: 43px 20px 26px !important; grid-template-areas: "heading" "media" "categories" "content"; grid-template-rows: auto 274px 39px auto; overflow: hidden; }
-.attractions > h2 { grid-area: heading; }
-.attractions__categories { grid-area: categories; }
-.attractions__content { display: contents; }
-.attractions__content > img { position: absolute; z-index: 2; grid-area: media; }
-.attractions__content > div { grid-area: content; }
-.attractions__carousel { grid-area: media; }
+.choose-school__track { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 8px; -webkit-overflow-scrolling: touch; }
+.school-card { width: 250px; min-width: 250px; flex: 0 0 250px; scroll-snap-align: start; }
+.appointment { position: relative; display: flex; height: auto; margin-top: 35px; padding: 0 !important; flex-direction: column-reverse; overflow: hidden; }
+.appointment > div { height: auto; padding: 25px 20px 20px; text-align: center; }
+.appointment > img:first-child { width: 100%; height: 200px; object-fit: cover; }
+.attractions { display: flex; flex-direction: column; align-items: center; text-align: center; height: auto; margin-top: 35px; padding: 30px 16px 20px !important; gap: 16px; overflow: hidden; }
+.attractions > h2 { margin: 0; }
+.attractions__categories { width: 100%; max-width: 320px; }
+.attractions__content { display: flex; flex-direction: column; align-items: center; }
+.attractions__content > img { position: relative; top: auto; left: auto; transform: none; margin: 0 auto; }
+.attractions__content > div { padding-top: 10px; }
+.attractions__carousel { width: 100%; position: relative; }
 .attractions__viewport { overflow: visible !important; }
-.attractions__track { position: relative; width: 310px; height: 280px; margin: 17px auto 0; }
-.attraction-card { position: absolute; width: 126px; height: 126px; transform: rotate(45deg); overflow: hidden; }
-.attraction-card--top { top: 0; left: 92px; }
-.attraction-card--left { top: 79px; left: 13px; }
-.attraction-card--right { top: 79px; right: 13px; }
-.attraction-card--bottom { right: 92px; bottom: 0; }
+.attractions__track { position: relative; width: 280px; height: 250px; margin: 15px auto 0; }
+.attraction-card { position: absolute; width: 110px; height: 110px; transform: rotate(45deg); overflow: hidden; }
+.attraction-card--top { top: 0; left: 85px; }
+.attraction-card--left { top: 70px; left: 10px; }
+.attraction-card--right { top: 70px; right: 10px; }
+.attraction-card--bottom { right: 85px; bottom: 0; }
 .attraction-card.is-active { z-index: 3; }
-.benefits { position: relative; height: auto; min-height: 719px; margin-top: 60px; padding: 48px 20px 74px !important; overflow: hidden; }
-.benefits__track { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.benefits { position: relative; height: auto; margin-top: 35px; padding: 35px 16px 50px !important; overflow: hidden; }
+.benefits__track { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
 .benefit-card { min-width: 0; }
-.reviews { height: auto; min-height: 316px; margin-top: 60px; padding: 41px 0 20px 20px !important; overflow: hidden; }
+.reviews { height: auto; margin-top: 35px; padding: 30px 0 20px 16px !important; overflow: hidden; }
 .reviews__viewport { overflow: visible !important; }
-.reviews__track { display: flex; gap: 9px; }
-.review-card { flex: 0 0 283px; width: 283px; }
-.gallery { height: 234px; margin-top: 60px; padding: 0 !important; overflow: hidden; }
-.gallery__grid { display: flex; height: 182px; gap: 16px; overflow: hidden; border-radius: 50% / 10%; }
-.gallery__figure { height: 200px; flex: 0 0 289px; transform: translateY(-9px); }
-.site-footer { position: relative; display: grid; height: auto; min-height: 662px; margin-top: 60px; padding: 44px 20px 46px; grid-template-rows: 91px 1fr auto auto; border: 0; overflow: visible; }
-.site-footer > img { grid-row: 1; }
-.site-footer address, .site-footer__contact { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
-.site-footer__social { grid-row: 3; }
-.site-footer > p:last-child { position: static; grid-row: 4; min-height: 39px; margin-top: 20px; }
+.reviews__track { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 8px; -webkit-overflow-scrolling: touch; }
+.review-card { flex: 0 0 240px; width: 240px; scroll-snap-align: start; }
+.gallery { height: auto; margin-top: 35px; padding: 0 16px !important; overflow: hidden; }
+.gallery__grid { display: flex; height: 180px; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; border-radius: 12px; -webkit-overflow-scrolling: touch; }
+.gallery__figure { height: 180px; flex: 0 0 240px; scroll-snap-align: start; transform: none; }
+.site-footer { position: relative; display: flex; flex-direction: column; align-items: center; text-align: center; height: auto; margin-top: 35px; padding: 35px 20px 0; border: 0; overflow: visible; gap: 16px; }
+.site-footer > img { width: 80px; height: auto; object-fit: contain; margin-bottom: 4px; }
+.site-footer address, .site-footer__contact { position: static; width: auto; height: auto; padding: 0; margin: 0; overflow: visible; clip: auto; white-space: normal; color: #e9dff2; font-style: normal; font-size: 12px; line-height: 1.5; }
+.site-footer address strong { color: #fff; font-weight: 700; }
+.site-footer__contact p { color: #fff; font-weight: 700; margin-bottom: 4px; }
+.site-footer__contact a { display: inline-block; margin-inline: 6px; color: var(--color-gold-light); font-weight: 600; text-decoration: underline; }
+.site-footer__social { display: flex; flex-direction: column; align-items: center; margin-top: 4px; }
+.site-footer > p:last-child { width: 100%; margin-top: 16px; padding: 14px 16px; background: #ffffff; color: #241044; font-size: 11px; font-weight: 600; text-align: center; border-radius: 0; }
 
 @media (min-width: 768px) and (max-width: 1399px) {
   .participating-schools { height: 350px; margin-top: 40px; }
