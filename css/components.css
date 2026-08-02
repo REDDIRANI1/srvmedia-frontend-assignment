@@ -176,11 +176,16 @@
 .benefits::after { position: absolute; left: 50%; bottom: -170px; width: 140vw; height: 200px; border-radius: 50%; background: #fff; content: ""; transform: translateX(-50%); pointer-events: none; z-index: 2; }
 .benefits > h2 { max-width: 330px; margin: 0 auto 31px; font-size: 23px; line-height: 1.35; }
 .benefits__viewport { overflow: visible; }
-.benefit-card { position: relative; min-height: 126px; padding: 72px 10px 12px; border: 1px solid #6f52a0; border-radius: 12px; background: linear-gradient(145deg, #ddc0ff 0%, #edddff 100%); color: var(--color-navy); text-align: left; }
+.benefit-card { position: relative; min-height: 126px; padding: 72px 10px 12px; border: none; border-radius: 12px; background: #eadeff; color: var(--color-navy); text-align: left; }
 .benefit-card__icon { position: absolute; top: 24px; left: 10px; width: 42px; height: 42px; fill: none; stroke: #8155aa; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2.2; }
 .benefit-card h3 { color: var(--color-navy); font: 700 14px/21px var(--font-body); }
 .benefit-card p { margin-top: 0; color: var(--color-navy); font: 400 14px/21px var(--font-body); }
-.benefits__controls { display: flex; }
+.benefits__controls { display: flex; justify-content: center; }
+.benefits__controls > button { border-width: 2px !important; }
+.benefits__controls > button:first-child { background: transparent !important; border-color: #fff !important; }
+.benefits__controls > button:first-child::before { color: #fff !important; }
+.benefits__controls > button:last-child { background: #fff !important; border-color: #fff !important; }
+.benefits__controls > button:last-child::before { color: #170642 !important; }
 .benefits > .button { display: flex; width: 160px; min-height: 44px; margin: 22px auto 0; border: 1px solid #fff; color: #fff; font-size: 10px; }
 
 .reviews { background: #fff; color: #35105f; }
@@ -253,11 +258,11 @@
   .attractions__controls { display: none !important; }
   .benefits::after { bottom: -340px; height: 400px; width: 140vw; }
   .benefits > h2 { display: grid; max-width: none; height: 72px; margin-bottom: 40px; place-items: center; font-size: 48px; line-height: 72px; }
-  .benefit-card { min-height: 380px; padding: 138px 15px 25px 28px; border: 2px solid #6f52a0; border-radius: 20px; background: linear-gradient(145deg, #ddc0ff 0%, #edddff 100%); }
+  .benefit-card { min-height: 380px; padding: 138px 15px 25px 28px; border: none; border-radius: 20px; background: #eadeff; }
   .benefit-card__icon { position: absolute; top: 28px; left: 28px; width: 80px; height: 80px; fill: none; stroke: #8155aa; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2.5; }
   .benefit-card h3 { width: auto; max-width: none; color: var(--color-navy); font: 700 20px/28px var(--font-body); }
   .benefit-card p { width: auto; max-width: none; margin-top: 8px; color: var(--color-navy); font: 400 16px/24px var(--font-body); }
-  .benefits__controls { width: calc(100% + 100px); height: 60px; margin-top: 40px; margin-left: -100px; gap: 31.5px; }
+  .benefits__controls { width: auto; height: 60px; margin-top: 40px; margin-left: 0; gap: 31.5px; justify-content: center; }
   .benefits__controls > button { width: 60px; height: 60px; }
   .reviews > h2 { margin-bottom: 42px; font-size: 38px; }
   .review-card { height: 225px; border-radius: 14px; }
