@@ -153,7 +153,7 @@ section:not(.hero, .trust, .registration-bar) { padding: var(--space-2xl) var(--
   .appointment > div { min-height: 0; height: 100%; padding: 159px 0 0 max(calc((100vw - 1720px) / 2), 70px); }
   .appointment > img:first-child { grid-column: 2; grid-row: 1; width: 100%; height: 100%; min-height: 0; object-fit: cover; }
   .attractions { display: grid; height: 852px; margin-top: 0; padding: 182px max(calc((100vw - 1720px) / 2), 70px) 74px !important; grid-template-areas: "media heading" "media categories" "media content"; grid-template-columns: minmax(0, 57.3929%) minmax(0, 32.8488%); grid-template-rows: 142px 60px 1fr; column-gap: 0; row-gap: 24px; justify-content: space-between; }
-  .attractions__track { width: 631px; height: 668px; margin: -90px 0 0; }
+  .attractions__track { width: 631px; height: 668px; margin: -90px 0 0; transform: scale(0.85); transform-origin: left center; }
   .attraction-card { width: 214.25px; height: 214.25px; }
   .attraction-card--top { top: 43px; left: 209px; }
   .attraction-card--left { top: 232.5px; left: 44.5px; }
