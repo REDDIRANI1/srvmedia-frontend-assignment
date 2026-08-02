@@ -141,11 +141,9 @@ section:not(.hero, .trust, .registration-bar) { padding: var(--space-2xl) var(--
   .participating-schools { height: 362px; margin-top: 79px; padding-top: 0 !important; }
   .participating-schools__rows { margin-top: 42px; }
   .event-video { height: 800px; margin-top: 100px; }
-  .choose-school { height: 525px; margin-top: 80px; padding: 0 0 0 60px !important; max-width: 1300px !important; margin-inline: auto; }
-  .choose-school__track { gap: 15px; }
-  .school-card { width: auto; min-width: 0; }
-  .school-card:nth-child(3) { order: 4; }
-  .school-card:nth-child(4) { order: 3; }
+  .choose-school { height: 525px; margin-top: 80px; padding: 0 !important; max-width: 1200px !important; margin-inline: auto; }
+  .choose-school__track { display: grid !important; grid-template-columns: repeat(4, 1fr) !important; gap: 20px !important; width: 100% !important; }
+  .school-card { width: auto !important; min-width: 0 !important; flex: none !important; }
   .appointment { display: grid; height: 725px; margin-top: 80px; grid-template-columns: 38.85% 61.15%; grid-template-rows: minmax(0, 1fr); }
   .appointment > div { min-height: 0; height: 100%; padding: 159px 0 0 max(calc((100vw - 1720px) / 2), 70px); }
   .appointment > img:first-child { grid-column: 2; grid-row: 1; width: 100%; height: 100%; min-height: 0; object-fit: cover; }
