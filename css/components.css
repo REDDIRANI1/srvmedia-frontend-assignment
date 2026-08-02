@@ -95,12 +95,6 @@
   .hero__content h1 { width: min(502px, 100%); padding: 0; color: var(--color-gold-light); font-size: clamp(38px, 2.5vw, 48px); line-height: 1.5; font-weight: 600; }
   .hero__content h1 br { display: block; }
   .hero__content h1 span { margin-top: 0; color: var(--color-gold-light); font-size: 30px; line-height: 45px; font-weight: 500; text-transform: uppercase; }
-  .hero__event { height: 331px; padding: 10px 16px; border: 3px solid #dca34e; border-radius: 30px; background: var(--color-gold-light); overflow: hidden; }
-  .hero__event-row { height: 77px; border: 0; border-bottom: 1px solid rgb(25 8 67 / 30%); border-radius: 0; box-shadow: none; background: transparent; color: var(--color-navy); font-size: 16px; line-height: 24px; }
-  .hero__event-row:last-child { border-bottom: 0; }
-  .hero__event-row + .hero__event-row { margin-top: 0; }
-  .hero__event-row--duplicate { display: grid; }
-  .hero__event-row p + p { border-left-color: rgb(25 8 67 / 35%); }
   .trust-fact { min-height: 165px; padding: 32px 85px 0; font: 600 28px/33.55px var(--font-body); }
   .trust-fact::before, .trust-fact::after { width: 92.6px; height: 165px; }
   .trust-fact strong { font: inherit; }
