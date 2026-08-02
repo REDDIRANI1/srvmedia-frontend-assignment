@@ -43,8 +43,8 @@ section:not(.hero, .trust, .registration-bar) { padding: var(--space-2xl) var(--
   .site-header__cta { display: none; }
   .hero { grid-template-rows: clamp(300px, 38vw, 420px) 146px 90px; min-height: 536px; }
   .enquiry-form { display: none; }
-  .trust { height: 238px; padding-top: 60px; }
-  .trust__facts { max-width: 760px; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 94px); gap: 20px 30px; }
+  .trust { height: auto; padding: 40px 0; }
+  .trust__facts { max-width: 900px; grid-template-columns: repeat(4, 1fr); grid-template-rows: auto; gap: 20px; }
   .registration-bar { display: grid; }
   .hero__controls { top: clamp(212px, 30vw, 332px); }
 }
@@ -59,7 +59,7 @@ section:not(.hero, .trust, .registration-bar) { padding: var(--space-2xl) var(--
   .enquiry-form { grid-area: form; display: flex; align-self: start; }
   .hero__event { width: 414px; max-width: 100%; margin: 26px 0 0; }
   .hero__controls { top: auto; right: 100px; bottom: 30px; left: auto; width: 176px; transform: none; }
-  .trust { height: 200px; padding: 17px max(calc((100vw - 1372px) / 2), 30px); }
+  .trust { height: auto; padding: 40px max(calc((100vw - 1372px) / 2), 30px); }
   .trust__facts { max-width: 1372px; grid-template-columns: repeat(4, 1fr); gap: 45px; }
   .registration-bar { display: none; }
   .choose-school__viewport { overflow: visible; }
