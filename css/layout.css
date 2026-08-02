@@ -1,0 +1,194 @@
+.site-header__inner, .site-footer__inner { width: 100%; max-width: var(--container-max-width); margin-inline: auto; }
+.site-header { height: 60px; background: #fff; }
+.site-header__inner { display: flex; height: 100%; align-items: center; justify-content: space-between; padding-inline: 21px; }
+.site-header__cta { display: none; }
+
+section:not(.hero, .trust, .registration-bar) { padding: var(--space-2xl) var(--space-md); }
+.section-heading { max-width: var(--container-max-width); margin: 0 auto var(--space-xl); text-align: center; }
+
+.hero { display: grid; grid-template-rows: 289px 146px 90px; min-height: 525px; padding: 0; overflow: hidden; contain: layout paint; background: linear-gradient(112deg, #18053f 0%, #2d0b5b 65%, #40136e 100%); color: #fff; }
+.hero__carousel { position: relative; width: 100%; min-width: 0; overflow: hidden; }
+.hero__viewport { width: 100%; height: 100%; overflow: hidden; touch-action: none; }
+.hero__track { display: grid; position: relative; width: 100%; height: 100%; transition: transform var(--transition-base); }
+.hero__slide { display: block; width: 100%; min-width: 0; height: auto; min-height: 0; overflow: hidden; }
+:where(.choose-school__track, .reviews__track, .benefits__track) { transition: transform var(--transition-base); }
+[data-carousel].carousel--static :where(.hero__track, .choose-school__track, .reviews__track, .benefits__track) { transition: none; }
+.hero__content { display: flex; width: 100%; min-width: 0; grid-row: 2 / 4; flex-direction: column; align-items: center; text-align: center; }
+.hero__event { width: calc(100% - 40px); max-width: 390px; margin-inline: auto; }
+.enquiry-form { display: none; }
+.hero__controls { position: absolute; z-index: 4; top: 201px; left: 50%; display: grid; width: 176px; grid-template-columns: repeat(4, 44px); transform: translateX(-50%); }
+.hero__controls [data-carousel-pagination] { display: flex; grid-column: 2 / 5; grid-row: 2; }
+
+.trust { position: relative; height: 238px; padding: 60px 20px 0; background: #fff; }
+.trust__facts { display: grid; max-width: 380px; margin-inline: auto; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 94px); gap: 36px 26px; }
+.registration-bar { position: relative; z-index: 3; display: grid; width: 100%; height: 50px; grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 0; }
+.registration-bar > * { min-width: 0; max-width: 100%; }
+
+.participating-schools, .choose-school, .exhibition { max-width: 1200px; margin-inline: auto; }
+.marquee { position: relative; width: 100%; overflow: clip; contain: layout paint; }
+.marquee + .marquee { margin-top: var(--space-lg); }
+.marquee__track, .marquee__list { display: flex; width: max-content; align-items: center; }
+.marquee__list { gap: var(--space-xl); margin-inline-end: var(--space-xl); }
+:where([data-carousel-viewport]:not(.hero__viewport)) { width: 100%; overflow: hidden; touch-action: pan-y; }
+.choose-school__track, .exhibition__track { display: flex; }
+.choose-school__slide, .exhibition__slide { flex: 0 0 100%; width: 100%; }
+.choose-school__slide[hidden], .exhibition__slide[hidden] { display: none; }
+.choose-school__controls, .choose-school__pagination, .exhibition__controls, .exhibition__pagination { display: flex; justify-content: center; gap: var(--space-sm); margin-top: var(--space-md); }
+.carousel-controls--static { display: none !important; }
+.site-footer { border-top: 1px solid var(--color-border); }
+
+@media (min-width: 768px) and (max-width: 1399px) {
+  .site-header { height: 60px; }
+  .site-header__inner { padding-inline: 32px; }
+  .site-header__cta { display: none; }
+  .hero { grid-template-rows: clamp(300px, 38vw, 420px) 146px 90px; min-height: 536px; }
+  .enquiry-form { display: none; }
+  .trust { height: 238px; padding-top: 60px; }
+  .trust__facts { max-width: 760px; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 94px); gap: 20px 30px; }
+  .registration-bar { display: grid; }
+  .hero__controls { top: clamp(212px, 30vw, 332px); }
+}
+
+@media (min-width: 1400px) {
+  .site-header { height: 100px; }
+  .site-header__inner { padding-inline: clamp(62px, 6.45vw, 124px); }
+  .site-header__cta { display: inline-flex; }
+  .hero { --hero-form-offset: clamp(0px, calc((100vw - 1400px) / 5.2), 100px); grid-template: "content carousel form" 801px / minmax(0, 520fr) minmax(0, 686fr) minmax(0, 514fr); min-height: 801px; padding-inline: max(calc((100vw - 1720px) / 2), 40px); overflow: hidden; }
+  .hero__content { grid-area: content; align-items: flex-start; justify-content: flex-start; padding-top: 90px; text-align: left; }
+  .hero__carousel { grid-area: carousel; height: 801px; align-self: start; }
+  .enquiry-form { grid-area: form; display: flex; align-self: start; }
+  .hero__event { width: 414px; max-width: 100%; margin: 26px 0 0; }
+  .hero__controls { top: auto; right: 100px; bottom: 30px; left: auto; width: 176px; transform: none; }
+  .trust { height: 200px; padding: 17px max(calc((100vw - 1372px) / 2), 30px); }
+  .trust__facts { max-width: 1372px; grid-template-columns: repeat(4, 1fr); gap: 45px; }
+  .registration-bar { display: none; }
+  .choose-school__viewport { overflow: visible; }
+  .choose-school__track { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-lg); height: auto; }
+  .choose-school__slide { width: auto; }
+  .choose-school__controls, .choose-school__pagination { display: none; }
+}
+
+/* Milestone 4: source-frame geometry below the approved registration region. */
+.participating-schools,
+.choose-school,
+.exhibition { max-width: none; }
+
+.participating-schools { position: relative; height: 346px; margin-top: 57px; padding: 0 !important; overflow: hidden; }
+.participating-schools__rows { margin-top: 10px; }
+.event-video { position: relative; height: 240px; margin-top: 60px; padding: 0 !important; overflow: hidden; }
+.choose-school { height: 384px; margin-top: 60px; padding: 0 0 0 20px !important; overflow: hidden; }
+.choose-school__carousel { width: 100%; }
+.choose-school__viewport { overflow: hidden; }
+.choose-school__track { gap: 16px; }
+.school-card { width: 290px; min-width: 290px; flex: 0 0 290px; }
+.appointment { position: relative; display: flex; height: 536px; margin-top: 60px; padding: 0 !important; flex-direction: column-reverse; overflow: hidden; }
+.appointment > div { height: 292px; padding: 35px 20px 20px; }
+.appointment > img:first-child { width: 100%; height: 244px; object-fit: cover; }
+.attractions { display: grid; height: 779px; margin-top: 60px; padding: 43px 20px 26px !important; grid-template-areas: "heading" "media" "categories" "content"; grid-template-rows: auto 274px 39px auto; overflow: hidden; }
+.attractions > h2 { grid-area: heading; }
+.attractions__categories { grid-area: categories; }
+.attractions__content { display: contents; }
+.attractions__content > img { position: absolute; z-index: 2; grid-area: media; }
+.attractions__content > div { grid-area: content; }
+.attractions__carousel { grid-area: media; }
+.attractions__viewport { overflow: visible !important; }
+.attractions__track { position: relative; width: 310px; height: 280px; margin: 17px auto 0; }
+.attraction-card { position: absolute; width: 126px; height: 126px; transform: rotate(45deg); overflow: hidden; }
+.attraction-card--top { top: 0; left: 92px; }
+.attraction-card--left { top: 79px; left: 13px; }
+.attraction-card--right { top: 79px; right: 13px; }
+.attraction-card--bottom { right: 92px; bottom: 0; }
+.attraction-card.is-active { z-index: 3; }
+.benefits { position: relative; height: auto; min-height: 719px; margin-top: 60px; padding: 48px 20px 74px !important; overflow: hidden; }
+.benefits__track { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.benefit-card { min-width: 0; }
+.reviews { height: auto; min-height: 316px; margin-top: 60px; padding: 41px 0 20px 20px !important; overflow: hidden; }
+.reviews__viewport { overflow: visible !important; }
+.reviews__track { display: flex; gap: 9px; }
+.review-card { flex: 0 0 283px; width: 283px; }
+.gallery { height: 234px; margin-top: 60px; padding: 0 !important; overflow: hidden; }
+.gallery__grid { display: flex; height: 182px; gap: 16px; overflow: hidden; border-radius: 50% / 10%; }
+.gallery__figure { height: 200px; flex: 0 0 289px; transform: translateY(-9px); }
+.site-footer { position: relative; display: grid; height: auto; min-height: 662px; margin-top: 60px; padding: 44px 20px 46px; grid-template-rows: 91px 1fr auto auto; border: 0; overflow: visible; }
+.site-footer > img { grid-row: 1; }
+.site-footer address, .site-footer__contact { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+.site-footer__social { grid-row: 3; }
+.site-footer > p:last-child { position: static; grid-row: 4; min-height: 39px; margin-top: 20px; }
+
+@media (min-width: 768px) and (max-width: 1399px) {
+  .participating-schools { height: 350px; margin-top: 40px; }
+  .event-video { height: clamp(360px, 42vw, 590px); }
+  .choose-school { height: auto; min-height: 525px; padding-inline: 4vw !important; }
+  .choose-school__track { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .school-card { width: auto; min-width: 0; }
+  .appointment { height: 620px; display: grid; grid-template-columns: 44% 56%; }
+  .appointment > div, .appointment > img:first-child { width: 100%; height: 100%; }
+  .attractions { height: 850px; grid-template-columns: 1fr 1fr; grid-template-areas: "heading heading" "media content" "media categories"; grid-template-rows: auto 1fr auto; }
+  .benefits { height: auto; min-height: 720px; }
+  .benefits__track { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .reviews { height: auto; min-height: 400px; padding-inline: 4vw !important; }
+  .reviews__track { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .review-card { width: auto; }
+  .gallery { height: 500px; padding-inline: 4vw !important; }
+  .gallery__grid { display: grid; height: 390px; grid-template-columns: repeat(3, 1fr); }
+  .gallery__figure { height: 200px; min-width: 0; transform: none; }
+  .site-footer { height: auto; min-height: 500px; }
+}
+
+@media (min-width: 1400px) {
+  .participating-schools { height: 362px; margin-top: 79px; padding-top: 0 !important; }
+  .participating-schools__rows { margin-top: 42px; }
+  .event-video { height: 800px; margin-top: 100px; }
+  .choose-school { height: 525px; margin-top: 80px; padding: 0 max(calc((100vw - 1726px) / 2), 70px) !important; }
+  .choose-school__track { gap: 15px; }
+  .school-card { width: auto; min-width: 0; }
+  .school-card:nth-child(3) { order: 4; }
+  .school-card:nth-child(4) { order: 3; }
+  .appointment { display: grid; height: 725px; margin-top: 80px; grid-template-columns: 38.85% 61.15%; grid-template-rows: minmax(0, 1fr); }
+  .appointment > div { min-height: 0; height: 100%; padding: 159px 0 0 max(calc((100vw - 1720px) / 2), 70px); }
+  .appointment > img:first-child { grid-column: 2; grid-row: 1; width: 100%; height: 100%; min-height: 0; object-fit: cover; }
+  .attractions { height: 852px; margin-top: 0; padding: 182px max(calc((100vw - 1720px) / 2), 70px) 74px !important; grid-template-areas: "media heading" "media categories" "media content"; grid-template-columns: minmax(0, 57.3929%) minmax(0, 32.8488%); grid-template-rows: 142px 60px 1fr; column-gap: 0; row-gap: 24px; justify-content: space-between; }
+  .attractions__track { width: 631px; height: 668px; margin: -90px 0 0; }
+  .attraction-card { width: 214.25px; height: 214.25px; }
+  .attraction-card--top { top: 43px; left: 209px; }
+  .attraction-card--left { top: 232.5px; left: 44.5px; }
+  .attraction-card--right { top: 232.5px; left: 372.5px; right: auto; }
+  .attraction-card--bottom { top: 414px; left: 209px; right: auto; bottom: auto; }
+  .benefits { height: auto; min-height: 767px; margin-top: 0; padding: 80px 0 100px max(calc((100vw - 1720px) / 2), 100px) !important; }
+  .benefits__track { display: flex; width: 2149px; gap: 16px; }
+  .benefit-card { flex: 0 0 417px; }
+  .reviews { height: auto; min-height: 402px; margin-top: 81px; padding: 55px max(calc((100vw - 1640px) / 2), 70px) 44px !important; }
+  .reviews__track { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+  .review-card { width: auto; }
+  .gallery { height: 644px; margin-top: 80px; padding: 0 !important; }
+  .gallery__grid { display: flex; height: 589px; gap: 16px; transform: translateX(max(calc((100vw - 1720px) / 2), 100px)); }
+  .gallery__figure { height: 589px; flex: 0 0 44.35vw; transform: none; }
+  .site-footer { height: auto; min-height: 334px; margin-top: 60px; padding: 55px max(calc((100vw - 1640px) / 2), 70px) 40px; grid-template-columns: 220px 1fr 1fr 180px 220px; grid-template-rows: 1fr auto; gap: 35px; overflow: visible; }
+  .site-footer address, .site-footer__contact { position: static; width: auto; height: auto; padding: 0; margin: 0; overflow: visible; clip: auto; white-space: normal; }
+  .site-footer__social { grid-row: 1; }
+  .site-footer > p:last-child { position: static; grid-column: 1 / -1; grid-row: 2; margin-top: 20px; }
+}
+
+/* Keep the authored content readable when carousel enhancement is unavailable. */
+.no-js .hero { grid-template-rows: auto; min-height: 0; overflow: visible; contain: none; }
+.no-js .hero__carousel { height: 289px; }
+.no-js .hero__content { grid-row: auto; }
+.no-js .enquiry-form { display: flex; width: min(466px, 100%); margin: 0 auto; }
+.no-js .participating-schools { height: auto; overflow: visible; }
+.no-js .marquee { overflow: visible; }
+.no-js .marquee__track { display: block; width: auto; }
+.no-js .marquee__list { width: auto; flex-wrap: wrap; }
+.no-js :where(.choose-school, .benefits, .reviews, .gallery) { height: auto; min-height: 0; overflow: visible; }
+.no-js :where(.choose-school__viewport, .benefits__viewport, .reviews__viewport) { overflow: visible; }
+.no-js .choose-school__track { display: grid; width: auto; grid-template-columns: 1fr; gap: 16px; }
+.no-js .school-card { width: auto; min-width: 0; flex: none; }
+.no-js .benefits__track { display: grid; width: auto; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.no-js .reviews__track { display: grid; width: auto; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.no-js .review-card { width: auto; flex: none; }
+.no-js .gallery__grid { display: grid; width: auto; height: auto; grid-template-columns: repeat(2, minmax(0, 1fr)); overflow: visible; transform: none; }
+.no-js .gallery__figure { height: 200px; min-width: 0; flex: none; transform: none; }
+.no-js .site-footer { display: block; height: auto; min-height: 0; }
+.no-js .site-footer > img { margin-bottom: 24px; }
+.no-js .site-footer address, .no-js .site-footer__contact { position: static; width: auto; height: auto; padding: 0; margin: 0 0 24px; overflow: visible; clip: auto; white-space: normal; }
+.no-js .site-footer__social { margin-top: 24px; }
+.no-js .site-footer > p:last-child { position: static; min-height: 39px; margin-top: 24px; }
