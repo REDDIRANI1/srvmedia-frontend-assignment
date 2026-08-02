@@ -481,6 +481,7 @@
     width: 120px !important;
     height: 115px !important;
 }
+}
 
 @media (max-width: 767px) {
   .benefits { padding-top: 70px !important; }
