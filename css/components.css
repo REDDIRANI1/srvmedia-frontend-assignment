@@ -780,3 +780,15 @@
 .site-footer__bottom-bar { position: absolute; left: 0; width: 100vw; background-color: #ffffff !important; padding: 20px 0; display: flex !important; justify-content: center !important; align-items: center !important; }
 .site-footer__bottom-bar p { color: #241044 !important; margin: 0 !important; font-size: 12px !important; font-weight: 600 !important; text-align: center !important; width: 100% !important; display: block !important; }
 .site-footer { padding-bottom: 80px !important; }
+/ *  
+ M o b i l e  
+ f i x  
+ f o r  
+ a t t r a c t i o n s  
+ d i a m o n d  
+ * /  
+ . a t t r a c t i o n s _ _ m e d i a - c o n t a i n e r  
+   d i s p l a y :   f l e x ;   a l i g n - i t e m s :   c e n t e r ;   j u s t i f y - c o n t e n t :   c e n t e r ;   m a r g i n - t o p :   3 0 p x ;    
+ . a t t r a c t i o n s _ _ d i a m o n d - i m g  
+   w i d t h :   1 0 0 % ;   m a x - w i d t h :   1 0 0 % ;   h e i g h t :   a u t o ;   t r a n s f o r m :   n o n e ;   m a r g i n :   0 ;    
+ 
